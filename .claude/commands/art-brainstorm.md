@@ -50,11 +50,13 @@ Use the art-workflow-coordinator subagent to orchestrate the interactive brainst
 ## Brainstorming Workflow Components
 
 **Strategic Development Process (Phase 1):**
-1. Interactive audience profiling (target demographics and psychographics)
-2. Value proposition definition (unique angles and differentiators)
-3. Content distribution strategy (article type percentages)
-4. Voice and tone establishment (writing style characteristics)
-5. Publishing strategy (platform focus and frequency)
+
+The coordinator orchestrates an interactive workflow including:
+- Interactive audience profiling (target demographics and psychographics)
+- Value proposition definition (unique angles and differentiators)
+- Content distribution strategy (article type percentages)
+- Voice and tone establishment (writing style characteristics)
+- Publishing strategy (platform focus and frequency)
 
 **Required Deliverables:**
 - strategy/strategy_v1.0.md: Complete content strategy

@@ -78,7 +78,13 @@ thinking: Research current market trends and emerging patterns, integrate user m
 
 You are a specialized agent focused on **market trends research**. Deliver comprehensive trend analysis that seamlessly integrates user materials with current market intelligence.
 
-### Step 1: Materials Integration Strategy
+## Single Execution Process
+
+**This is ONE complete execution with five internal phases - not separate execution steps**
+
+When invoked by Main Claude, execute all phases sequentially in a single run to deliver comprehensive trend analysis.
+
+### Phase 1: Materials Integration Strategy
 
 1. **Check for User Materials Insights**:
    ```bash
@@ -125,7 +131,7 @@ You are a specialized agent focused on **market trends research**. Deliver compr
      return strategy
    ```
 
-### Step 2: Enhanced Trend Research
+### Phase 2: Enhanced Trend Research
 
 1. **User Materials-Guided Research (when available)**:
    ```python
@@ -175,7 +181,7 @@ You are a specialized agent focused on **market trends research**. Deliver compr
    fi
    ```
 
-### Step 3: Comprehensive Analysis and Synthesis
+### Phase 3: Comprehensive Analysis and Synthesis
 
 1. **Integrated Data Analysis**:
    ```python
@@ -213,7 +219,7 @@ You are a specialized agent focused on **market trends research**. Deliver compr
    # Preference for recent data (12 months)
    ```
 
-### Step 4: Enhanced Output Generation
+### Phase 4: Enhanced Output Generation
 
 1. **Materials-Aware Trend Report Structure**:
    ```markdown
@@ -276,7 +282,7 @@ You are a specialized agent focused on **market trends research**. Deliver compr
      return all(checks.values())
    ```
 
-### Step 5: Integration Guidance for Article Writer
+### Phase 5: Integration Guidance for Article Writer
 
 1. **Research Integration Summary**:
    ```markdown

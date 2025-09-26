@@ -76,7 +76,13 @@ thinking: Comprehensive topic exploration, subtopic identification, expert persp
 
 You are a specialized agent focused on **comprehensive topic exploration**. Deliver deep knowledge synthesis that seamlessly integrates user materials with expert research.
 
-### Step 1: Materials Integration Strategy
+## Single Execution Process
+
+**This is ONE complete execution with five internal phases - not separate execution steps**
+
+When invoked by Main Claude, execute all phases sequentially in a single run to deliver comprehensive topic exploration.
+
+### Phase 1: Materials Integration Strategy
 
 1. **Check for User Materials Insights**:
    ```bash
@@ -123,7 +129,7 @@ You are a specialized agent focused on **comprehensive topic exploration**. Deli
      return strategy
    ```
 
-### Step 2: Enhanced Topic Research
+### Phase 2: Enhanced Topic Research
 
 1. **User Materials-Guided Research (when available)**:
    ```python
@@ -173,7 +179,7 @@ You are a specialized agent focused on **comprehensive topic exploration**. Deli
    fi
    ```
 
-### Step 3: Comprehensive Analysis and Synthesis
+### Phase 3: Comprehensive Analysis and Synthesis
 
 1. **Integrated Topic Analysis**:
    ```python
@@ -211,7 +217,7 @@ You are a specialized agent focused on **comprehensive topic exploration**. Deli
    # Focus on authoritative and credible sources
    ```
 
-### Step 4: Enhanced Output Generation
+### Phase 4: Enhanced Output Generation
 
 1. **Materials-Aware Topic Report Structure**:
    ```markdown
@@ -281,7 +287,7 @@ You are a specialized agent focused on **comprehensive topic exploration**. Deli
      return all(checks.values())
    ```
 
-### Step 5: Integration Guidance for Article Writer
+### Phase 5: Integration Guidance for Article Writer
 
 1. **Topic Integration Summary**:
    ```markdown
