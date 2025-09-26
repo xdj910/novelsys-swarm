@@ -1,0 +1,554 @@
+● 🏗️ Progressive Generation Architecture Design v1.0
+
+  核心设计理念
+
+  基于Claude Code官方规范，采用原子化步骤 + 状态机 + 审批门控的设计模式。
+
+  1. 命令层重构 (Commands Layer)
+
+  原子化命令设计
+
+  将原有的monolithic命令拆分为原子操作：
+
+  独立生成命令（每个<100行）:
+    /novel:brainstorm [genre] [premise]:
+      - 职责: 仅生成brainstorming.yaml
+      - 输出: .claude/data/projects/{project}/brainstorming.yaml
+      - 委托: brainstorming-coordinator
+
+    /novel:series-bible:
+      - 前置: brainstorming.yaml必须存在
+      - 职责: 仅生成series_bible.yaml
+      - 委托: series-bible-coordinator
+
+    /novel:book-bible [book_number]:
+      - 前置: series_bible.yaml必须存在
+      - 职责: 仅生成book_{N}/bible.yaml
+      - 委托: book-bible-coordinator
+
+    /novel:book-outline [book_number]:
+      - 前置: book bible必须存在
+      - 职责: 仅生成book_{N}/outline.yaml
+      - 委托: book-outline-coordinator
+
+    /novel:chapter-outline [chapter_number]:
+      - 前置: book outline必须存在
+      - 职责: 仅生成ch{NNN}/outline.json
+      - 委托: chapter-outline-coordinator
+
+    /novel:chapter-generate [chapter_number]:
+      - 前置: chapter outline必须存在且已审批
+      - 职责: 执行9步生成管道
+      - 委托: chapter-start-coordinator
+
+  审批控制命令:
+    /novel:approve [target]:
+      - 职责: 审批指定输出并触发下一步
+      - 委托: approval-coordinator
+
+    /novel:reject [target] [reason]:
+      - 职责: 拒绝并要求重新生成
+      - 委托: approval-coordinator
+
+    /novel:status:
+      - 职责: 显示当前工作流状态
+      - 委托: workflow-status-coordinator
+
+  智能流程命令:
+    /novel:start [genre] [premise]:
+      - 职责: 启动智能向导式流程
+      - 委托: workflow-wizard-coordinator
+      - 特性: 自动提示每个步骤
+
+  2. 协调器层设计 (Coordinators Layer)
+
+  新增Coordinators
+
+  workflow-wizard-coordinator:
+    职责: 管理整个渐进式生成流程
+    功能:
+      - 读取workflow_state.json
+      - 判断当前阶段
+      - 调用对应的生成coordinator
+      - 更新状态
+      - 生成智能提示
+
+  approval-coordinator:
+    职责: 处理审批逻辑
+    功能:
+      - 验证待审批文件
+      - 更新approval_status
+      - 触发下一步骤
+      - 处理拒绝和重试
+
+  brainstorming-coordinator:
+    职责: 协调头脑风暴生成
+    调用:
+      - brainstorming-generator
+      - brainstorming-completeness-checker
+
+  series-bible-coordinator:
+    职责: 协调Series Bible生成
+    调用:
+      - bible-architect (mode: series)
+      - bible-reviewer
+      - bible-cache-manager
+
+  book-bible-coordinator:
+    职责: 协调Book Bible生成
+    调用:
+      - bible-architect (mode: book)
+      - bible-reviewer
+      - bible-compliance-validator
+
+  book-outline-coordinator:
+    职责: 协调Book Outline生成
+    调用:
+      - book-outline-architect
+      - outline-reviewer (新建)
+
+  chapter-outline-coordinator:
+    职责: 协调Chapter Outline生成
+    调用:
+      - outline-generator
+      - entity-validator
+
+  workflow-status-coordinator:
+    职责: 生成状态报告
+    功能:
+      - 读取workflow_state.json
+      - 分析进度
+      - 生成可视化报告
+
+  3. 状态管理机制
+
+  workflow_state.json结构
+
+  {
+    "version": "1.0",
+    "project": {
+      "name": "Cinnamon_Scents_from_Teide_Peak",
+      "created": "2025-09-10T10:00:00Z",
+      "genre": "cozy_mystery",
+      "current_book": 1,
+      "current_chapter": 0
+    },
+    "workflow": {
+      "current_phase": "book_outline",
+      "current_step": "awaiting_approval",
+      "next_command": "/novel:approve book-outline",
+      "can_continue": true
+    },
+    "phases": {
+      "brainstorming": {
+        "status": "approved",
+        "file": "brainstorming.yaml",
+        "quality_score": 94,
+        "approved_at": "2025-09-10T10:05:00Z",
+        "approved_by": "user"
+      },
+      "series_bible": {
+        "status": "approved",
+        "file": "series_bible.yaml",
+        "quality_score": 96.2,
+        "approved_at": "2025-09-10T10:15:00Z"
+      },
+      "book_1_bible": {
+        "status": "approved",
+        "file": "book_1/bible.yaml",
+        "quality_score": 97.1,
+        "approved_at": "2025-09-10T10:25:00Z"
+      },
+      "book_1_outline": {
+        "status": "pending_approval",
+        "file": "book_1/outline.yaml",
+        "quality_score": 95.5,
+        "generated_at": "2025-09-10T10:30:00Z",
+        "attempts": 1
+      }
+    },
+    "chapters": {
+      "1": {
+        "outline_status": "not_started",
+        "content_status": "not_started"
+      }
+    },
+    "history": [
+      {
+        "timestamp": "2025-09-10T10:00:00Z",
+        "action": "brainstorm_generated",
+        "details": "Genre: cozy_mystery"
+      }
+    ],
+    "settings": {
+      "auto_continue": false,
+      "require_approval": true,
+      "max_retry_attempts": 3,
+      "quality_threshold": 95
+    }
+  }
+
+  4. 用户交互流程
+
+  智能向导模式
+
+  用户: /novel:start cozy_mystery "A baker in Tenerife solves mysteries"
+
+  系统响应:
+  ╔══════════════════════════════════════════════════════════╗
+  ║          📚 Novel Generation Wizard - Step 1/7           ║
+  ╠══════════════════════════════════════════════════════════╣
+  ║ Phase: BRAINSTORMING                                     ║
+  ║ Status: Generating initial ideas...                      ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  [生成brainstorming.yaml]
+
+  ✅ Brainstorming complete! (Score: 94/100)
+  📄 File: .claude/data/projects/Cinnamon_Scents/brainstorming.yaml
+
+  Key elements generated:
+  • Protagonist: María Dolores Santana (58, pastry chef)
+  • Setting: La Orotava, Tenerife
+  • Core mystery: Ancient recipe theft
+  • Themes: Tradition vs modernity, community bonds
+
+  👁️ Please review the brainstorming document.
+
+  Next actions:
+  • ✅ /novel:approve brainstorming - Continue to Series Bible
+  • ❌ /novel:reject brainstorming "need more detail on X" - Regenerate
+  • 📊 /novel:status - View current workflow status
+
+  Waiting for your approval...
+
+  审批后自动继续
+
+  用户: /novel:approve brainstorming
+
+  系统响应:
+  ✅ Brainstorming approved!
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║          📚 Novel Generation Wizard - Step 2/7           ║
+  ╠══════════════════════════════════════════════════════════╣
+  ║ Phase: SERIES BIBLE                                      ║
+  ║ Status: Creating series framework...                     ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  [自动调用series-bible-coordinator生成]
+
+  ✅ Series Bible complete! (Score: 96.2/100)
+  📄 File: .claude/data/projects/Cinnamon_Scents/series_bible.yaml
+
+  Series structure:
+  • Total books planned: 5
+  • Overarching mystery: The Guanche Codex
+  • Character progression mapped
+  • World-building framework established
+
+  Next: /novel:approve series-bible
+
+  5. 错误处理和恢复
+
+✻ Thinking…
+
+  Let me continue with error handling, the coordinator relationships, and implementation details...
+
+● 中断恢复机制
+
+  中断场景处理:
+    用户中途退出:
+      - workflow_state.json保留当前状态
+      - 下次运行/novel:status显示断点
+      - 提供/novel:continue命令恢复
+
+    生成失败:
+      - 记录失败原因到workflow_state.json
+      - attempts计数器+1
+      - 提供重试选项
+      - 超过max_attempts后要求人工介入
+
+    审批拒绝:
+      - 保留原文件为.rejected后缀
+      - 记录拒绝原因
+      - 重新生成时参考反馈
+      - 支持对比查看
+
+  6. 依赖关系图
+
+  graph TD
+      brainstorm[Brainstorming] -->|approve| series[Series Bible]
+      series -->|approve| book[Book Bible]
+      book -->|approve| outline[Book Outline]
+      outline -->|approve| ch_outline[Chapter Outline]
+      ch_outline -->|approve| ch_content[Chapter Content]
+      ch_content -->|approve| next_ch[Next Chapter]
+
+      style brainstorm fill:#e1f5e1
+      style series fill:#e1f5e1
+      style book fill:#e1f5e1
+      style outline fill:#fff3e0
+      style ch_outline fill:#fff3e0
+      style ch_content fill:#e3f2fd
+
+  7. 文件组织结构
+
+  .claude/
+  ├── data/
+  │   ├── projects/
+  │   │   └── {project_name}/
+  │   │       ├── workflow_state.json        # 工作流状态
+  │   │       ├── brainstorming.yaml        # 头脑风暴
+  │   │       ├── series_bible.yaml         # Series Bible
+  │   │       ├── book_1/
+  │   │       │   ├── bible.yaml            # Book Bible
+  │   │       │   ├── outline.yaml          # Book Outline
+  │   │       │   └── chapters/
+  │   │       │       └── ch001/
+  │   │       │           ├── outline.json   # Chapter Outline
+  │   │       │           ├── content.md     # Final Content
+  │   │       │           └── versions/      # 9步管道版本
+  │   │       └── shared/
+  │   │           └── entity_dictionary.yaml
+  │   └── context/
+  │       └── workflow_cache.json           # 工作流缓存
+  ├── commands/
+  │   └── novel/
+  │       ├── brainstorm.md                 # 新命令
+  │       ├── series-bible.md               # 新命令
+  │       ├── book-bible.md                 # 新命令
+  │       ├── book-outline.md               # 新命令
+  │       ├── chapter-outline.md            # 新命令
+  │       ├── chapter-generate.md           # 新命令
+  │       ├── approve.md                    # 新命令
+  │       ├── reject.md                     # 新命令
+  │       ├── status.md                     # 增强版
+  │       └── start.md                      # 向导命令
+  └── agents/
+      ├── workflow-wizard-coordinator.md    # 新coordinator
+      ├── approval-coordinator.md           # 新coordinator
+      ├── brainstorming-coordinator.md      # 新coordinator
+      ├── series-bible-coordinator.md       # 新coordinator
+      ├── book-bible-coordinator.md         # 新coordinator
+      ├── book-outline-coordinator.md       # 新coordinator
+      ├── chapter-outline-coordinator.md    # 新coordinator
+      ├── workflow-status-coordinator.md    # 新coordinator
+      └── outline-reviewer.md               # 新agent
+
+  8. 实现优先级
+
+✻ Thinking…
+
+  Let me continue with implementation phases and technical details...
+
+● Phase 1 - 基础设施（优先）:
+    1. workflow_state.json结构定义 ⭐⭐⭐⭐⭐
+    2. workflow-wizard-coordinator ⭐⭐⭐⭐⭐
+    3. approval-coordinator ⭐⭐⭐⭐⭐
+    4. /novel:status增强 ⭐⭐⭐⭐
+
+  Phase 2 - 原子命令（次优先）:
+    1. /novel:brainstorm ⭐⭐⭐⭐⭐
+    2. brainstorming-coordinator ⭐⭐⭐⭐⭐
+    3. /novel:series-bible ⭐⭐⭐⭐
+    4. series-bible-coordinator ⭐⭐⭐⭐
+
+  Phase 3 - 完整流程:
+    1. 其余原子命令
+    2. 其余coordinators
+    3. 错误处理机制
+    4. 恢复机制
+
+  Phase 4 - 用户体验:
+    1. /novel:start向导模式
+    2. 智能提示系统
+    3. 进度可视化
+    4. 批量操作支持
+
+  9. 技术实现细节
+
+  状态机转换逻辑
+
+  # 伪代码展示状态转换
+  STATE_TRANSITIONS = {
+      "init": {
+          "next": "brainstorming",
+          "command": "/novel:brainstorm"
+      },
+      "brainstorming": {
+          "on_approve": "series_bible",
+          "on_reject": "brainstorming",
+          "command": "/novel:series-bible"
+      },
+      "series_bible": {
+          "on_approve": "book_bible",
+          "on_reject": "series_bible",
+          "command": "/novel:book-bible 1"
+      },
+      "book_bible": {
+          "on_approve": "book_outline",
+          "on_reject": "book_bible",
+          "command": "/novel:book-outline 1"
+      },
+      "book_outline": {
+          "on_approve": "chapter_outline",
+          "on_reject": "book_outline",
+          "command": "/novel:chapter-outline 1"
+      },
+      "chapter_outline": {
+          "on_approve": "chapter_content",
+          "on_reject": "chapter_outline",
+          "command": "/novel:chapter-generate 1"
+      },
+      "chapter_content": {
+          "on_approve": "next_chapter",
+          "on_reject": "chapter_content",
+          "command": "/novel:next-chapter"
+      }
+  }
+
+  Coordinator通信模式
+
+  workflow-wizard-coordinator:
+    输入:
+      - 用户命令参数
+      - workflow_state.json
+    处理:
+      1. 读取当前状态
+      2. 确定下一步骤
+      3. 调用对应coordinator:
+         prompt: "Generate {phase} for project {name}
+                 Input: {previous_file}
+                 Output: {target_file}
+                 Quality threshold: 95"
+      4. 等待结果
+      5. 更新workflow_state.json
+      6. 生成用户提示
+    输出:
+      - 更新的workflow_state.json
+      - 用户可读的状态报告
+
+  10. 向后兼容策略
+
+  保留命令（标记为deprecated）:
+    /novel:project-new:
+      - 显示弃用警告
+      - 建议使用/novel:start
+      - 内部重定向到workflow-wizard-coordinator
+
+    /novel:chapter-start:
+      - 检查workflow_state.json
+      - 如果不存在，创建兼容状态
+      - 调用chapter-outline + chapter-generate
+
+  迁移支持:
+    - 自动检测旧项目结构
+    - 生成兼容的workflow_state.json
+    - 允许从任意步骤开始
+
+  11. 性能优化
+
+  缓存策略:
+    - Bible缓存继续使用
+    - workflow_cache.json缓存状态查询
+    - 审批历史缓存供学习
+
+  并行优化:
+    - 质量检查可并行
+    - 多章节outline可并行生成（待审批）
+    - Entity dictionary更新异步
+
+  文件操作:
+    - 继续使用原子写入
+    - 文件锁机制保留
+    - 批量读取优化
+
+  12. 合规性验证
+
+  Claude Code规范检查
+
+  ✅ Commands层合规:
+    - 所有新命令<100行
+    - 纯委托给coordinators
+    - 无业务逻辑
+
+  ✅ Coordinators层合规:
+    - 管理流程和路径
+    - 协调agent执行
+    - 处理条件逻辑
+
+  ✅ Agents层合规:
+    - 保持单一职责
+    - 文件系统通信
+    - 声明式需求
+
+  ✅ 其他规范:
+    - $ARGUMENTS用于用户参数
+    - {variable}用于路径模板
+    - 原子写入模式
+    - Think模式配置
+
+  📊 方案总结
+
+  核心优势
+
+  1. 完全符合Claude Code规范 - 三层架构清晰
+  2. 用户控制 - 每步都可审批/拒绝
+  3. 可恢复 - 支持中断和继续
+  4. 智能化 - 向导模式和智能提示
+  5. 原子化 - 每个命令职责单一
+  6. 可扩展 - 易于添加新步骤
+
+  实施建议
+
+  1. 先实现Phase 1基础设施
+  2. 用brainstorm测试整个流程
+  3. 逐步添加其他原子命令
+  4. 最后实现向导模式
+
+  风险管理
+
+  - 状态文件损坏 → 自动备份机制
+  - 并发冲突 → 文件锁保护
+  - 版本兼容 → 状态文件版本化
+
+✻ Thinking…
+
+  这个方案设计很完整了，完全符合Claude Code官方规范：
+  1. Commands都很简洁，<100行，纯委托
+  2. 使用Coordinators来管理复杂流程
+  3. Agent间通过文件系统通信
+  4. 有清晰的状态管理机制
+  5. 支持用户审批和中断恢复
+
+  这个设计解决了用户的核心需求：每个主要输出都有人工确认门控。
+
+● 🎯 方案设计完成！
+
+  这个渐进式生成架构方案完全符合Claude Code官方规范，核心特点：
+
+  ✅ 官方规范合规性
+
+  - Commands: 全部<100行，纯委托模式
+  - Coordinators: 17个现有 + 8个新增，管理所有复杂流程
+  - Agents: 保持单一职责，文件系统通信
+  - 变量使用: 正确区分$ARGUMENTS和{variable}
+  - Think模式: 复杂coordinators配置thinking
+
+  ✅ 用户需求满足
+
+  - 每步确认: 所有主要输出都有[CHECKPOINT]
+  - 可中断: workflow_state.json保存进度
+  - 可恢复: --continue从断点继续
+  - 智能提示: 每步完成后提示下一步操作
+  - 质量保证: 每步都显示质量分数
+
+  ✅ 技术亮点
+
+  - 原子化操作: 每个命令只做一件事
+  - 状态机管理: 清晰的状态转换逻辑
+  - 向导模式: /novel:start一键启动智能流程
+  - 向后兼容: 旧命令自动适配新流程
+
+  这个方案将project-new的monolithic流程拆分成了可控的原子步骤，实现了用户要求的"自动化但需要确认"的目标。Ready for implementation!🚀

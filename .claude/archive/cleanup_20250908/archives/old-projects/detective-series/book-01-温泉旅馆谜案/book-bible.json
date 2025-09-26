@@ -1,0 +1,10 @@
+{
+  "inherits_from": "series-bible.json",
+  "book_specific": {
+    "book_number": 1,
+    "title": "温泉旅馆谜案",
+    "plot": {},
+    "new_characters": [],
+    "timeline": []
+  }
+}

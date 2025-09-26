@@ -1,0 +1,237 @@
+#!/bin/bash
+
+# PostToolUse Hook: Writing session tracker
+# 追踪写作活动：会话时长、字数变化、文件修改、生成报告
+
+# 设置项目根目录 (根据Claude Code官方文档)
+if [[ -z "$CLAUDE_PROJECT_DIR" ]]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
+    echo "[WARNING] CLAUDE_PROJECT_DIR not set, using fallback: $PROJECT_ROOT" >&2
+else
+    PROJECT_ROOT="$CLAUDE_PROJECT_DIR"
+fi
+
+# 确保日志和会话目录存在
+mkdir -p "$PROJECT_ROOT/.claude/logs"
+mkdir -p "$PROJECT_ROOT/.claude/sessions"
+
+# 从stdin读取Claude Code提供的JSON输入
+input=$(cat)
+
+# 使用jq解析JSON输入
+tool_name=$(echo "$input" | jq -r '.tool_name // .tool // .name // empty' 2>/dev/null)
+file_path=$(echo "$input" | jq -r '.tool_input.file_path // .file_path // .path // empty' 2>/dev/null)
+
+# Fallback到grep
+[[ -z "$tool_name" ]] && tool_name=$(echo "$input" | grep -o '"tool_name"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4 2>/dev/null)
+[[ -z "$file_path" ]] && file_path=$(echo "$input" | grep -o '"file_path"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4 2>/dev/null)
+
+# Convert Windows paths to Unix paths for compatibility
+unix_path=$(echo "$file_path" | sed 's|\\|/|g' | sed 's|^D:|/d|' | sed 's|^C:|/c|')
+
+# 当前时间戳
+current_time=$(date '+%Y-%m-%d %H:%M:%S')
+current_timestamp=$(date '+%s')
+session_date=$(date '+%Y%m%d')
+
+# 会话文件路径
+session_file="$PROJECT_ROOT/.claude/sessions/session_$session_date.json"
+daily_summary="$PROJECT_ROOT/.claude/sessions/daily_${session_date}.md"
+
+# 检查是否是写作相关操作
+if [[ "$tool_name" == "Write" || "$tool_name" == "Edit" || "$tool_name" == "MultiEdit" ]]; then
+    
+    # 初始化会话文件 (如果不存在)
+    if [[ ! -f "$session_file" ]]; then
+        cat > "$session_file" << EOF
+{
+  "session_date": "$session_date",
+  "session_start": "$current_time",
+  "last_activity": "$current_time",
+  "total_operations": 0,
+  "files_modified": [],
+  "word_changes": {},
+  "chapters_worked_on": [],
+  "operation_log": [],
+  "session_stats": {
+    "total_words_added": 0,
+    "total_words_removed": 0,
+    "net_word_change": 0,
+    "files_created": 0,
+    "files_edited": 0,
+    "chapters_touched": 0
+  }
+}
+EOF
+        echo "📝 Started new writing session for $(date '+%Y-%m-%d')"
+    fi
+    
+    # 检测文件类型和操作类型
+    file_type="other"
+    operation_details=""
+    word_change=0
+    
+    if ([[ "$file_path" == */content.md ]] || [[ "$file_path" == *\\content.md ]]); then
+        file_type="chapter_content"
+        
+        # 提取章节号
+        if ([[ "$file_path" == */chapters/ch*/content.md ]] || [[ "$file_path" == *\\chapters\\ch*\\content.md ]]); then
+            chapter_dir=$(dirname "$unix_path")
+            chapter_num=$(basename "$chapter_dir" | sed 's/ch0*//')
+            operation_details="Chapter $chapter_num content"
+            
+            # 计算字数变化 (如果文件已存在)
+            if [[ -f "$unix_path" && "$tool_name" == "Edit" ]]; then
+                # 对于编辑操作，尝试估算字数变化
+                current_words=$(wc -w "$unix_path" 2>/dev/null | cut -d' ' -f1 || echo "0")
+                
+                # 从会话记录中获取之前的字数
+                prev_words=$(jq -r ".word_changes[\"$file_path\"] // 0" "$session_file" 2>/dev/null || echo "0")
+                
+                if [[ "$prev_words" != "0" && "$current_words" =~ ^[0-9]+$ && "$prev_words" =~ ^[0-9]+$ ]]; then
+                    word_change=$((current_words - prev_words))
+                fi
+            elif [[ "$tool_name" == "Write" && -f "$unix_path" ]]; then
+                # 新写入文件
+                word_change=$(wc -w "$unix_path" 2>/dev/null | cut -d' ' -f1 || echo "0")
+            fi
+        fi
+        
+    elif ([[ "$file_path" == */meta.json ]] || [[ "$file_path" == *\\meta.json ]]); then
+        file_type="metadata"
+        operation_details="Chapter metadata"
+        
+    elif ([[ "$file_path" == *bible.yaml ]] || [[ "$file_path" == *\\bible.yaml ]]) || ([[ "$file_path" == *bible.yml ]] || [[ "$file_path" == *\\bible.yml ]]); then
+        file_type="bible"
+        operation_details="Series Bible"
+        
+    elif ([[ "$file_path" == */quality_check.json ]] || [[ "$file_path" == *\\quality_check.json ]]); then
+        file_type="quality_report"
+        operation_details="Quality assessment"
+        
+    elif [[ "$file_path" == *.md ]]; then
+        file_type="documentation"
+        operation_details="Documentation"
+        
+    else
+        operation_details="Other file: $(basename "$file_path")"
+    fi
+    
+    # 更新会话记录
+    temp_session="$session_file.tmp"
+    
+    # 使用jq更新会话数据
+    current_word_count=0
+    if [[ -f "$unix_path" ]]; then
+        current_word_count=$(wc -w "$unix_path" 2>/dev/null | cut -d' ' -f1 || echo "0")
+    fi
+    
+    jq --arg timestamp "$current_time" \
+       --arg tool "$tool_name" \
+       --arg file_path "$file_path" \
+       --arg file_type "$file_type" \
+       --arg details "$operation_details" \
+       --arg word_change "$word_change" \
+       --arg current_words "$current_word_count" \
+       --arg chapter_num "${chapter_num:-""}" \
+       '. + {
+           "last_activity": $timestamp,
+           "total_operations": (.total_operations + 1)
+       } |
+       .files_modified += [$file_path] | .files_modified |= unique |
+       .word_changes[$file_path] = ($current_words | tonumber) |
+       if $chapter_num != "" then 
+           .chapters_worked_on += [$chapter_num] | .chapters_worked_on |= unique
+       else . end |
+       .operation_log += [{
+           "timestamp": $timestamp,
+           "tool": $tool,
+           "file_path": $file_path,
+           "file_type": $file_type,
+           "operation": $details,
+           "word_change": ($word_change | tonumber)
+       }] |
+       if ($word_change | tonumber) > 0 then
+           .session_stats.total_words_added += ($word_change | tonumber)
+       elif ($word_change | tonumber) < 0 then
+           .session_stats.total_words_removed += (($word_change | tonumber) * -1)
+       else . end |
+       .session_stats.net_word_change += ($word_change | tonumber) |
+       if $tool == "Write" then
+           .session_stats.files_created += 1
+       else
+           .session_stats.files_edited += 1
+       end |
+       .session_stats.files_edited = (.files_modified | length) |
+       .session_stats.chapters_touched = (.chapters_worked_on | length)' \
+       "$session_file" > "$temp_session" 2>/dev/null
+    
+    # 检查jq是否成功
+    if [[ $? -eq 0 && -s "$temp_session" ]]; then
+        mv "$temp_session" "$session_file"
+        
+        # 记录活动到日志
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Session activity: $tool_name -> $operation_details" >> "$PROJECT_ROOT/.claude/logs/session-tracking.log"
+        
+        # 用户提示 (简洁版)
+        if [[ "$word_change" -gt 0 ]]; then
+            echo "📊 Session: +$word_change words ($operation_details)"
+        elif [[ "$word_change" -lt 0 ]]; then
+            abs_change=$((-word_change))
+            echo "📊 Session: -$abs_change words ($operation_details)"
+        else
+            echo "📊 Session: $operation_details updated"
+        fi
+        
+    else
+        # jq失败，使用简单日志记录
+        rm -f "$temp_session" 2>/dev/null
+        echo "[$current_time] $tool_name: $operation_details (word_change: $word_change)" >> "$PROJECT_ROOT/.claude/logs/session-simple.log"
+    fi
+    
+    # 每隔一定操作数生成会话摘要
+    if [[ -f "$session_file" ]]; then
+        total_ops=$(jq -r '.total_operations // 0' "$session_file" 2>/dev/null || echo "0")
+        
+        # 每10次操作或每小时生成一次摘要
+        if [[ "$total_ops" =~ ^[0-9]+$ ]] && [[ $((total_ops % 10)) -eq 0 ]]; then
+            
+            # 生成会话摘要
+            session_start=$(jq -r '.session_start // ""' "$session_file" 2>/dev/null)
+            net_words=$(jq -r '.session_stats.net_word_change // 0' "$session_file" 2>/dev/null)
+            chapters_count=$(jq -r '.session_stats.chapters_touched // 0' "$session_file" 2>/dev/null)
+            
+            cat > "$daily_summary" << EOF
+# Writing Session Summary - $(date '+%Y-%m-%d')
+
+## Session Overview
+- **Started**: $session_start
+- **Last Activity**: $current_time  
+- **Total Operations**: $total_ops
+- **Net Word Change**: $net_words words
+- **Chapters Worked On**: $chapters_count
+
+## Recent Activity
+$(jq -r '.operation_log | reverse | .[0:5] | .[] | "- " + .timestamp + ": " + .operation + " (" + (.word_change | tostring) + " words)"' "$session_file" 2>/dev/null | head -5)
+
+## Session Statistics
+$(jq -r '
+"- Files Created: " + (.session_stats.files_created | tostring) + "
+- Files Edited: " + (.session_stats.files_edited | tostring) + "  
+- Words Added: " + (.session_stats.total_words_added | tostring) + "
+- Words Removed: " + (.session_stats.total_words_removed | tostring) + "
+- Chapters Touched: " + (.session_stats.chapters_touched | tostring)
+' "$session_file" 2>/dev/null)
+
+---
+*Auto-generated by session-tracker Hook*
+EOF
+            
+            echo "📋 Session summary updated (after $total_ops operations)"
+        fi
+    fi
+fi
+
+# 成功退出
+exit 0

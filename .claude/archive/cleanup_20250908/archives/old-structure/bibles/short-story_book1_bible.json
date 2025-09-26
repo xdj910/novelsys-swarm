@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "series_name": "short-story",
+    "book_number": 1,
+    "genre": "thriller",
+    "target_audience": "general",
+    "created_at": "2025-08-29T14:21:06.891022",
+    "last_updated": "2025-08-29T14:21:06.891025",
+    "version": "1.0.0"
+  },
+  "world_building": {
+    "setting": {
+      "time_period": "contemporary",
+      "locations": [
+        "城市"
+      ],
+      "atmosphere": "",
+      "cultural_context": ""
+    },
+    "rules": {
+      "physical_laws": [],
+      "social_structures": [],
+      "economic_system": "",
+      "political_system": ""
+    }
+  },
+  "characters": {
+    "protagonists": [
+      {
+        "name": "主角",
+        "role": "hero"
+      }
+    ],
+    "antagonists": [
+      {
+        "name": "反派",
+        "role": "villain"
+      }
+    ],
+    "supporting": [],
+    "character_relationships": []
+  },
+  "plot": {
+    "central_conflict": "主要冲突",
+    "themes": [
+      "主题"
+    ],
+    "plot_structure": {
+      "exposition": "",
+      "rising_action": [],
+      "climax": "",
+      "falling_action": [],
+      "resolution": ""
+    },
+    "subplots": []
+  },
+  "style_guide": {
+    "narrative_voice": "",
+    "tone": "",
+    "pacing": "",
+    "language_style": "",
+    "recurring_motifs": []
+  }
+}

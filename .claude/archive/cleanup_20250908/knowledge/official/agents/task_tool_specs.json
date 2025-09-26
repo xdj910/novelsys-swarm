@@ -1,0 +1,68 @@
+{
+  "task_tool": {
+    "official_name": "Task tool",
+    "description": "Mechanism for invoking subagents in Claude Code",
+    "invocation_methods": [
+      "Automatic delegation based on context",
+      "Explicit invocation with prompt"
+    ],
+    "key_features": {
+      "context_preservation": "Helps preserve main conversation context",
+      "specialized_expertise": "Subagents have domain-specific knowledge",
+      "flexible_permissions": "Each subagent can have different tool access",
+      "reusability": "Once created, can be used across projects"
+    },
+    "creation_process": {
+      "command": "/agents",
+      "file_format": "Markdown with YAML frontmatter",
+      "location": {
+        "project_level": ".claude/agents/",
+        "user_level": "~/.claude/agents/"
+      },
+      "required_fields": [
+        "name: unique identifier",
+        "description: purpose and when to invoke",
+        "tools: optional tool access list"
+      ]
+    },
+    "best_practices": [
+      "Create focused, single-responsibility subagents",
+      "Write detailed system prompts",
+      "Limit tool access appropriately",
+      "Use version control for agent files",
+      "Chain multiple subagents when needed"
+    ],
+    "parallel_execution": {
+      "supported": true,
+      "note": "Multiple Task tool calls can run in parallel",
+      "coordination": "Director pattern recommended for complex workflows"
+    }
+  },
+  "subagent_structure": {
+    "yaml_frontmatter": {
+      "name": "string - unique identifier",
+      "description": "string - purpose and invocation criteria",
+      "tools": "array - optional list of allowed tools"
+    },
+    "markdown_body": "Detailed system prompt and instructions"
+  },
+  "example_patterns": {
+    "specialist_agent": {
+      "template": "Domain expert with specific tool access",
+      "use_case": "Code review, testing, documentation"
+    },
+    "coordinator_agent": {
+      "template": "Workflow orchestrator with broad tool access",
+      "use_case": "Project management, quality control"
+    },
+    "validator_agent": {
+      "template": "Quality checker with read-only access",
+      "use_case": "Compliance checking, validation"
+    }
+  },
+  "integration_points": {
+    "hooks": "SubAgentCompleted hook fires when Task tool finishes",
+    "commands": "Commands can invoke specific subagents",
+    "workflows": "Multiple subagents can be chained in workflows"
+  }
+}

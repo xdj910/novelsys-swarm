@@ -1,0 +1,171 @@
+{
+  "primary_setting": {
+    "region": "Canary Islands, Spain",
+    "time_period": "Contemporary (2024-2030)",
+    "cultural_context": "Spanish island culture with significant international tourism influence",
+    "language_environment": "Spanish primary, English widely spoken in tourism, German common",
+    "economic_context": "Tourism-dependent economy with agriculture and fishing traditions"
+  },
+  "island_specific_settings": {
+    "la_palma": {
+      "sarah_base": "Casa Vista Verde Inn, Santa Cruz de La Palma",
+      "key_locations": [
+        "Historic colonial town center with traditional architecture",
+        "Caldera de Taburiente National Park with deep ravines",
+        "Banana plantations on steep terraced hillsides", 
+        "Local markets with traditional mojo sauce vendors",
+        "Artisan craft workshops in old town buildings"
+      ],
+      "cultural_atmosphere": "Quiet, traditional, close-knit community with strong family ties",
+      "mystery_potential": "Isolated valleys, hidden family histories, land inheritance disputes",
+      "sensory_details": "Mist-covered peaks, banana flowers scent, terraced landscape geometry"
+    },
+    "tenerife": {
+      "sarah_base": "Pension Teide Vista, Puerto de la Cruz", 
+      "key_locations": [
+        "Mount Teide National Park with lunar-like volcanic landscape",
+        "Historic Puerto de la Cruz with colonial architecture",
+        "Modern resort complexes along black sand beaches",
+        "Traditional fishing villages in northern coast",
+        "Carnival preparation workshops and parade routes"
+      ],
+      "cultural_atmosphere": "Mix of traditional Canarian culture and modern tourism industry",
+      "mystery_potential": "Tourist-local tensions, urban crime complexities, diverse microclimates",
+      "sensory_details": "Volcanic sulfur hints, carnival music echoes, diverse climate zones"
+    },
+    "gran_canaria": {
+      "sarah_base": "Hotel Caldera Boutique, Las Palmas",
+      "key_locations": [
+        "Las Palmas urban sophistication and port activities",
+        "Maspalomas sand dunes desert landscape",
+        "Traditional villages in mountain interior",
+        "Columbus House and colonial historical sites",
+        "Modern cultural centers and art galleries"
+      ],
+      "cultural_atmosphere": "Cosmopolitan cultural capital with deep historical roots",
+      "mystery_potential": "Urban sophistication, port smuggling, colonial history secrets",
+      "sensory_details": "Ocean port sounds, urban energy, historical stone textures"
+    },
+    "lanzarote": {
+      "sarah_base": "Volcanic Vistas Inn, Arrecife",
+      "key_locations": [
+        "César Manrique architectural integration sites",
+        "Timanfaya volcanic landscape park",
+        "Traditional wine country with volcanic soil",
+        "Jameos del Agua underground lake system",
+        "Modern art installations in natural settings"
+      ],
+      "cultural_atmosphere": "Artistic environmental consciousness blended with tradition",
+      "mystery_potential": "Artistic community secrets, volcanic cave hideouts, environmental crimes",
+      "sensory_details": "Volcanic rock textures, artistic integration, wine earth scents"
+    },
+    "fuerteventura": {
+      "sarah_base": "Dunes & Waves Lodge, Corralejo",
+      "key_locations": [
+        "Endless golden sand beaches and dune systems",
+        "Desert-like interior landscape with ancient windmills",
+        "Traditional Majorero cheese production facilities",
+        "Historical concentration camp memorial site",
+        "Modern wind energy installations"
+      ],
+      "cultural_atmosphere": "Desert tranquility with historical trauma underneath",
+      "mystery_potential": "Isolated beaches, historical secrets, smuggling routes, wind patterns",
+      "sensory_details": "Constant wind sounds, desert heat, traditional cheese aging caves"
+    },
+    "la_gomera": {
+      "sarah_base": "Whistling Winds Hostal, San Sebastián",
+      "key_locations": [
+        "Columbus departure port with historical significance",
+        "Laurel forest UNESCO World Heritage site",
+        "Traditional terraced agriculture valleys",
+        "Silbo whistling language demonstration areas",
+        "Remote villages connected by mountain paths"
+      ],
+      "cultural_atmosphere": "Traditional preservation with UNESCO heritage pride",
+      "mystery_potential": "Communication secrets, isolated valleys, historical smuggling",
+      "sensory_details": "Whistling language echoes, laurel forest humidity, ancient path stones"
+    },
+    "el_hierro": {
+      "sarah_base": "Edge of Paradise Inn, Valverde",
+      "key_locations": [
+        "100% renewable energy installations",
+        "Marine reserves with pristine underwater ecosystems", 
+        "Traditional shepherding paths and stone walls",
+        "Scientific research stations and observatories",
+        "End-of-the-world cliff viewpoints"
+      ],
+      "cultural_atmosphere": "Extreme isolation fostering sustainability and scientific focus",
+      "mystery_potential": "Scientific research secrets, extreme isolation, environmental mysteries",
+      "sensory_details": "Profound silence, edge-of-world winds, scientific equipment hums"
+    }
+  },
+  "cultural_rules_and_norms": {
+    "social_dynamics": {
+      "family_importance": "Extended family networks central to identity and decision-making",
+      "community_hierarchy": "Respect for elders, professionals, and long-term residents",
+      "outsider_integration": "Polite initial distance, acceptance through helpful actions",
+      "conflict_resolution": "Preference for community mediation over formal legal action",
+      "hospitality_expectations": "Genuine welcome balanced with respect for local customs"
+    },
+    "business_culture": {
+      "tourism_relationships": "Complex balance of economic necessity and cultural preservation",
+      "local_business_networks": "Family and friendship connections influence all transactions",
+      "seasonal_rhythms": "Tourism peaks and valleys affect community mood and opportunities",
+      "traditional_vs_modern": "Tension between preserving tradition and economic modernization"
+    },
+    "communication_patterns": {
+      "language_switching": "Spanish-English code-switching common in tourism areas",
+      "formality_levels": "Formal address until invited to informality",
+      "indirect_communication": "Politeness may mask direct disagreement or concern",
+      "gossip_networks": "Information travels quickly through established social channels",
+      "storytelling_tradition": "Oral history and family stories highly valued"
+    }
+  },
+  "environmental_factors": {
+    "climate_influences": {
+      "trade_winds": "Constant northeast winds affect mood, agriculture, and daily life",
+      "volcanic_activity": "Underlying geological instability creates unique landscape features",
+      "microclimates": "Dramatic weather variations within small geographic areas",
+      "seasonal_patterns": "Mild temperature variations, tourism-driven seasonal rhythms"
+    },
+    "geographic_constraints": {
+      "island_isolation": "Ferry and flight connections create natural investigation boundaries", 
+      "volcanic_topography": "Steep terrain creates isolated communities and hidden locations",
+      "water_scarcity": "Limited freshwater affects agriculture and development patterns",
+      "coastal_accessibility": "Dramatic cliffs limit coastal access, creating secluded areas"
+    },
+    "natural_mystery_elements": {
+      "volcanic_caves": "Natural hiding places and meeting spots throughout islands",
+      "weather_patterns": "Sudden fog, wind changes can isolate areas or reveal hidden activities",
+      "tidal_influences": "Ocean access changes with tides, affecting evidence and escape routes",
+      "plant_materials": "Unique flora can provide forensic clues specific to locations"
+    }
+  },
+  "discovered_elements": [
+    "Sarah's inn locations chosen for central community access and mystery potential",
+    "Each island offers unique environmental clues (volcanic materials, plant life, weather)",
+    "Traditional communication methods (like Silbo) can hold keys to understanding crimes",
+    "Tourism seasonal patterns affect both crime opportunities and investigation resources",
+    "Ferry schedules between islands create natural timing constraints for mysteries",
+    "Local food traditions provide cultural bridges and sources of community information",
+    "Historical trauma sites require sensitive handling while providing compelling mystery backdrops",
+    "Environmental consciousness varies by island, affecting local attitudes toward development crimes"
+  ],
+  "research_verification_needed": [
+    "Accurate ferry schedules and travel times between islands",
+    "Local law enforcement procedures and jurisdictional boundaries",
+    "Tourism seasonal patterns and peak visitor demographics",
+    "Traditional food preparation methods and cultural significance",
+    "Historical sites accessibility and current preservation efforts",
+    "Local business licensing and tourism industry regulation",
+    "Environmental protection laws and enforcement mechanisms",
+    "Traditional communication methods and current cultural practices"
+  ],
+  "setting_consistency_rules": {
+    "geographic_accuracy": "All locations must correspond to real places with accurate descriptions",
+    "cultural_authenticity": "Social interactions must reflect genuine Canarian cultural patterns",
+    "seasonal_awareness": "Weather, tourism patterns, and agriculture must match realistic timing",
+    "transportation_realism": "Inter-island travel and local transportation accurately portrayed",
+    "economic_context": "Business interactions and economic pressures realistically depicted"
+  }
+}

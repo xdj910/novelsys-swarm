@@ -1,0 +1,20 @@
+{
+  "last_updated": "2025-09-06T00:00:00Z",
+  "queries": [
+    {
+      "timestamp": "2025-09-06T00:00:00Z",
+      "query": "initialization",
+      "type": "setup",
+      "sources": ["official_docs", "community", "project_analysis"],
+      "results_count": 25
+    }
+  ],
+  "frequent_topics": [
+    "subagents",
+    "hooks",
+    "Task tool",
+    "parallel execution",
+    "best practices",
+    "MCP integration"
+  ]
+}

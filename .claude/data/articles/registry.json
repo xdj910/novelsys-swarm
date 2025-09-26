@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-09-21T12:15:00Z",
+
+  "article_types": {
+    "ai_realist": {
+      "name": "AI Realist",
+      "description": "2000-word B2B skeptical AI analysis for decision makers",
+      "status": "active",
+      "created": "2025-09-18",
+
+      "config": {
+        "word_count": 2000,
+        "platforms": ["Medium", "Substack", "ElevenReader"],
+        "target_audience": "B2B decision makers",
+        "image_generator": "art-visual-designer"
+      },
+
+      "brainstorming_status": {
+        "completed": true,
+        "strategy_path": "ai_realist/strategy/strategy_v1.1.md",
+        "voice_guide_path": "ai_realist/strategy/voice_guide.md",
+        "voice_guide_standard": "v2.0 - Single path standard implemented",
+        "readme_path": "ai_realist/README.md",
+        "ready_for_creation": true,
+        "last_updated": "2025-09-20T15:00:00Z"
+      },
+
+      "current_work": {
+        "article_id": "20250921_102846_700m_user_truth_bomb",
+        "title": "700 Million People Use ChatGPT. 73% Aren't Working. Your AI Strategy Is Dead Wrong.",
+        "status": "initialized",
+        "phase": "ready_for_research",
+        "path": ".claude/data/articles/ai_realist/content/20250921_102846_700m_user_truth_bomb",
+        "started": "2025-09-21T10:28:46Z",
+        "phase_updated": "2025-09-21T18:35:00Z",
+        "series_info": {
+          "name": "The AI Reality Check",
+          "article_number": 1,
+          "total_articles": 6
+        },
+        "notes": "Article reset - has user materials (2 PDFs) ready for processing"
+      },
+
+      "planned_series": {
+        "series_name": "The AI Reality Check",
+        "series_tagline": "Exposing what 700M+ users actually do with AI",
+        "total_articles": 6,
+        "articles": [
+          {
+            "article_number": 1,
+            "title": "700 Million People Use ChatGPT. 73% Aren't Working. Your AI Strategy Is Dead Wrong.",
+            "slug": "700m_user_truth_bomb",
+            "status": "in_progress",
+            "word_count_target": 1500,
+            "key_stat": "73% non-work usage",
+            "primary_source": "NBER Paper #34255"
+          },
+          {
+            "article_number": 2,
+            "title": "Women Now Dominate ChatGPT. From 20% to 52%. Silicon Valley Bros Didn't See It Coming.",
+            "slug": "gender_revolution",
+            "status": "planned",
+            "word_count_target": 1200,
+            "key_stat": "52% users now female",
+            "primary_source": "NBER Paper #34255"
+          },
+          {
+            "article_number": 3,
+            "title": "4.2% Use ChatGPT for Coding. That's It. Your Dev Team Is Lying to You.",
+            "slug": "coding_myth_exposed",
+            "status": "planned",
+            "word_count_target": 1200,
+            "key_stat": "4.2% programming usage",
+            "primary_source": "NBER Paper #34255"
+          },
+          {
+            "article_number": 4,
+            "title": "While ChatGPT Helps Plan Dinner, Claude Is Automating Jobs. 77% Full Automation.",
+            "slug": "claude_silent_job_killer",
+            "status": "planned",
+            "word_count_target": 1800,
+            "key_stat": "77% full automation via API",
+            "primary_source": "Anthropic Economic Index"
+          },
+          {
+            "article_number": 5,
+            "title": "Singapore Uses AI 35x More Than Nigeria. The Gap Is Growing. Nobody Cares.",
+            "slug": "digital_apartheid",
+            "status": "planned",
+            "word_count_target": 1800,
+            "key_stat": "35x usage gap",
+            "primary_source": "Anthropic Economic Index"
+          },
+          {
+            "article_number": 6,
+            "title": "ChatGPT Has 700M Users. Claude Has Your Boss. Guess Which One Matters.",
+            "slug": "ultimate_showdown",
+            "status": "planned",
+            "word_count_target": 2500,
+            "key_stat": "Comparative analysis",
+            "primary_source": "Both reports"
+          }
+        ],
+        "publishing_schedule": {
+          "week_1": ["Article 1", "Article 2", "Article 3"],
+          "week_2": ["Article 4", "Article 5"],
+          "week_3": ["Article 6"]
+        }
+      },
+
+      "statistics": {
+        "total_articles": 0,
+        "total_words": 0,
+        "total_images": 0,
+        "last_published": null,
+        "average_production_time": null,
+        "platforms_published": {
+          "medium": 0,
+          "substack": 0,
+          "elevenreader": 0
+        }
+      },
+
+      "templates": {
+        "warning": "Alert about AI risks and dangers",
+        "analysis": "Deep dive into AI reality and implications",
+        "solution": "Practical AI guidance and recommendations"
+      }
+    }
+  },
+
+  "system_standards": {
+    "voice_guide_path": {
+      "version": "2.0",
+      "standard_pattern": ".claude/data/articles/{article_type}/strategy/voice_guide.md",
+      "relative_from_article": "../../../strategy/voice_guide.md",
+      "implementation_date": "2025-09-20",
+      "status": "active",
+      "benefits": [
+        "Single, predictable location",
+        "Clear error messages when missing",
+        "No complex search logic",
+        "Easy debugging and validation"
+      ]
+    }
+  },
+
+  "global_stats": {
+    "total_articles": 0,
+    "total_words": 0,
+    "total_images": 0,
+    "active_types": 1,
+    "articles_in_progress": 1,
+    "articles_completed_today": 0,
+    "last_activity": "2025-09-21T12:15:00Z"
+  }
+}

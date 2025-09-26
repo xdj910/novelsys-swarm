@@ -1,0 +1,11 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/book-outline-reviewer.md
+Time: 2025-09-03 15:35:39
+Last 100 characters:
+ns
+- Focus on story impact
+- Always save your review report
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

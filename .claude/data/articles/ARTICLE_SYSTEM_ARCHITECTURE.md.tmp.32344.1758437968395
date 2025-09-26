@@ -1,0 +1,459 @@
+# Article System Architecture
+*Complete technical architecture and implementation specifications for NOVELSYS-SWARM Article Production System*
+
+**Version**: 2.1
+**Updated**: 2025-01-20
+**Status**: Architecture Definition Document
+**Compliance**: CLAUDE.md 5-Layer Architecture
+
+---
+
+## Table of Contents
+1. [Architecture Overview](#architecture-overview)
+2. [System Components](#system-components)
+3. [Command Layer Specifications](#command-layer-specifications)
+4. [Coordinator Specifications](#coordinator-specifications)
+5. [Agent Specifications](#agent-specifications)
+6. [Execution Flow](#execution-flow)
+7. [Data Flow and Storage](#data-flow-and-storage)
+8. [Implementation Guidelines](#implementation-guidelines)
+
+---
+
+## Architecture Overview
+
+### Five-Layer Architecture Compliance
+
+The Article System follows NOVELSYS-SWARM's mandatory 5-layer architecture:
+
+```
+Layer 1: User Interface
+         |
+         v
+Layer 2: Command Layer (.claude/commands/)
+         |
+         v
+Layer 3: Main Claude (Orchestrator with Task tool)
+         |
+         v
+Layer 4: Coordinator Layer (.claude/agents/)
+         |
+         v
+Layer 5: Agent Layer (.claude/agents/)
+         |
+         v
+File System (Data Layer)
+```
+
+### Key Architectural Principles
+
+1. **No Direct Agent Calls**: Main Claude never calls agents directly, only through coordinators
+2. **No Task in Subagents**: Coordinators and Agents CANNOT have Task tool (prevents recursion)
+3. **File-Based Communication**: All inter-component communication via file system
+4. **Phase-Based Execution**: Work divided into discrete phases with checkpoints
+5. **Stateless Components**: Each component execution is independent
+
+### Component Responsibilities
+
+| Component | Location | Tools | Purpose |
+|-----------|----------|-------|---------|
+| Commands | .claude/commands/ | None (delegation only) | User interface, context preservation |
+| Coordinators | .claude/agents/ | Read, Write, Bash, Grep | Planning and orchestration |
+| Agents | .claude/agents/ | Task-specific, NO Task | Single-task execution |
+| Main Claude | System | All tools including Task | Central orchestration |
+
+---
+
+## System Components
+
+### Commands (2 files)
+- `art.md` - Main entry point for article creation
+- `art-brainstorm.md` - Article type setup and configuration
+
+### Coordinator (1 file)
+- `art-workflow-coordinator.md` - Orchestrates the 9-phase workflow
+
+### Agents (12 files)
+Initialization & Management:
+- `art-article-initiator.md` - Article folder structure creation (Phase 2)
+- `art-registry-updater.md` - Registry state management (all phases)
+
+Research Phase:
+- `art-trend-researcher.md` - Market trends analysis
+- `art-audience-analyst.md` - Target audience profiling
+- `art-competitor-scanner.md` - Competition analysis
+- `art-topic-explorer.md` - Topic deep-dive
+
+Production Phase:
+- `art-article-writer.md` - Content creation
+- `art-fact-checker.md` - Fact validation
+- `art-quality-scorer.md` - Quality assessment
+- `art-visual-designer.md` - Visual element design
+- `art-platform-optimizer.md` - Platform-specific optimization
+
+Coordination:
+- `art-workflow-coordinator.md` - 9-phase workflow orchestration
+
+---
+
+## Command Layer Specifications
+
+### art.md
+
+```yaml
+---
+name: art
+description: Smart article creation with type routing
+thinking: Delegate to coordinator for workflow orchestration
+---
+
+Maximum 100 lines
+Pure delegation pattern
+Contextual information preservation
+Smart type-based routing
+Coordinator dependency
+```
+
+### art-brainstorm.md
+
+```yaml
+---
+name: art-brainstorm
+description: Article type setup and strategy development
+thinking: Direct strategic planning for article types
+---
+
+Maximum 100 lines
+Strategy-focused delegation
+Type configuration
+Human-in-loop decisions
+Brainstorming workflow
+```
+
+---
+
+## Coordinator Specifications
+
+### art-workflow-coordinator.md
+
+**Core Function**: Orchestrate the complete 9-phase article production workflow
+
+**Tool Configuration**: `Read, Write, Bash, Grep` (NO Task tool - prevents recursion)
+
+**Responsibilities**:
+- Read current state from registry.json
+- Determine current workflow phase (0-9)
+- Return JSON execution plans for next steps
+- Never execute agents directly
+
+**Output**: JSON execution plans returned directly to Main Claude
+
+**Key Safety**: Cannot call other subagents (no Task tool)
+
+---
+
+## Agent Specifications
+
+### Research Agents (Phase 3)
+
+All research agents follow consistent patterns:
+
+**Common Input Requirements**:
+- Working directory: absolute path provided by Main Claude
+- Research scope: topic-specific parameters
+- Strategy context: from strategy documents
+
+**Common Output**:
+- Research reports: in local research/ folder
+- Quality metrics: completion and coverage assessment
+- Self-evaluation: against minimum requirements
+
+### Production Agents (Phases 4-8)
+
+**Content Creation**:
+- `art-article-writer.md`: Transform research into article
+- `art-fact-checker.md`: Verify all claims and statistics
+- `art-quality-scorer.md`: Multi-dimensional quality assessment
+
+**Publishing Preparation**:
+- `art-visual-designer.md`: Create AI generation prompts
+- `art-platform-optimizer.md`: Platform-specific optimization
+
+---
+
+## Execution Flow
+
+### Phase-Based Workflow
+
+```
+Phase 1: Strategy Development
+  └─ Coordinator determines requirements
+  └─ Interactive brainstorming process
+
+Phase 3: Research Collection (Parallel)
+  ├─ art-trend-researcher
+  ├─ art-audience-analyst
+  ├─ art-competitor-scanner
+  └─ art-topic-explorer
+
+Phase 4: Content Creation
+  └─ art-article-writer
+
+Phase 5: Quality Review (Parallel)
+  ├─ art-fact-checker
+  └─ art-quality-scorer
+
+Phase 7: Visual Production
+  └─ art-visual-designer
+
+Phase 8: Platform Optimization
+  └─ art-platform-optimizer
+```
+
+### Coordinator-Agent Flow
+
+1. **Main Claude** → Task → **art-workflow-coordinator**
+2. **Coordinator** analyzes state, returns JSON plan
+3. **Main Claude** parses JSON plan
+4. **Main Claude** → Task → **Agents** (parallel or sequential)
+5. **Agents** execute, write results to files
+6. **Main Claude** verifies completion, continues to next phase
+
+---
+
+## Data Flow and Storage
+
+### Registry Structure
+```json
+{
+  "current_work": {
+    "article_id": "20250119_140000_ai_hallucinations",
+    "phase": 3,
+    "status": "research_complete"
+  }
+}
+```
+
+### Article Folder Structure
+```
+.claude/data/articles/{type}/articles/{timestamp}_{slug}/
+├── metadata.json       # Article tracking
+├── research/          # Phase 3 outputs
+│   ├── trends.md
+│   ├── audience.md
+│   ├── competitors.md
+│   └── topic.md
+├── drafts/           # Phase 4-6 outputs
+│   ├── v1_draft.md
+│   └── final.md
+├── reports/          # Phase 5 outputs
+│   ├── fact_check.md
+│   └── quality_score.md
+├── visuals/          # Phase 7 outputs
+│   └── production_guide.md
+└── published/        # Phase 8 outputs
+    ├── medium.md
+    ├── substack.md
+    ├── beehiiv.md
+    └── elevenreader.md
+```
+
+### Strategy Folder Structure
+```
+.claude/data/articles/{type}/strategy/
+├── strategy_v1.0.md
+├── voice_guide.md
+└── PLATFORM_OPTIMIZATION_STRATEGY.md
+```
+
+---
+
+## Implementation Guidelines
+
+### Creating Commands
+
+```markdown
+# Command Template
+---
+name: [command-name]
+description: [one-line description]
+thinking: [delegation strategy]
+---
+
+Maximum 100 lines
+Pure delegation
+Preserve context
+No business logic
+```
+
+### Creating Coordinator
+
+```markdown
+# Coordinator Template
+---
+name: [coordinator-name]
+description: [orchestration purpose]
+tools: Read, Write, Bash, Grep  # NEVER Task!
+thinking: [planning strategy]
+---
+
+Read state
+Determine phase
+Return JSON plan
+Never execute
+```
+
+### Creating Agents
+
+```markdown
+# Agent Template
+---
+name: [agent-name]
+description: [single task]
+tools: [specific tools]  # NEVER Task!
+model: [optional model override]
+---
+
+Single responsibility
+File I/O only
+Self-assessment
+Quality checks
+```
+
+### Path Resolution Strategy (CRITICAL)
+
+**Problem Solved**: Coordinators were returning relative paths without context, causing "File not found" errors.
+
+**Solution**: Coordinator provides path templates, Main Claude resolves actual paths.
+
+#### Path Template System
+
+**Coordinator JSON Plans Include**:
+```json
+{
+  "working_directory": "{article_dir}",
+  "path_context": {
+    "base_path": ".claude/data/articles/{article_type}/content/{article_id}",
+    "strategy_dir": "../../../strategy",
+    "research_dir": "research"
+  },
+  "agents": [
+    {
+      "name": "art-article-writer",
+      "working_directory": "{article_dir}",
+      "inputs": [
+        "{research_dir}/trends.md",
+        "{strategy_dir}/strategy_v1.0.md"
+      ]
+    }
+  ]
+}
+```
+
+**Main Claude Resolution Process**:
+1. Parse JSON plan from coordinator
+2. Replace template variables with actual paths:
+   - `{article_dir}` → `.claude/data/articles/warning/content/20250120_140000_ai_risks/`
+   - `{strategy_dir}` → `.claude/data/articles/warning/strategy/`
+   - `{research_dir}` → `research` (relative to working directory)
+3. Pass resolved working directory to agents
+4. Pass resolved file paths in agent prompts
+
+**Agent Expectations**:
+- Receive working_directory as absolute path from Main Claude
+- All file operations relative to working_directory
+- No hardcoded paths in agent logic
+- Defensive input handling for multiple path formats
+
+#### Template Variables
+- `{article_type_dir}` = `.claude/data/articles/{type}`
+- `{article_dir}` = `.claude/data/articles/{type}/content/{article_id}`
+- `{strategy_dir}` = `strategy` (relative) or `../../../strategy` (from article)
+- `{research_dir}` = `research` (relative to working_directory)
+- `{drafts_dir}` = `drafts` (relative to working_directory)
+- `{reports_dir}` = `reports` (relative to working_directory)
+- `{visuals_dir}` = `visuals` (relative to working_directory)
+- `{published_dir}` = `published` (relative to working_directory)
+
+#### Windows Compatibility
+- All paths use forward slashes in documentation
+- Main Claude converts to appropriate format for Windows
+- Agents receive absolute working directory path
+- No backslash escape issues in Bash commands
+
+### Recursion Prevention Checklist
+
+- [ ] Commands have no tools
+- [ ] Coordinator has NO Task tool
+- [ ] Agents have NO Task tool
+- [ ] Only Main Claude uses Task
+- [ ] No subagent calls subagent
+
+### Windows Compatibility
+
+- [ ] No Unicode characters
+- [ ] Use forward slashes in paths
+- [ ] UTF-8 encoding for all files
+- [ ] ASCII-only in documentation
+
+### Path Resolution Validation
+
+- [ ] Coordinator includes working_directory in JSON plans
+- [ ] Coordinator uses template variables, not hardcoded paths
+- [ ] Agents document working directory expectation
+- [ ] Agents implement defensive input handling
+- [ ] Main Claude resolves all template variables before agent calls
+
+---
+
+## Migration Path
+
+### From Current Documentation to Implementation
+
+1. **Phase A: Foundation** (Week 1)
+   - Create art.md and art-brainstorm.md commands
+   - Implement art-workflow-coordinator.md
+   - Set up registry.json structure
+
+2. **Phase B: Core Agents** (Week 2-3)
+   - Implement all 9 agents with proper tool configurations
+   - Ensure no Task tools in subagents
+   - Implement path resolution system
+
+3. **Phase C: Integration Testing** (Week 4)
+   - Test complete workflow end-to-end
+   - Validate recursion prevention
+   - Confirm Windows compatibility
+
+### Validation Checklist
+
+#### Architecture Compliance
+- [ ] 5-layer architecture maintained
+- [ ] No recursion possible (Task tool only in Main Claude)
+- [ ] File-based communication between components
+- [ ] Phase-based execution with checkpoints
+
+#### Business Requirements
+- ✓ 9-phase workflow preserved
+- ✓ 6-8 hour timeline maintained
+- ✓ Quality standards (85/100)
+- ✓ Human-in-loop decisions
+- ✓ 4 platform optimization
+
+---
+
+## Related Documentation
+
+### Business Context
+- **Workflow Details** → [ARTICLE_WORKFLOW_DETAIL.md](ARTICLE_WORKFLOW_DETAIL.md) - 9-phase business process
+- **Quality Standards** → [ARTICLE_IO_STANDARDS.md](ARTICLE_IO_STANDARDS.md) - I/O specifications and requirements
+- **Platform Strategy** → [PLATFORM_OPTIMIZATION_STRATEGY.md](PLATFORM_OPTIMIZATION_STRATEGY.md) - Platform-specific optimizations
+
+### Implementation Resources
+- **System Overview** → [README.md](README.md) - Quick start guide
+- **Registry Structure** → [registry.json](registry.json) - System state tracking
+- **CLAUDE.md Standards** → [../../CLAUDE.md](../../CLAUDE.md) - Architecture compliance requirements
+
+---
+
+*This document serves as the authoritative technical architecture for the Article Production System. All implementations must comply with these specifications.*

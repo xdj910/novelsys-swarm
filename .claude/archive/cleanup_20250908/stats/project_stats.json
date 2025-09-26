@@ -1,0 +1,23 @@
+{
+  "last_updated": "2025-09-03T11:39:12+01:00",
+  "update_trigger": "content",
+  "project_stats": {
+    "total_words": 51275,
+    "total_chapters": 32,
+    "completed_chapters": 30,
+    "completion_percent": 93,
+    "average_quality_score": 96,
+    "quality_samples": 4
+  },
+  "writing_progress": {
+    "daily_word_goal": 2000,
+    "words_today": 0,
+    "streak_days": 0,
+    "last_writing_session": "2025-09-03T11:39:12+01:00"
+  },
+  "quality_metrics": {
+    "high_quality_chapters": 4,
+    "chapters_needing_revision": 0,
+    "avg_scenes_per_chapter": 0
+  }
+}

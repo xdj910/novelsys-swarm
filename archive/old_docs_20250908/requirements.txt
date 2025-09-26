@@ -1,0 +1,48 @@
+# NOVELSYS-SWARM v2.5 Dependencies
+# Core AI and ML libraries
+openai>=1.3.0
+anthropic>=0.8.0
+
+# Data processing and analysis
+numpy>=1.24.0
+pandas>=2.0.0
+pydantic>=2.0.0
+
+# Network and async
+aiohttp>=3.8.0
+httpx>=0.24.0
+asyncio-mqtt>=0.11.0
+
+# Graph processing for dependency management
+networkx>=3.0
+
+# Configuration and CLI
+pyyaml>=6.0
+click>=8.0.0
+rich>=13.0.0
+
+# File and data handling
+pathlib2>=2.3.0
+python-dotenv>=1.0.0
+
+# Testing and development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# GitHub integration
+pygithub>=1.59.0
+gitpython>=3.1.0
+
+# Quality and linting
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Performance and monitoring
+psutil>=5.9.0
+memory-profiler>=0.60.0
+
+# Optional: Advanced features
+# transformers>=4.30.0  # For local model support
+# torch>=2.0.0          # For GPU acceleration

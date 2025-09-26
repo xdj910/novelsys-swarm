@@ -1,0 +1,371 @@
+# Genre Standards Configuration for NOVELSYS-SWARM
+# Version: 1.0
+# Purpose: Define genre-specific logic standards and expectations
+
+metadata:
+  version: "1.0"
+  created: "2025-09-01"
+  description: "Genre-specific standards for intelligent quality validation"
+
+# Genre definitions with their unique characteristics
+genres:
+  # MYSTERY FAMILY
+  cozy_mystery:
+    description: "Warm, community-focused mysteries with amateur detectives"
+    logic_standards:
+      community_response: EXPECTED_QUICK
+      amateur_detective: GENRE_CONVENTION
+      coincidence_tolerance: MEDIUM
+      professional_deference_in_crisis: NATURAL
+      information_spread: VILLAGE_SPEED
+      violence_level: OFF_PAGE
+    cultural_expectations:
+      tight_communities: ESSENTIAL
+      everyone_knows_everyone: EXPECTED
+      collective_action: NORMAL
+      informal_authority: COMMON
+    required_elements:
+      - amateur_sleuth_success
+      - community_involvement
+      - safe_resolution
+      - recurring_cast
+      - local_color
+    forbidden_elements:
+      - graphic_violence
+      - explicit_content
+      - dark_endings
+      - professional_only_solution
+    
+  hard_boiled_mystery:
+    description: "Gritty, urban mysteries with professional detectives"
+    logic_standards:
+      community_response: SLOW_INSTITUTIONAL
+      professional_detective: REQUIRED
+      coincidence_tolerance: LOW
+      violence_level: ON_PAGE_CONTROLLED
+      cynicism_level: HIGH
+    cultural_expectations:
+      urban_anonymity: EXPECTED
+      institutional_procedures: REQUIRED
+      individual_action: PRIMARY
+    required_elements:
+      - professional_investigator
+      - urban_setting
+      - moral_ambiguity
+      - realistic_procedures
+    
+  police_procedural:
+    description: "Realistic police investigations following actual procedures"
+    logic_standards:
+      procedure_accuracy: STRICT
+      team_investigation: REQUIRED
+      coincidence_tolerance: VERY_LOW
+      evidence_based: MANDATORY
+      chain_of_command: STRICT
+    required_elements:
+      - accurate_procedures
+      - team_dynamics
+      - bureaucratic_realism
+      - evidence_chain
+      - legal_considerations
+
+  # ROMANCE FAMILY
+  contemporary_romance:
+    description: "Modern-day love stories with emotional focus"
+    logic_standards:
+      emotional_logic: PRIMARY
+      coincidence_tolerance: HIGH
+      meet_cute: EXPECTED
+      conflict_resolution: EMOTIONAL
+      happy_ending: MANDATORY
+    cultural_expectations:
+      modern_dating: REALISTIC
+      communication_issues: COMMON
+      personal_growth: ESSENTIAL
+    required_elements:
+      - character_chemistry
+      - emotional_journey
+      - HEA_or_HFN
+      - relationship_development
+    forbidden_elements:
+      - unresolved_ending
+      - permanent_separation
+      - toxic_without_growth
+      
+  historical_romance:
+    description: "Romance set in historical periods with period-appropriate constraints"
+    logic_standards:
+      historical_accuracy: IMPORTANT
+      social_constraints: STRICT
+      coincidence_tolerance: MEDIUM
+      period_language: EXPECTED
+    cultural_expectations:
+      class_distinctions: MANDATORY
+      gender_roles: PERIOD_APPROPRIATE
+      social_conventions: STRICT
+    required_elements:
+      - period_accuracy
+      - social_tension
+      - historical_setting
+      - appropriate_language
+      
+  paranormal_romance:
+    description: "Romance with supernatural elements"
+    logic_standards:
+      supernatural_consistency: REQUIRED
+      world_rules: STRICT_INTERNAL
+      coincidence_tolerance: HIGH
+      destiny_fate: ACCEPTABLE
+    required_elements:
+      - supernatural_elements
+      - consistent_magic_system
+      - otherworldly_attraction
+      - power_dynamics
+
+  # SPECULATIVE FAMILY
+  hard_scifi:
+    description: "Science fiction with rigorous scientific accuracy"
+    logic_standards:
+      scientific_accuracy: STRICT
+      technology_consistency: MANDATORY
+      coincidence_tolerance: LOW
+      extrapolation: LOGICAL
+      physics_laws: RESPECTED
+    forbidden_elements:
+      - magic_without_explanation
+      - scientific_impossibilities
+      - inconsistent_technology
+    required_elements:
+      - scientific_plausibility
+      - technical_detail
+      - logical_consequences
+      - consistent_rules
+      
+  soft_scifi:
+    description: "Science fiction focusing on social/philosophical implications"
+    logic_standards:
+      scientific_accuracy: FLEXIBLE
+      social_commentary: PRIMARY
+      coincidence_tolerance: MEDIUM
+      human_focus: ESSENTIAL
+    required_elements:
+      - social_exploration
+      - human_impact
+      - philosophical_questions
+      - character_focus
+      
+  fantasy:
+    description: "Stories with magic and supernatural elements"
+    logic_standards:
+      magic_consistency: STRICT_INTERNAL
+      world_building: COMPREHENSIVE
+      coincidence_tolerance: MEDIUM
+      prophecy_destiny: ACCEPTABLE
+    required_elements:
+      - consistent_magic_system
+      - immersive_world
+      - clear_rules
+      - internal_logic
+
+  # LITERARY FAMILY
+  literary_fiction:
+    description: "Character-driven stories with thematic depth"
+    logic_standards:
+      psychological_realism: PRIMARY
+      coincidence_tolerance: THEMATIC
+      metaphorical_logic: ACCEPTABLE
+      ambiguity: WELCOMED
+      plot_secondary: COMMON
+    required_elements:
+      - character_depth
+      - thematic_richness
+      - prose_quality
+      - psychological_insight
+    acceptable_elements:
+      - non_linear_narrative
+      - unreliable_narrator
+      - open_endings
+      - experimental_structure
+      
+  historical_fiction:
+    description: "Fiction set in historically accurate periods"
+    logic_standards:
+      historical_accuracy: STRICT
+      period_authenticity: MANDATORY
+      anachronism_tolerance: ZERO
+      cultural_sensitivity: REQUIRED
+    required_elements:
+      - period_accuracy
+      - historical_research
+      - authentic_dialogue
+      - cultural_context
+
+  # THRILLER/SUSPENSE FAMILY
+  thriller:
+    description: "Fast-paced stories with high stakes and tension"
+    logic_standards:
+      pacing_over_detail: EXPECTED
+      coincidence_tolerance: MODERATE
+      expert_abilities: ENHANCED
+      time_pressure: CONSTANT
+      stakes: LIFE_OR_DEATH
+    required_elements:
+      - constant_tension
+      - high_stakes
+      - time_pressure
+      - action_sequences
+      - clear_antagonist
+      
+  psychological_thriller:
+    description: "Mental and emotional suspense"
+    logic_standards:
+      psychological_accuracy: IMPORTANT
+      unreliable_perception: ACCEPTABLE
+      mind_games: EXPECTED
+      ambiguity: CONTROLLED
+    required_elements:
+      - psychological_depth
+      - mental_tension
+      - character_psychology
+      - uncertainty
+
+# Cross-genre allowances
+hybrid_genres:
+  romantic_suspense:
+    combines: [romance, thriller]
+    balance: "Equal weight to romance and suspense"
+    
+  cozy_fantasy:
+    combines: [cozy_mystery, fantasy]
+    balance: "Cozy atmosphere with magical elements"
+    
+  sci_fi_romance:
+    combines: [scifi, romance]
+    balance: "Romance in futuristic/alien settings"
+
+# Universal standards (apply to all genres)
+universal_standards:
+  factual_accuracy:
+    numbers: ALWAYS_EXACT  # Ages, years, dates
+    names: CONSISTENT  # Character names must be consistent
+    relationships: UNCHANGEABLE  # Family relationships fixed
+    
+  natural_language:
+    reference_evolution: ENCOURAGED
+    dialogue_variety: EXPECTED
+    repetition_avoidance: IMPORTANT
+    context_appropriate: REQUIRED
+    
+  quality_basics:
+    grammar: CORRECT
+    spelling: ACCURATE
+    punctuation: PROPER
+    formatting: CONSISTENT
+
+# Cultural context modifiers
+cultural_contexts:
+  island_community:
+    modifies:
+      community_response_time: FASTER
+      information_spread: QUICKER
+      collective_action: MORE_LIKELY
+      informal_authority: MORE_ACCEPTED
+      
+  urban_setting:
+    modifies:
+      community_response_time: SLOWER
+      information_spread: FORMAL_CHANNELS
+      collective_action: LESS_LIKELY
+      institutional_authority: REQUIRED
+      
+  rural_setting:
+    modifies:
+      community_response_time: MODERATE
+      information_spread: GOSSIP_NETWORK
+      collective_action: SEASONAL
+      traditional_authority: RESPECTED
+      
+  historical_period:
+    modifies:
+      communication_speed: PERIOD_APPROPRIATE
+      social_mobility: RESTRICTED
+      technology_level: PERIOD_ACCURATE
+      gender_roles: HISTORICALLY_BOUND
+
+# Reader expectation profiles
+reader_expectations:
+  western_readers:
+    crisis_response:
+      expertise_recognition: EXPECTED
+      take_charge_mentality: VALUED
+      professional_respect: IMMEDIATE
+      community_cooperation: ADMIRED
+    character_development:
+      gradual_trust: PREFERRED
+      competence_demonstration: REQUIRED
+      vulnerability: HUMANIZING
+      growth_arc: ESSENTIAL
+      
+  genre_veterans:
+    expect_conventions: HIGH
+    tolerance_for_innovation: MODERATE
+    demand_consistency: HIGH
+    appreciate_references: YES
+    
+  casual_readers:
+    expect_clarity: HIGH
+    tolerance_for_complexity: LOWER
+    demand_entertainment: PRIMARY
+    appreciate_comfort: HIGH
+
+# Scoring modifiers by genre
+scoring_adjustments:
+  cozy_mystery:
+    bonus_for:
+      - community_warmth: +5
+      - food_descriptions: +3
+      - recurring_characters: +5
+    penalty_for:
+      - graphic_violence: -20
+      - cynicism: -10
+      - unresolved_ending: -15
+      
+  hard_scifi:
+    bonus_for:
+      - scientific_accuracy: +10
+      - innovative_concepts: +10
+      - technical_detail: +5
+    penalty_for:
+      - scientific_errors: -20
+      - inconsistent_tech: -15
+      - unexplained_phenomena: -10
+      
+  literary_fiction:
+    bonus_for:
+      - prose_quality: +10
+      - thematic_depth: +10
+      - character_complexity: +10
+    penalty_for:
+      - cliche_themes: -10
+      - shallow_characters: -15
+      - poor_prose: -20
+
+# Quality thresholds by genre
+quality_thresholds:
+  strict_genres:  # Hard SciFi, Police Procedural
+    excellent: 95-100
+    good: 90-94
+    acceptable: 85-89
+    needs_work: <85
+    
+  moderate_genres:  # Most genres
+    excellent: 93-100
+    good: 88-92
+    acceptable: 83-87
+    needs_work: <83
+    
+  flexible_genres:  # Literary Fiction, Experimental
+    excellent: 90-100
+    good: 85-89
+    acceptable: 80-84
+    needs_work: <80

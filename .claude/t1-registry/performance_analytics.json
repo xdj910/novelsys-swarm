@@ -1,0 +1,55 @@
+{
+  "performance_tracking": {
+    "workflow_timing": {
+      "phase_1_average_minutes": 0.0,
+      "phase_2_average_minutes": 0.0,
+      "phase_3_average_minutes": 0.0,
+      "total_workflow_average_minutes": 0.0
+    },
+    "iteration_efficiency": {
+      "round_1_average_minutes": 0.0,
+      "round_2_average_minutes": 0.0,
+      "round_3_average_minutes": 0.0,
+      "round_4_average_minutes": 0.0,
+      "round_5_average_minutes": 0.0
+    },
+    "quality_progression_rates": {
+      "accuracy_improvement_per_round": 0.0,
+      "insight_improvement_per_round": 0.0,
+      "originality_improvement_per_round": 0.0
+    },
+    "agent_performance": {
+      "question_generator_convergence_rate": 0.0,
+      "answer_synthesizer_convergence_rate": 0.0,
+      "quality_gate_decision_accuracy": 0.0
+    }
+  },
+  "resource_utilization": {
+    "token_usage": {
+      "average_tokens_per_article": 0,
+      "peak_tokens_per_round": 0,
+      "token_efficiency_score": 0.0
+    },
+    "parallel_processing": {
+      "variant_generation_parallelism": 0.0,
+      "quality_evaluation_parallelism": 0.0
+    }
+  },
+  "success_metrics": {
+    "completion_rates": {
+      "full_workflow_completion": 0.0,
+      "early_completion_triggered": 0.0,
+      "checkpoint_intervention_success": 0.0
+    },
+    "quality_targets_met": {
+      "tier_a_achievement_rate": 0.0,
+      "multi_dimensional_success": 0.0
+    }
+  },
+  "metadata": {
+    "tracking_start_date": "2025-09-25T00:00:00Z",
+    "last_updated": "2025-09-25T00:00:00Z",
+    "data_points_collected": 0,
+    "analytics_version": "1.0.0"
+  }
+}

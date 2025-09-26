@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Generated reports (keep project-specific ones)
+/AUDIT-REPORT-*.md
+/PSEUDO-CODE-*.md
+/COMPLETE-FIX-*.md
+python_blocks.txt
+
+# Test output (keep for CI)
+# test_project/output/
+
+# Archives (compressed only)
+.claude/archives/*.tar.gz
+.claude/archives/*.zip
+
+# Keep project data
+!data/projects/*/
+!data/context/
+!data/bibles/
+
+# Optimization additions
+.cache/
+*.bak
+rollback.sh
+backup_*.tar.gz

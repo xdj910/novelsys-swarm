@@ -1,0 +1,69 @@
+# NOVELSYS-SWARM Entity Dictionary
+# Auto-generated and maintained by entity sync Hook
+
+characters:
+  # Main characters will be detected and added here
+  
+locations:
+  # Locations mentioned in chapters will be tracked here
+  
+objects:
+  # Important objects and items will be catalogued here
+  
+concepts:
+  - name: "This"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "The"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Success"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Meta"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Let"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "JSON"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Hooks"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Hook"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "End"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Chapter"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "Backup"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  - name: "All"
+    first_used: "ch13"
+    auto_detected: true
+    definition: "needs_definition"
+  # Abstract concepts and terminology will be indexed here
+
+# Metadata
+metadata:
+  created_by: "auto-entity-sync Hook"
+  last_updated: "2025-09-03T02:22:14+01:00"
+  total_entities: 0
+  chapters_scanned: []

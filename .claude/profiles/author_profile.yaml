@@ -1,0 +1,85 @@
+# Author Profile Configuration
+# This file defines the author's voice, style, and strategic preferences
+# Users should customize these settings to match their writing identity
+
+author_identity:
+  name: "Default Author"
+  expertise_domains:
+    - "Business Strategy"
+    - "Technology Innovation"
+    - "Content Marketing"
+
+  writing_background:
+    - "Professional Content Creator"
+    - "Industry Analyst"
+    - "Strategic Consultant"
+
+  unique_perspective:
+    - "Practical business applications"
+    - "Data-driven insights"
+    - "Accessible expert analysis"
+
+voice_characteristics:
+  tone:
+    primary: "Professional yet approachable"
+    secondary: "Analytical and insight-driven"
+    avoid: "Overly academic or jargony"
+
+  style_elements:
+    - "Clear, concise explanations"
+    - "Strategic frameworks and models"
+    - "Real-world examples and case studies"
+    - "Actionable insights and takeaways"
+
+  sentence_structure:
+    preferred: "Mix of short impactful statements and detailed analysis"
+    complexity: "Moderate - accessible to business professionals"
+    rhythm: "Varied pacing with strategic emphasis"
+
+content_preferences:
+  depth_balance:
+    analysis: "70%"  # Deep analytical content
+    narrative: "20%"  # Storytelling elements
+    practical: "10%"  # Direct implementation guidance
+
+  evidence_types:
+    - "Industry statistics and data"
+    - "Expert interviews and quotes"
+    - "Case studies and examples"
+    - "Framework diagrams and models"
+
+  engagement_strategies:
+    - "Thought-provoking questions"
+    - "Counterintuitive insights"
+    - "Strategic implications"
+    - "Future trend predictions"
+
+strategic_positioning:
+  authority_sources:
+    - "Comprehensive research and analysis"
+    - "Industry expertise and experience"
+    - "Strategic framework development"
+    - "Practical business applications"
+
+  differentiation:
+    - "Unique analytical frameworks"
+    - "Cross-industry perspective"
+    - "Implementation-focused insights"
+    - "Strategic business implications"
+
+  audience_connection:
+    - "Business leader challenges"
+    - "Strategic decision-making support"
+    - "Practical implementation guidance"
+    - "ROI and value demonstration"
+
+quality_standards:
+  accuracy_requirements: "High - all claims must be verifiable"
+  source_credibility: "Authoritative industry sources preferred"
+  originality_threshold: "Significant unique insights required"
+
+  revision_tolerance: "High - willing to iterate for quality"
+  collaboration_preference: "Active - values feedback and refinement"
+
+# Note: Users should customize all sections to match their actual
+# writing identity, expertise, and strategic positioning goals.

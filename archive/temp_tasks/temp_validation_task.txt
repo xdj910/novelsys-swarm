@@ -1,0 +1,18 @@
+PARALLEL QUALITY VALIDATION TASK
+
+Project: TeidePeakMysteries
+Book: 1
+Chapter: 1
+Final Version: v09_genre_enhanced.md
+
+EXECUTE PARALLEL VALIDATION:
+1. Bible compliance validator - check v09 against series bible
+2. Continuity guard specialist - validate v09 consistency
+3. Plot hole detector - scan v09 for logical issues
+4. Quality scorer - evaluate FINAL version (v09_genre_enhanced.md)
+
+CRITICAL: All validators must check the FINAL version v09_genre_enhanced.md
+Target Score: >= 95
+
+Run all validations in parallel and save results to:
+.claude/data/projects/TeidePeakMysteries/book_1/chapters/ch001/quality_report.json

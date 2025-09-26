@@ -1,0 +1,11 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/report/summary.txt
+Time: 2025-09-03 22:15:11
+Last 100 characters:
+LENT
+
+Full report: .claude/report/system_health_report.md
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

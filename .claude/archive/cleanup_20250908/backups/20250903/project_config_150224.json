@@ -1,0 +1,32 @@
+{
+  "name": "TestMystery",
+  "type": "standalone",
+  "genre": "mystery",
+  "status": "planning",
+  "bible_created": true,
+  "bible_quality_score": 100,
+  "bible_versions_created": 2,
+  "created": "2025-09-03T10:30:00",
+  "brainstorm_results": {
+    "project_type": "standalone",
+    "genre": "mystery",
+    "tone": "紧张刺激",
+    "pov": "第三人称限制",
+    "audience_age": "成人",
+    "audience_gender": "通用",
+    "audience_preference": "悬疑推理",
+    "total_chapters": 30,
+    "words_per_chapter": 3000,
+    "update_frequency": "周更",
+    "main_conflict": "一桩十年前的冷案重新浮出水面，牵扯出小镇上多个家族的秘密",
+    "unique_setting": "偏远海岛小镇，与世隔绝的环境加剧了紧张氛围",
+    "emotional_core": "正义与宽恕的抉择，真相与和谐的平衡"
+  },
+  "progress": {
+    "total_chapters": 30,
+    "completed_chapters": 0,
+    "current_chapter": 0,
+    "total_words": 0,
+    "quality_average": 0
+  }
+}

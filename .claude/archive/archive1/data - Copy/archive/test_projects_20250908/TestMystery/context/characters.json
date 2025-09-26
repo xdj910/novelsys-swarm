@@ -1,0 +1,56 @@
+{
+  "protagonists": {
+    "刘明轩": {
+      "role": "主角侦探",
+      "age": 45,
+      "background": "退休刑警，十年前案件的原调查员",
+      "personality": "坚韧、敏锐、带有负罪感",
+      "arc": "从自我怀疑到自我救赎",
+      "current_state": "未开始",
+      "relationships": {}
+    }
+  },
+  "antagonists": {
+    "陈海涛": {
+      "role": "隐藏的凶手",
+      "age": 35,
+      "background": "陈家渔业公司总经理，受害者堂哥",
+      "personality": "冷静、狡猾、控制欲强",
+      "arc": "从隐藏到暴露，从冷静到崩溃",
+      "current_state": "未开始",
+      "relationships": {}
+    }
+  },
+  "supporting": {
+    "王小美": {
+      "role": "目击证人",
+      "age": 28,
+      "background": "镇上花店老板",
+      "personality": "胆小、善良、正义感强",
+      "arc": "从恐惧到勇敢作证",
+      "current_state": "未开始"
+    },
+    "陈父": {
+      "role": "受害者父亲",
+      "age": 55,
+      "background": "渔民",
+      "personality": "沉默寡言、悲伤",
+      "current_state": "未开始"
+    },
+    "陈母": {
+      "role": "受害者母亲",
+      "age": 52,
+      "background": "家庭主妇",
+      "personality": "悲伤、执着于真相",
+      "current_state": "未开始"
+    },
+    "张建国": {
+      "role": "当地警察",
+      "age": 40,
+      "background": "镇派出所所长",
+      "personality": "官僚、谨慎",
+      "current_state": "未开始"
+    }
+  },
+  "development_tracking": {}
+}

@@ -1,0 +1,283 @@
+#!/bin/bash
+
+# PostToolUse Hook: Automatic Output Fixer
+# 自动修复常见的Subagent输出问题
+# 包括截断的文件、格式错误、缺失的必要元素
+
+# 设置项目根目录
+if [[ -z "$CLAUDE_PROJECT_DIR" ]]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
+else
+    PROJECT_ROOT="$CLAUDE_PROJECT_DIR"
+fi
+
+# 确保目录存在
+mkdir -p "$PROJECT_ROOT/.claude/logs"
+mkdir -p "$PROJECT_ROOT/.claude/fixes"
+
+# 从stdin读取Claude Code提供的JSON输入
+input=$(cat)
+
+# 解析输入
+tool_name=$(echo "$input" | jq -r '.tool_name // empty' 2>/dev/null)
+file_path=$(echo "$input" | jq -r '.tool_input.file_path // .file_path // empty' 2>/dev/null)
+content=$(echo "$input" | jq -r '.tool_input.content // .content // empty' 2>/dev/null)
+
+# Fallback到grep
+[[ -z "$tool_name" ]] && tool_name=$(echo "$input" | grep -o '"tool_name"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4 2>/dev/null)
+[[ -z "$file_path" ]] && file_path=$(echo "$input" | grep -o '"file_path"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4 2>/dev/null)
+
+# 将Windows路径转换为Unix路径
+unix_path=$(echo "$file_path" | sed 's|\\|/|g' | sed 's|^D:|/d|' | sed 's|^C:|/c|')
+
+# 只处理Write操作
+if [[ "$tool_name" == "Write" ]] && [[ -f "$unix_path" ]]; then
+    
+    timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+    fix_log="$PROJECT_ROOT/.claude/logs/auto-fixes.log"
+    file_name=$(basename "$unix_path")
+    
+    # 标记是否修复了文件
+    was_fixed=false
+    fix_description=""
+    
+    # 检测和修复常见问题
+    case "$file_name" in
+        
+        "content.md")
+            # 章节内容文件的常见问题
+            
+            # 1. 检查是否被意外截断（没有结尾）
+            last_line=$(tail -1 "$unix_path" 2>/dev/null)
+            if [[ ! "$last_line" =~ \*End.*Chapter.*\* ]] && [[ ! "$last_line" =~ "续" ]] && [[ ! "$last_line" =~ "..." ]]; then
+                # 检查文件是否看起来不完整
+                word_count=$(wc -w < "$unix_path" 2>/dev/null || echo "0")
+                
+                if [[ "$word_count" -gt 100 ]]; then
+                    # 添加临时结尾标记
+                    echo "" >> "$unix_path"
+                    echo "*[Chapter appears incomplete - pending continuation]*" >> "$unix_path"
+                    was_fixed=true
+                    fix_description="Added incomplete marker to truncated chapter"
+                    echo "[$timestamp] Fixed truncated content: $unix_path" >> "$fix_log"
+                fi
+            fi
+            
+            # 2. 修复错误的编码或特殊字符
+            # 将常见的编码错误字符替换
+            if grep -q '[âêîôû]' "$unix_path" 2>/dev/null; then
+                sed -i 's/â€œ/"/g; s/â€/"/g; s/â€™/'"'"'/g' "$unix_path"
+                was_fixed=true
+                fix_description="$fix_description; Fixed encoding issues"
+            fi
+            
+            # 3. 确保章节有标题
+            first_line=$(head -1 "$unix_path" 2>/dev/null)
+            if [[ ! "$first_line" =~ ^#.*Chapter ]]; then
+                # 从路径提取章节号
+                chapter_num=$(echo "$unix_path" | grep -o 'ch[0-9]\+' | sed 's/ch0*//')
+                if [[ -n "$chapter_num" ]]; then
+                    # 在文件开头插入章节标题
+                    temp_file="$unix_path.tmp"
+                    echo "# Chapter $chapter_num" > "$temp_file"
+                    echo "" >> "$temp_file"
+                    cat "$unix_path" >> "$temp_file"
+                    mv "$temp_file" "$unix_path"
+                    was_fixed=true
+                    fix_description="$fix_description; Added missing chapter header"
+                fi
+            fi
+            
+            # 4. 修复多余的空行（超过3个连续空行）
+            sed -i '/^$/N;/^\n$/N;/^\n\n$/N;/^\n\n\n$/d' "$unix_path" 2>/dev/null
+            ;;
+            
+        "meta.json"|"quality_check.json"|"outline.json")
+            # JSON文件的常见问题
+            
+            # 1. 尝试修复JSON语法
+            if ! jq empty "$unix_path" 2>/dev/null; then
+                # 备份原文件
+                cp "$unix_path" "$unix_path.broken"
+                
+                # 常见修复：移除尾随逗号
+                sed -i 's/,\s*\}/}/g; s/,\s*\]/]/g' "$unix_path"
+                
+                # 修复未闭合的引号
+                sed -i 's/"\([^"]*\)$/"\1"/' "$unix_path"
+                
+                # 再次检查
+                if jq empty "$unix_path" 2>/dev/null; then
+                    was_fixed=true
+                    fix_description="Fixed JSON syntax errors"
+                    echo "[$timestamp] Auto-fixed JSON: $unix_path" >> "$fix_log"
+                else
+                    # 如果还是无法修复，恢复原文件
+                    mv "$unix_path.broken" "$unix_path"
+                fi
+            fi
+            
+            # 2. 为meta.json添加缺失的必要字段
+            if [[ "$file_name" == "meta.json" ]] && jq empty "$unix_path" 2>/dev/null; then
+                # 确保有基本字段
+                jq '. + {
+                    "last_modified": (now | strftime("%Y-%m-%dT%H:%M:%S")),
+                    "auto_fixed": true
+                } | 
+                if .chapter_number == null then .chapter_number = 0 else . end |
+                if .word_count == null then .word_count = 0 else . end |
+                if .status == null then .status = "draft" else . end' \
+                "$unix_path" > "$unix_path.tmp" 2>/dev/null
+                
+                if [[ $? -eq 0 ]]; then
+                    mv "$unix_path.tmp" "$unix_path"
+                    was_fixed=true
+                    fix_description="$fix_description; Added missing meta fields"
+                fi
+            fi
+            ;;
+            
+        "bible.yaml"|"bible.yml")
+            # Bible文件的修复
+            
+            # 使用Python检查和修复YAML
+            if command -v python3 >/dev/null 2>&1; then
+                python3 << EOF
+import yaml
+import sys
+
+try:
+    with open('$unix_path', 'r') as f:
+        content = f.read()
+    
+    # 尝试解析
+    data = yaml.safe_load(content)
+    
+    # 确保有基本结构
+    if not isinstance(data, dict):
+        data = {}
+    
+    # 添加缺失的必要部分
+    if 'title' not in data:
+        data['title'] = 'Untitled Project'
+    if 'characters' not in data:
+        data['characters'] = {}
+    if 'universe' not in data:
+        data['universe'] = {'setting': 'To be defined'}
+    if 'metadata' not in data:
+        data['metadata'] = {
+            'auto_fixed': True,
+            'fix_date': '$timestamp'
+        }
+    
+    # 写回文件
+    with open('$unix_path', 'w') as f:
+        yaml.dump(data, f, default_flow_style=False, allow_unicode=True)
+    
+    print("FIXED")
+    
+except yaml.YAMLError as e:
+    # YAML解析错误，尝试基本修复
+    lines = content.split('\n')
+    fixed_lines = []
+    for line in lines:
+        # 修复缩进问题（确保使用空格而不是制表符）
+        line = line.replace('\t', '  ')
+        fixed_lines.append(line)
+    
+    with open('$unix_path', 'w') as f:
+        f.write('\n'.join(fixed_lines))
+    
+    print("BASIC_FIX")
+    
+except Exception as e:
+    print(f"ERROR: {e}")
+    sys.exit(1)
+EOF
+                result=$?
+                if [[ $result -eq 0 ]]; then
+                    was_fixed=true
+                    fix_description="Fixed Bible YAML structure"
+                fi
+            fi
+            ;;
+            
+        "entity_dictionary.yaml"|"entity_dictionary.yml")
+            # 实体字典的修复
+            
+            # 确保文件不为空
+            if [[ ! -s "$unix_path" ]]; then
+                # 创建基本结构
+                cat > "$unix_path" << 'EOF'
+# Entity Dictionary - Auto-generated template
+entities:
+  characters: []
+  locations: []
+  items: []
+  
+metadata:
+  created: AUTO_GENERATED
+  last_updated: AUTO_GENERATED
+EOF
+                # 更新时间戳
+                sed -i "s/AUTO_GENERATED/$timestamp/g" "$unix_path"
+                was_fixed=true
+                fix_description="Created entity dictionary template"
+            fi
+            ;;
+    esac
+    
+    # 通用修复：检查文件是否被截断（文件末尾是否不正常）
+    if [[ -f "$unix_path" ]]; then
+        # 获取文件最后几个字符
+        last_chars=$(tail -c 20 "$unix_path" 2>/dev/null)
+        
+        # 检查是否以不完整的句子结尾（没有句号、引号等）
+        if [[ "$last_chars" =~ [a-zA-Z0-9]$ ]] && [[ ! "$last_chars" =~ [\.!?\"\'}\]]$ ]]; then
+            # 可能被截断了
+            echo "" >> "$unix_path"
+            echo "[FILE MAY BE TRUNCATED - PLEASE VERIFY]" >> "$unix_path"
+            
+            # 记录到修复日志
+            echo "[$timestamp] Warning: Possible truncation detected in $unix_path" >> "$fix_log"
+            
+            # 创建截断警告文件
+            truncation_warning="$PROJECT_ROOT/.claude/fixes/truncation_$(date +%Y%m%d_%H%M%S).txt"
+            cat > "$truncation_warning" << EOF
+Truncation Warning
+==================
+File: $unix_path
+Time: $timestamp
+Last 100 characters:
+$(tail -c 100 "$unix_path")
+
+This file appears to be truncated. Please verify and regenerate if necessary.
+EOF
+        fi
+    fi
+    
+    # 记录修复结果
+    if [[ "$was_fixed" == "true" ]]; then
+        echo "[$timestamp] ✓ Auto-fixed: $unix_path" >> "$fix_log"
+        echo "  Fixes: $fix_description" >> "$fix_log"
+        
+        # 创建修复报告
+        fix_report="$PROJECT_ROOT/.claude/fixes/fix_$(date +%Y%m%d_%H%M%S).txt"
+        cat > "$fix_report" << EOF
+Auto-Fix Report
+===============
+Time: $timestamp
+File: $unix_path
+Fixes Applied: $fix_description
+
+The file has been automatically fixed. Please review the changes.
+Original file backed up as: ${unix_path}.broken (if applicable)
+EOF
+        
+        echo "🔧 Auto-fixed issues in $file_name"
+    fi
+fi
+
+# 成功退出
+exit 0

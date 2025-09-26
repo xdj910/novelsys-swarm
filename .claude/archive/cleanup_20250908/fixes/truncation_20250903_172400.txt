@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/commands/novel/extend-series.md
+Time: 2025-09-03 17:24:00
+Last 100 characters:
+books
+- Maintained series consistency and quality standards
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

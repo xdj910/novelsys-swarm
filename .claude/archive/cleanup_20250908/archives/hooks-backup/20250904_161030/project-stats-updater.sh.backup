@@ -1,0 +1,225 @@
+#!/bin/bash
+
+# PostToolUse Hook: Real-time project statistics updater
+# 实时更新项目统计：总字数、完成章节、平均质量分数等
+
+# 设置项目根目录 (根据Claude Code官方文档)
+if [[ -z "$CLAUDE_PROJECT_DIR" ]]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
+    echo "[WARNING] CLAUDE_PROJECT_DIR not set, using fallback: $PROJECT_ROOT" >&2
+else
+    PROJECT_ROOT="$CLAUDE_PROJECT_DIR"
+fi
+
+# 确保日志和统计目录存在
+mkdir -p "$PROJECT_ROOT/.claude/logs"
+mkdir -p "$PROJECT_ROOT/.claude/stats"
+
+# 从stdin读取Claude Code提供的JSON输入
+input=$(cat)
+
+# 使用jq解析JSON输入
+tool_name=$(echo "$input" | jq -r '.tool_name // .tool // .name // empty' 2>/dev/null)
+file_path=$(echo "$input" | jq -r '.tool_input.file_path // .file_path // .path // empty' 2>/dev/null)
+
+# Fallback到grep
+[[ -z "$tool_name" ]] && tool_name=$(echo "$input" | grep -o '"tool_name"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4 2>/dev/null)
+[[ -z "$file_path" ]] && file_path=$(echo "$input" | grep -o '"file_path"[[:space:]]*:[[:space:]]*"[^"]*"' | cut -d'"' -f4 2>/dev/null)
+
+# Convert Windows paths to Unix paths for compatibility
+unix_path=$(echo "$file_path" | sed 's|\\|/|g' | sed 's|^D:|/d|' | sed 's|^C:|/c|')
+
+# 检查是否需要更新统计信息
+should_update=false
+
+if [[ "$tool_name" == "Write" || "$tool_name" == "Edit" || "$tool_name" == "MultiEdit" ]]; then
+    
+    # 章节内容变化 (支持book_N结构)
+    if ([[ "$file_path" == */book_*/chapters/*/content.md ]] || [[ "$file_path" == *\\book_*\\chapters\\*\\content.md ]]); then
+        should_update=true
+        update_type="content"
+        
+    # 质量检查完成 (支持book_N结构)
+    elif ([[ "$file_path" == */book_*/chapters/*/quality_check.json ]] || [[ "$file_path" == *\\book_*\\chapters\\*\\quality_check.json ]]); then
+        should_update=true
+        update_type="quality"
+        
+    # Bible文件更新 (支持book_N结构)
+    elif ([[ "$file_path" == */book_*/bible.yaml ]] || [[ "$file_path" == *\\book_*\\bible.yaml ]]) || ([[ "$file_path" == */book_*/bible.yml ]] || [[ "$file_path" == *\\book_*\\bible.yml ]]); then
+        should_update=true
+        update_type="bible"
+        
+    # Series Bible文件更新
+    elif ([[ "$file_path" == *series_bible.yaml ]] || [[ "$file_path" == *\\series_bible.yaml ]]) || ([[ "$file_path" == *series_bible.yml ]] || [[ "$file_path" == *\\series_bible.yml ]]); then
+        should_update=true
+        update_type="series_bible"
+        
+    # Book Outline文件更新 (支持book_N结构)
+    elif ([[ "$file_path" == */book_*/outline.yaml ]] || [[ "$file_path" == *\\book_*\\outline.yaml ]]) || ([[ "$file_path" == */book_*/book_outline.yaml ]] || [[ "$file_path" == *\\book_*\\book_outline.yaml ]]); then
+        should_update=true
+        update_type="outline"
+        
+    # Entity Dictionary更新
+    elif ([[ "$file_path" == *entity_dictionary.yaml ]] || [[ "$file_path" == *\\entity_dictionary.yaml ]]); then
+        should_update=true
+        update_type="entities"
+        
+    # 项目配置变化
+    elif ([[ "$file_path" == */project.json ]] || [[ "$file_path" == *\\project.json ]]); then
+        should_update=true
+        update_type="config"
+    fi
+fi
+
+# 执行统计更新
+if [[ "$should_update" == "true" ]]; then
+    
+    stats_file="$PROJECT_ROOT/.claude/stats/project_stats.json"
+    current_time=$(date -Iseconds 2>/dev/null || date '+%Y-%m-%dT%H:%M:%S')
+    
+    # 计算项目统计数据
+    total_words=0
+    completed_chapters=0
+    total_chapters=0
+    quality_scores=()
+    
+    # 扫描章节目录 (支持book_N结构)
+    projects_dir="$PROJECT_ROOT/.claude/data/projects"
+    if [[ -d "$projects_dir" ]]; then
+        # 查找所有book_N/chapters/chXXX目录
+        while IFS= read -r -d '' chapter_dir; do
+            if [[ -d "$chapter_dir" && "$(basename "$chapter_dir")" =~ ^ch[0-9]+$ ]]; then
+                total_chapters=$((total_chapters + 1))
+                
+                content_file="$chapter_dir/content.md"
+                meta_file="$chapter_dir/meta.json"
+                quality_file="$chapter_dir/quality_check.json"
+                
+                # 计算字数
+                if [[ -f "$content_file" ]]; then
+                    chapter_words=$(wc -w "$content_file" 2>/dev/null | cut -d' ' -f1 || echo "0")
+                    total_words=$((total_words + chapter_words))
+                    
+                    # 检查是否完成 (有内容且字数>100)
+                    if [[ "$chapter_words" -gt 100 ]]; then
+                        completed_chapters=$((completed_chapters + 1))
+                    fi
+                fi
+                
+                # 收集质量分数
+                if [[ -f "$quality_file" ]]; then
+                    score=$(jq -r '.overall_score // empty' "$quality_file" 2>/dev/null)
+                    if [[ -n "$score" && "$score" =~ ^[0-9]+$ ]]; then
+                        quality_scores+=("$score")
+                    fi
+                fi
+            fi
+        done < <(find "$projects_dir" -path "*/book_*/chapters/ch*" -type d -print0 2>/dev/null)
+    fi
+    
+    # 计算平均质量分数
+    avg_quality=0
+    if [[ ${#quality_scores[@]} -gt 0 ]]; then
+        sum=0
+        for score in "${quality_scores[@]}"; do
+            sum=$((sum + score))
+        done
+        avg_quality=$((sum / ${#quality_scores[@]}))
+    fi
+    
+    # 计算完成百分比
+    completion_percent=0
+    if [[ "$total_chapters" -gt 0 ]]; then
+        completion_percent=$(( (completed_chapters * 100) / total_chapters ))
+    fi
+    
+    # 生成统计数据JSON
+    cat > "$stats_file" << EOF
+{
+  "last_updated": "$current_time",
+  "update_trigger": "$update_type",
+  "project_stats": {
+    "total_words": $total_words,
+    "total_chapters": $total_chapters,
+    "completed_chapters": $completed_chapters,
+    "completion_percent": $completion_percent,
+    "average_quality_score": $avg_quality,
+    "quality_samples": ${#quality_scores[@]}
+  },
+  "writing_progress": {
+    "daily_word_goal": 2000,
+    "words_today": 0,
+    "streak_days": 0,
+    "last_writing_session": "$current_time"
+  },
+  "quality_metrics": {
+    "high_quality_chapters": 0,
+    "chapters_needing_revision": 0,
+    "avg_scenes_per_chapter": 0
+  }
+}
+EOF
+    
+    # 计算今日字数 (简化版)
+    today=$(date +%Y%m%d)
+    today_log="$PROJECT_ROOT/.claude/logs/daily_writing_$today.log"
+    
+    if [[ "$update_type" == "content" && -f "$unix_path" ]]; then
+        chapter_words=$(wc -w "$unix_path" 2>/dev/null | cut -d' ' -f1 || echo "0")
+        echo "$current_time: +$chapter_words words" >> "$today_log"
+    fi
+    
+    # 更新质量指标
+    if [[ ${#quality_scores[@]} -gt 0 ]]; then
+        high_quality=0
+        needs_revision=0
+        
+        for score in "${quality_scores[@]}"; do
+            if [[ "$score" -ge 95 ]]; then
+                high_quality=$((high_quality + 1))
+            elif [[ "$score" -lt 80 ]]; then
+                needs_revision=$((needs_revision + 1))
+            fi
+        done
+        
+        # 使用jq更新质量指标
+        jq --arg hq "$high_quality" \
+           --arg nr "$needs_revision" \
+           '.quality_metrics.high_quality_chapters = ($hq | tonumber) |
+            .quality_metrics.chapters_needing_revision = ($nr | tonumber)' \
+           "$stats_file" > "$stats_file.tmp" 2>/dev/null
+        
+        if [[ $? -eq 0 && -s "$stats_file.tmp" ]]; then
+            mv "$stats_file.tmp" "$stats_file"
+        else
+            rm -f "$stats_file.tmp" 2>/dev/null
+        fi
+    fi
+    
+    # 记录统计更新
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Stats updated by ${update_type}: ${total_words}w, ${completed_chapters}/${total_chapters} chapters, avg quality: ${avg_quality}" >> "$PROJECT_ROOT/.claude/logs/stats-updates.log"
+    
+    # 用户友好提示 - 根据更新类型显示不同信息
+    case "$update_type" in
+        "series_bible")
+            echo "📚 Series Bible updated - Project stats refreshed"
+            ;;
+        "outline") 
+            echo "📋 Book outline updated - Project structure refreshed"
+            ;;
+        "entities")
+            echo "🏷️ Entity dictionary updated - Project context refreshed"
+            ;;
+        *)
+            echo "📊 Project stats updated: $total_words words, $completed_chapters/$total_chapters chapters"
+            if [[ "$avg_quality" -gt 0 ]]; then
+                echo "🎯 Average quality: $avg_quality/100 (${#quality_scores[@]} samples)"
+            fi
+            ;;
+    esac
+    
+fi
+
+# 成功退出
+exit 0

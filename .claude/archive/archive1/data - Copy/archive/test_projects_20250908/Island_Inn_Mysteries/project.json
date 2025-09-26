@@ -1,0 +1,65 @@
+{
+  "name": "Island Inn Mysteries",
+  "type": "series",
+  "genre": "Cozy Mystery",
+  "status": "active_writing",
+  "bible_created": true,
+  "created": "2025-08-30T12:00:00Z",
+  "brainstorm_results": {
+    "project_type": "Series Novel",
+    "target_market": "Western market, primarily female readers 40+",
+    "genre_details": {
+      "primary": "Cozy Mystery",
+      "setting": "Canary Islands, Spain",
+      "tone": "Warm, safe escapist reading",
+      "cultural_focus": "Spanish island culture with British protagonist"
+    },
+    "protagonist_concept": {
+      "name": "Detective Inspector (Ret.) Sarah Mitchell",
+      "age": 55,
+      "background": "London Metropolitan Police CID",
+      "current_role": "Boutique inn owner on La Palma",
+      "key_traits": "Intuitive, observant, culturally sensitive"
+    },
+    "series_concept": {
+      "book_count": 7,
+      "structure": "One book per major Canary Island",
+      "case_source": "Real criminal cases adapted for fiction",
+      "unique_elements": "No supernatural, authentic culture, food-focused"
+    },
+    "market_research_findings": {
+      "target_demographics": "66%+ female readers, primarily 40+ age group",
+      "market_size": "$23.8 billion mystery book market, 5.3% CAGR",
+      "reader_preferences": "Safe reading, cultural learning, mature protagonists",
+      "series_appeal": "High loyalty rates, comfort reading demand"
+    }
+  },
+  "progress": {
+    "total_books_planned": 7,
+    "completed_books": 0,
+    "current_book": 1,
+    "total_chapters_planned": 140,
+    "completed_chapters": 11,
+    "total_words": 44471,
+    "target_words_per_book": 80000,
+    "current_book_progress": {
+      "book_1_chapters_completed": 11,
+      "book_1_words": 44471,
+      "book_1_target_words": 80000,
+      "book_1_percentage": 55.6
+    }
+  },
+  "production_timeline": {
+    "bible_completion": "2025-08-30",
+    "book_1_start_target": "2025-09-01",
+    "book_1_completion_target": "2025-11-30",
+    "series_completion_target": "2027-08-30"
+  },
+  "quality_targets": {
+    "cultural_authenticity_score": 95,
+    "mystery_satisfaction_score": 95,
+    "character_development_score": 95,
+    "prose_quality_score": 95,
+    "overall_quality_threshold": 95
+  }
+}

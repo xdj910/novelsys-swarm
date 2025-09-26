@@ -1,0 +1,202 @@
+{
+  "version": "6.2",
+  "architecture": {
+    "no_unicode": true,
+    "unicode_alternatives": {
+      "checkmark": "[x]",
+      "cross": "[ ]",
+      "arrow": "->",
+      "emoji": "text description"
+    },
+    "only_main_claude_has_task": true,
+    "coordinators_return_json_only": true,
+    "agents_execute_only": true,
+    "line_limits": {
+      "command": 100,
+      "coordinator": 250,
+      "agent": 500
+    },
+    "coordinator_tools": [
+      "all tools including Task"
+    ],
+    "coordinator_forbidden_tools": [
+      "Task"
+    ],
+    "agent_forbidden_tools": [
+      "Task"
+    ],
+    "coordinator_location": ".claude/agents/",
+    "command_location": ".claude/commands/",
+    "use_relative_paths_in_bash": true,
+    "no_backslash_in_bash": true,
+    "no_timestamp_placeholders": true,
+    "agents_must_have_io_docs": true,
+    "agents_should_have_thinking": true,
+    "coordinators_must_return_json": true
+  },
+  "execution": {
+    "valid_patterns": [
+      "parallel",
+      "serial",
+      "pipeline",
+      "multi_coordinator",
+      "human_in_loop",
+      "atomic"
+    ],
+    "pattern_descriptions": {
+      "parallel": "Execute multiple agents simultaneously",
+      "serial": "Execute agents one after another",
+      "pipeline": "Data flows through stages",
+      "multi_coordinator": "Multiple coordinators in phases",
+      "human_in_loop": "Human approval gates",
+      "atomic": "All-or-nothing execution",
+      "core_truth:_root_cause_of_recursion\n```yaml\nrecursion_crash_pattern:\n__wrong:_subagent(with_task)__>_task__>_another_subagent__>_task__>_crash\n__root_cause:_coordinators_are_subagents,_giving_them_task_causes_recursion\n__\ncorrect_architecture:\n__main_claude:_only_orchestrator_with_task_tool\n__coordinators:_no_task_tool,_only_return_execution_plans\n__agents:_no_task_tool,_only_execute_single_tasks\n__result:_recursion_impossible!\n```\n\n###_complete_five_layer_architecture\n```\nuser_input\n____|\ncommand_layer_(<100_lines,_pure_delegation)\n____|\nmain_claude_(only_orchestrator_with_task)\n____|_>_task__>_coordinator_(returns_plan,_no_task)\n____|_>_task__>_agents_(execute_tasks,_no_task)\n______________|\n================================\n____file_system_/_data_layer\n____(key_to_preventing_recursion:_file_communication,_not_function_calls)\n================================\n```\n\n###_why_file_system_layer_is_critical\n```python\n#_without_file_system_=_recursion_crash\nagent_a(task)__>_agent_b(task)__>_agent_c__>_crash\n\n#_with_file_system_=_recursion_impossible\nagent_a__>_write__>_file.json\n______________________|\nagent_b__>_read__>_file.json__>_write__>_result.json\n```\nfile_i/o_breaks_the_synchronous_call_chain!\n\n##_key_rules_to_prevent_recursion\n\n###_tool_configuration_rules\n```yaml\nmain_claude:\n__tools:_[all_tools_including_task]\n\ncoordinators:\n__tools:_[read,_write,_bash,_grep]__#_never_task!\n\nagents:\n__tools:_[only_task_specific,_never_task]\n```\n\n###_call_pattern": "- Correct: Main Claude -> Task -> Subagent\n- Wrong: Subagent -> Task -> Another Subagent (recursion!",
+      "coordinator_rules\n__only_return_json_execution_plans\n__never_execute_task_calls\n__never_attempt_to_call_other_agents\n__use_natural_language_to_describe_requirements,_not_task()_pseudocode\n\n###_windows_path_handling_rules_(critical)\n```yaml\nproblem:_backslashes_in_bash_commands_are_escape_characters\n\nwrong_(will_fail):\n__bash:_ls__la_\"d:\\novelsys_swarm\\.claude\\testing\\*.json\"\n__#_\\n,_\\._are_interpreted_as_escape_sequences\n\ncorrect_approaches:\n__1._relative_paths_(best):\n_____bash:_ls__la_.claude/testing/*.json\n\n__2._forward_slashes:\n_____bash:_ls__la_\"d:/novelsys_swarm/.claude/testing/*.json\"\n\n__3._double_backslashes_(less_readable):\n_____bash:_ls__la_\"d:\\\\novelsys_swarm\\\\.claude\\\\testing\\\\*.json\"\n\ngolden_rule:_always_use_relative_paths_when_possible\n```\n\n##_architecture_layers\n\n###_commands_layer_(user_interface)\n__**unicode**:_must_not_contain_any_unicode_characters\n__**length**:_<100_lines_target_(business_completeness_takes_priority)\n__**acceptable_range**:_50_120_lines_when_business_context_requires\n__**content**:_delegation_with_necessary_business_context\n__**pattern": "- **Example**: \"Use the chapter-start-coordinator subagent to orchestrate...\"\n- **Current status**: ",
+      "main_claude_layer_(central_orchestrator)\n__**tools**:_all_tools_including_task\n__**role**:_read_command,_decide_execution_strategy\n__**pattern": "- **Key**: Only entity that can call subagents",
+      "coordinators_layer_(planning)\n__**unicode**:_must_not_contain_any_unicode_characters\n__**location**:_must_be_in_`.claude/agents/`_folder_(claude_code_requirement)\n__**length**:_<250_lines_optimal\n__**tools**:_read,_write,_bash,_grep_(no_task!)\n__**role**:_analyze_requirements,_return_json_execution_plan\n__**output**:_mandatory_json_format_execution_plan\n__**key**:_are_subagents_(special_type),_cannot_call_other_subagents\n__**status**:_all_21_coordinators_correctly_return_json_plans_(verified_2025_09_13)\n\n###_agents_layer_(task_execution)\n__**unicode**:_must_not_contain_any_unicode_characters\n__**length**:_<500_lines_complex,_<200_lines_preferred\n__**tools**:_only_task_specific_(no_task!)\n____must_include_all_tools_needed_for_the_task\n____common_combinations:_read+write,_read+write+bash,_read+glob+grep\n____write_tool_automatically_creates_directories_(no_separate_mkdir_needed)\n__**role**:_execute_single_specific_task\n__**communication**:_only_through_file_system\n__**key**:_focus_on_execution,_not_coordination\n__**issues_found**:_most_agents_correct,_few_over_length\n\n###_data/file_system_layer_(communication_foundation)\n__**purpose**:_key_layer_preventing_recursion\n__**pattern": "- **Benefits**: Supports parallelism, debuggable, no recursion\n- **Principles**: Atomic operations, ",
+      "parallel_execution\n```python\nmain_claude:\n__task__>_agent_a\n__task__>_agent_b__#_execute_simultaneously\n__task__>_agent_c\n```\n\n###_serial_execution\n```python\nmain_claude:\n__task__>_agent_a__>_wait\n__task__>_agent_b__>_wait\n__task__>_agent_c\n```\n\n###_hybrid_mode\n```python\nmain_claude:\n__phase_1:_task__>_[a,_b,_c]_parallel\n__wait_for_all_to_complete\n__phase_2:_task__>_d_serial\n__phase_3:_task__>_[e,_f]_parallel\n```\n\n###_multi_coordinator_pattern": "```python\nMain Claude:\n  Phase 1: Task -> Coordinator A (returns plan)\n           Execute agents fro",
+      "sequential_pipeline_pattern": "```python\nMain Claude:\n  Stage 1: Task -> Generator Agent -> output1.json\n  Verify: Check output1.js",
+      "human_in_loop_pattern": "```python\nMain Claude:\n  Stage 1: Task -> Content Draft Agent -> draft.json\n           Display draft",
+      "coordinator_json_plan_best_practices_(lessons_learned)\n\nwhen_coordinators_return_json_execution_plans:\n\n1._**use_actual_values,_not_placeholders**:\n___```json\n___wrong:_\"path\":_\".claude/report/{timestamp}/output.json\"\n___right:_\"path\":_\".claude/report/20250114_153045/output.json\"\n___```\n\n2._**no_bash_tasks_in_plans**_(main_claude_cannot_execute):\n___```json\n___wrong:_{\"type\":_\"bash\",_\"command\":_\"mkdir__p_directory\"}\n___right:_let_agents_handle_directory_creation_with_write_tool\n___```\n\n3._**agent_task_structure**:\n___```json\n___{\n_____\"agent\":_\"system_scanner\",\n_____\"inputs\":_{\n_______\"output_path\":_\".claude/report/20250114_153045/scan.json\"\n_____}\n___}\n___```\n\n4._**coordinator_should_generate_timestamps**:\n___```python\n___#_in_coordinator_thinking/logic:\n___timestamp_=_datetime.now().strftime(\"%y%m%d_%h%m%s\")\n___#_use_this_actual_timestamp_in_all_paths\n___```\n\n###_advanced_i/o_pattern": "",
+      "atomic_write_pattern": "```python\n# Tested & Verified: Prevents corruption during concurrent writes\nAgent writes:\n  1. Write",
+      "producer_consumer_pattern": "```python\nMain Claude:\n  Task -> Producer Agent -> shared_queue.json (append mode)\n  Task -> Consume",
+      "shared_reference_pattern": "```python\nMain Claude:\n  Task -> Reference Creator -> reference.json\n  Task -> [Reader A, Reader B, ",
+      "version_control_pattern": "```python\nMain Claude:\n  Task -> Writer Agent -> data.v1.json\n  Task -> Updater Agent -> data.v2.jso",
+      "claude_4_series_(latest_and_recommended)\n```yaml\nclaude_opus_4.1:_claude_opus_4_1_20250805\n____use_for:_critical_quality_checks,_complex_analysis,_final_validations\n____best_for:_quality_scorer,_final_quality_validator,_critical_coordinators\n____cost:_highest,_use_sparingly_for_important_tasks\n\nclaude_sonnet_4:_claude_sonnet_4_20250514\n____use_for:_complex_coordinators,_advanced_agents,_general_heavy_lifting\n____best_for:_most_coordinators,_content_generators,_complex_workflows\n____cost:_moderate,_good_performance/cost_balance\n\nclaude_haiku_3.5:_claude_haiku_3_5_20241022\n____use_for:_simple_agents,_quick_operations,_status_checks\n____best_for:_file_operations,_simple_validators,_status_reporters\n____cost:_lowest,_fastest_response_times\n```\n\n###_model_selection_strategy\n```yaml\ndefault_strategy_(recommended):\n____commands:_no_model_specified_(use_system_default)\n____most_agents:_no_model_specified_(3.5_sonnet_sufficient)\n____simple_agents:_claude_haiku_3_5_20241022_(for_speed)\n____complex_coordinators:_claude_sonnet_4_20250514\n____critical_quality:_claude_opus_4_1_20250805\n\nnovelsys_swarm_priorities:\n__1._cost_efficiency:_most_operations_work_fine_with_defaults\n__2._performance:_use_haiku_for_speed_sensitive_tasks\n__3._quality:_use_opus_4.1_only_for_final_validations\n__4._balance:_sonnet_4_for_complex_planning_tasks\n```\n\n###_when_to_specify_models\n```yaml\nspecify_model_when:\n__yes___need_higher_capability_than_default_(complex_coordinators)\n__yes___need_faster_response_(simple_file_operations)\n__yes___need_highest_quality_(final_quality_checks)\n\ndon't_specify_when:\n__no___default_model_is_sufficient_for_the_task\n__no___unsure_which_model_to_use_(default_is_safe)\n__no___trying_to_optimize_without_measuring_need\n```\n\n##_i/o_and_prompt_documentation_standards\n\n###_agent_i/o_requirements\nall_agents_must_document:\n```yaml\ninput_requirements:\n____expected_prompt_format_from_main_claude\n____required_parameters_and_file_paths\n____optional_context_information\n\nfile_i/o_operations:\n____reads_from:_specific_files_with_purpose\n____writes_to:_output_files_and_formats\n____temporary_files:_.tmp_pattern_for_atomic_ops\n\noutput_format:\n____return_format_to_main_claude\n____success/error_indicators\n____created_file_paths\n```\n\n###_coordinator_planning_i/o\ncoordinators_must_document:\n```yaml\ninput_requirements:\n____orchestration_requests_from_main_claude\n____required_context_for_planning\n____configuration_dependencies\n\nplanning_i/o:\n____reads_from:_files_needed_for_planning_(read_only)\n____never_writes_files:_coordinators_only_return_plans\n\njson_plan_response:\n____returns_plan_directly_to_main_claude_(not_as_file)\n____structured_execution_plan_in_response_text\n____agent_specifications_with_tasks\n____path_templates_for_main_claude_to_resolve\n```\n\n###_command_i/o_context\ncommands_should_document:\n```yaml\nhigh_level_i/o:\n____overall_operation_file_flow\n____user_visible_input/output\n____delegation_chain_effects\n```\n\n##_project_status_(2025_01_14_v6.3)\n\n__**architecture_understanding**:_100%_(fully_correct)\n__**recursion_prevention**:_complete_mechanism_implemented_(0_agents_with_task_tool)\n__**documentation_accuracy**:_all_errors_corrected\n__**i/o_standardization**:_complete_i/o_and_prompt_documentation_framework\n__**system_components**:_24_commands,_21_coordinators,_80_agents_(101_total_in_agents_folder)\n__**templates_complete**:_all_templates_updated_with_i/o_and_prompt_standards_(v6.1)\n____template_command.md___business_context_+_flexible_line_limits\n____template_coordinator.md___json_planning_+_i/o_documentation\n____template_agent.md___single_responsibility_+_comprehensive_i/o_specs\n__**support_docs_updated**:_claude.md,_claude_code_expert.md_with_2024_2025_standards\n__**execution_patterns_tested**:_all_6_critical_patterns_verified_and_working\n____architecture_compliance_test_✅\n____parallel_execution_test_✅\n____advanced_i/o_patterns_test_✅\n____python_pipeline_test_✅\n____multi_coordinator_test_✅\n____human_in_loop_test_✅\n__**windows_compatibility**:_100%_(path_handling_fixed_and_documented)\n__**system_stability**:_100%_recursion_safe,_production_ready\n__**system_check**:_refactored_v2.0_with_comprehensive_python_script_backend\n____fixed_timestamp_placeholder_issues\n____fixed_agent_tool_configurations\n____added_system_check.py_for_deep_scanning\n\n##_path_format_standardization_rules\n\n###_file_path_documentation_standards\nto_maintain_consistency_and_clarity_in_data_i/o_documentation:\n\n####_1._real_file_paths\n```yaml\ncorrect_formats:\n____static_path:_`path/to/file.md`\n____dynamic_path:_`{project}/book_{n}/chapter.md`\n____absolute_path:_`/absolute/path/to/file.yaml`\n____relative_path:_`../relative/path/file.json`\n\nincorrect_formats:\n____double_backtick:_`path/to/file.md``_(wrong)\n____no_backticks:_path/to/file.md_(wrong)\n____mixed_quotes:_\"path/to/file.md\"_(wrong)\n```\n\n####_2._inferred/pattern": "```yaml\nFormat: [Description: pattern]\nExamples:\n  - [Bible files: series_bible.yaml, book_*/bible.y",
+      "3._status_messages\n```yaml\ndo_not_mix_with_file_paths:\n__wrong:_\"file_saved_successfully_to_output.md\"\n__wrong:_\"critical:_multiple_writers_detected\"\n\nkeep_separate_in_documentation:\n__correct:_writes_to:_`output.md`\n__correct:_status:_file_saved_successfully\n```\n\n####_4._path_variables\n```yaml\nstandard_variables:\n__{project}___project_name\n__{n}_or_{book}___book_number\n__{nnn}_or_{chapter}___chapter_number_(padded)\n__{timestamp}___iso_timestamp\n__*___wildcard_for_multiple_items\n```\n\n##_naming_conventions_and_key_consistency\n\n###_dictionary/json_key_naming_rules\nwhen_converting_pattern_names_or_identifiers_to_dictionary_keys:\n\n```python\n#_correct:_consistent_conversion\npattern_name_=_\"producer_consumer\"\nkey_=_pattern_name.lower().replace('_',_'_').replace('_',_'_')\n#_result:_\"producer_consumer\"\n\n#_wrong:_inconsistent_conversion\nkey1_=_pattern_name.lower().replace('_',_'_')__#_\"producer_consumer\"\nkey2_=_pattern_name.lower().replace('_',_'_')__#_\"producer_consumer\"\n#_mismatch_causes_keyerror!\n```\n\n###_standard_naming_conventions\n```yaml\ncomponent_names:\n____agents:_lowercase_hyphen_format_(e.g.,_quality_scorer)\n____coordinators:_lowercase_hyphen_coordinator_(e.g.,_chapter_start_coordinator)\n____commands:_lowercase_hyphen_(e.g.,_architecture_test)\n\ndictionary_keys:\n____convert_to:_lowercase_underscore_format\n____replace_both_spaces_and_hyphens_with_underscores\n____be_consistent_across_entire_codebase\n\nfile_names:\n____use_underscores_for_python_files:_io_pattern_test.py\n____use_hyphens_for_markdown_files:_architecture_test.md\n____be_consistent_within_each_file_type\n```\n\n###_key_conversion_pattern": "Always use this pattern for consistent key conversion:\n```python\ndef to_dict_key(name):\n    \"\"\"Conve",
+      "successfully_tested_&_verified_pattern": "All critical execution patterns have been tested and verified:\n\n1. **Architecture Test** (`/architec",
+      "system_maintenance_notes\n__**commands**:_some_exceed_100_line_target_(up_to_224_lines)_but_remain_functional_with_necessary_business_logic\n__**coordinators**:_all_21_correctly_return_json_plans_without_task_tool_(verified)\n__**agents**:_most_follow_single_responsibility_pattern,_few_exceed_length_guidelines_but_functional\n__**documentation**:_all_path_formats_standardized,_windows_compatibility_documented\n\n###_system_validation_summary\n__**recursion_safety**:_100%_verified\n__**windows_compatibility**:_100%_verified_(path_handling_fixed)\n__**execution_pattern": "- **Architecture Compliance**: 100% verified\n- **Production Ready**: YES\n\n---\n\n## See Also - Documen",
+      "navigation_&_overview\n__**[system_index.md](system_index.md)**___master_documentation_index_and_navigation_guide\n__**[.claude/templates/readme.md](.claude/templates/readme.md)**___template_system_overview\n\n###_quick_references\n__**[.claude/templates/quick_reference.md](.claude/templates/quick_reference.md)**___rapid_lookup_for_rules_and_patterns\n__**[.claude/agents/claude_code_expert.md](.claude/agents/claude_code_expert.md)**___live_expert_for_troubleshooting\n\n###_implementation_templates\n__**[template_command.md](.claude/templates/template_command.md)**___create_new_commands\n__**[template_coordinator.md](.claude/templates/template_coordinator.md)**___create_new_coordinators\n__**[template_agent.md](.claude/templates/template_agent.md)**___create_new_agents\n\n###_deep_architecture_understanding\n__**[architecture_data_layer.md](.claude/templates/architecture_data_layer.md)**___why_file_system_prevents_recursion\n__**[architecture_gold_standard.md](.claude/templates/architecture_gold_standard.md)**___universal_system_design_patterns_from_6_proven_tests\n\n###_application_pattern": "- **[NOVEL_SYSTEM_PATTERNS.md](.claude/NOVEL_SYSTEM_PATTERNS.md)** - Novel-specific implementation p"
+    }
+  },
+  "division": {
+    "main_claude_role": "Orchestrator with Task tool",
+    "coordinator_role": "Planner that returns JSON execution plans",
+    "agent_role": "Executor of single specific tasks",
+    "coordinator_responsibilities": [
+      "Analyze requirements",
+      "Return JSON execution plan",
+      "Never execute Task calls",
+      "Never call other agents",
+      "Use natural language in plans"
+    ],
+    "agent_responsibilities": [
+      "Execute single specific task",
+      "Communicate through file system",
+      "Focus on execution not coordination",
+      "Have all required tools for task"
+    ]
+  },
+  "common_violations": [
+    {
+      "type": "unicode_character",
+      "severity": "major",
+      "fix": "Remove all Unicode, use ASCII only"
+    },
+    {
+      "type": "task_tool_in_subagent",
+      "severity": "critical",
+      "fix": "Remove Task tool from coordinator/agent"
+    },
+    {
+      "type": "excessive_lines",
+      "severity": "major",
+      "fix": "Refactor to reduce lines"
+    },
+    {
+      "type": "coordinator_writes_files",
+      "severity": "major",
+      "fix": "Coordinator should return JSON plan only"
+    },
+    {
+      "type": "agent_missing_tools",
+      "severity": "critical",
+      "fix": "Add required tools to agent"
+    },
+    {
+      "type": "wrong_location",
+      "severity": "major",
+      "fix": "Move to correct directory"
+    },
+    {
+      "type": "windows_path_in_bash",
+      "severity": "major",
+      "fix": "Use relative paths or forward slashes"
+    },
+    {
+      "type": "missing_io_documentation",
+      "severity": "minor",
+      "fix": "Add Input Requirements section"
+    },
+    {
+      "type": "timestamp_placeholder",
+      "severity": "major",
+      "fix": "Generate actual timestamp"
+    },
+    {
+      "type": "circular_dependency",
+      "severity": "critical",
+      "fix": "Break dependency cycle"
+    },
+    {
+      "type": "orphan_component",
+      "severity": "minor",
+      "fix": "Remove or integrate unused component"
+    },
+    {
+      "type": "unicode_in_any_component",
+      "consequence": "Windows encoding errors",
+      "fix": "Remove all Unicode, use ASCII only"
+    },
+    {
+      "type": "coordinator_has_task_tool",
+      "consequence": "Recursion crash",
+      "fix": "Remove Task, keep only Read/Write/Bash/Grep"
+    },
+    {
+      "type": "coordinator_empty_tools_config",
+      "consequence": "May inherit Task",
+      "fix": "Explicitly declare tools: Read, Write, Bash, Grep"
+    },
+    {
+      "type": "command_over_120_lines",
+      "consequence": "May lack focus",
+      "fix": "Balance delegation vs necessary context"
+    },
+    {
+      "type": "agent_hardcoded_paths",
+      "consequence": "Inflexible",
+      "fix": "Receive paths from Main Claude"
+    },
+    {
+      "type": "direct_file_write",
+      "consequence": "Corruption risk",
+      "fix": "Write .tmp first, then atomic rename"
+    },
+    {
+      "type": "coordinator_attempts_execution",
+      "consequence": "Recursion risk",
+      "fix": "Only return plan, don't execute"
+    },
+    {
+      "type": "command_loses_business_context",
+      "consequence": "Main Claude confusion",
+      "fix": "Preserve critical workflow steps"
+    },
+    {
+      "type": "coordinator_uses_placeholders",
+      "consequence": "Paths not resolved",
+      "fix": "Replace {timestamp} with actual values in JSON"
+    },
+    {
+      "type": "agent_missing_required_tools",
+      "consequence": "Cannot complete task",
+      "fix": "Ensure agents have all needed tools (Read, Write, Bash, etc.)"
+    },
+    {
+      "type": "coordinator_includes_bash_tasks",
+      "consequence": "Main Claude cannot execute",
+      "fix": "Remove bash tasks from coordinator plans"
+    }
+  ]
+}

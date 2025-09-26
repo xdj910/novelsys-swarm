@@ -1,0 +1,45 @@
+{
+  "ai_realist": {
+    "articles_published": 0,
+    "articles_drafted": 0,
+    "total_words_written": 0,
+    "total_words_published": 0,
+    "average_production_time_hours": null,
+    "images_generated": 0,
+    "image_generation_cost": 0.0,
+    "best_performing": null,
+    "platforms": {
+      "medium": {
+        "published": 0,
+        "scheduled": 0
+      },
+      "vocal": {
+        "published": 0,
+        "scheduled": 0
+      },
+      "substack": {
+        "published": 0,
+        "scheduled": 0
+      }
+    },
+    "content_distribution": {
+      "warning": 0,
+      "analysis": 0,
+      "solution": 0
+    },
+    "production_metrics": {
+      "fastest_article_hours": null,
+      "slowest_article_hours": null,
+      "average_revisions": 0
+    }
+  },
+  "global": {
+    "total_articles": 0,
+    "total_words": 0,
+    "active_days": 0,
+    "average_daily_output": 0,
+    "total_image_cost": 0.0,
+    "production_started": "2025-01-18",
+    "last_production": null
+  }
+}

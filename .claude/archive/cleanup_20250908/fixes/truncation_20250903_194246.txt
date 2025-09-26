@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/transition-continuity-reviewer.md
+Time: 2025-09-03 19:42:46
+Last 100 characters:
+view
+- If score borderline (88-89): Flag for human decision
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

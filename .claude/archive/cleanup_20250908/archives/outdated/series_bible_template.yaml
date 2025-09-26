@@ -1,0 +1,221 @@
+# Series Bible Template - NOVELSYS
+# This is the single source of truth for all generation
+
+series_metadata:
+  name: "[Series Name]"
+  author_pseudonym: "[Author Name]"
+  genre: "cozy_mystery"
+  sub_genre: "[Sub-genre]"
+  target_audience: "[Age range and demographics]"
+  series_length: 12  # Number of planned books
+  book_length: 80000  # Words per book
+  chapter_length: 7000  # Words per chapter
+  version: "1.0.0"
+  created_date: "YYYY-MM-DD"
+  last_updated: "YYYY-MM-DD"
+
+universe:
+  setting:
+    name: "[Location Name]"
+    type: "[City/Town/Village]"
+    country: "[Country]"
+    population: 0
+    founded: "[Year or Era]"
+    atmosphere: "[Overall feeling]"
+    
+  key_locations:
+    location_1:
+      name: "[Place Name]"
+      description: "[Detailed description]"
+      significance: "[Why it matters to the story]"
+      regular_visitors: []
+      secrets: []
+      
+  climate:
+    general: "[Climate type]"
+    seasons: []
+    special_weather: []
+    
+  culture:
+    traditions: []
+    festivals: []
+    local_cuisine: []
+    social_structure: ""
+    
+voice_profile:
+  narrative:
+    pov: "third_person_limited"  # or first_person, third_person_omniscient
+    tense: "past"  # or present
+    tone: "[Overall tone]"
+    style: "[Writing style description]"
+    
+  sentence_patterns:
+    rhythm: "[e.g., 3 short + 1 long]"
+    average_length: "[short/medium/long]"
+    paragraph_length: "[sentences per paragraph]"
+    
+  vocabulary:
+    level: "[simple/moderate/complex]"
+    special_terms: []
+    avoid_words: []
+    preferred_words: []
+    
+  stylistic_elements:
+    metaphor_style: "[Type of metaphors used]"
+    description_density: "[light/moderate/rich]"
+    dialogue_style: "[formal/casual/mixed]"
+    humor_level: "[none/subtle/moderate/frequent]"
+    
+  emotional_markers:
+    tension_techniques: []
+    comfort_techniques: []
+    suspense_techniques: []
+
+characters:
+  protagonist:
+    # Basic Information
+    full_name: "[Full Name]"
+    age: 0
+    gender: "[Gender]"
+    occupation: "[Job]"
+    
+    # Physical Description
+    appearance:
+      height: ""
+      build: ""
+      hair: ""
+      eyes: ""
+      distinguishing_features: []
+      style: ""
+      
+    # Psychology (from character-psychologist)
+    personality:
+      mbti: ""
+      enneagram: ""
+      core_traits: []
+      contradictions: []
+      
+    psychology:
+      core_wound: "[Fundamental trauma]"
+      false_belief: "[What they wrongly believe]"
+      true_need: "[What they actually need]"
+      defense_mechanisms: []
+      attachment_style: ""
+      
+    # Character Arc
+    arc:
+      book_1_3:
+        stage: "[Arc stage name]"
+        internal_conflict: ""
+        external_goal: ""
+        
+    # Relationships
+    relationships:
+      family: []
+      friends: []
+      romantic: []
+      rivals: []
+      
+    # Voice
+    speech_patterns:
+      vocabulary_level: ""
+      common_phrases: []
+      verbal_tics: []
+      speech_rhythm: ""
+      
+  supporting_cast:
+    character_1:
+      name: ""
+      role: ""
+      relationship_to_protagonist: ""
+      personality_summary: ""
+      secret: ""
+      arc: ""
+
+mystery_structure:
+  series_mystery:
+    central_question: "[The big mystery spanning all books]"
+    answer: "[The ultimate truth - KEEP SECRET]"
+    revelation_schedule:
+      book_1: "[What's revealed]"
+      book_3: "[What's revealed]"
+      book_6: "[What's revealed]"
+      book_9: "[What's revealed]"
+      book_12: "[Final revelation]"
+      
+  recurring_elements:
+    mystery_types: []
+    clue_types: []
+    red_herring_patterns: []
+    solution_patterns: []
+    
+  book_specific:
+    book_1:
+      title: "[Book Title]"
+      victim: ""
+      crime: ""
+      setting: ""
+      suspects: []
+      red_herrings: []
+      true_solution: ""
+      clue_timeline:
+        chapter_1: ""
+        chapter_3: ""
+        chapter_7: ""
+        chapter_10: ""
+        chapter_12: ""
+
+quality_standards:
+  content_requirements:
+    min_chapter_words: 6500
+    max_chapter_words: 7500
+    scenes_per_chapter: 3
+    clues_per_chapter: 1
+    character_moments_per_chapter: 2
+    
+  consistency_rules:
+    - "All character details must match Bible"
+    - "Timeline must be internally consistent"
+    - "Location descriptions must remain constant"
+    - "Mystery clues must be fairly presented"
+    - "Character growth must be gradual"
+    
+  forbidden_elements:
+    - "Graphic violence"
+    - "Explicit content"
+    - "Deus ex machina solutions"
+    - "Out-of-character behavior"
+    - "Anachronisms"
+    
+  quality_minimums:
+    character_depth: 90
+    plot_coherence: 90
+    writing_quality: 90
+    emotional_impact: 85
+    consistency: 95
+    overall: 90
+
+generation_rules:
+  chapter_structure:
+    opening: "[How chapters should start]"
+    development: "[How to develop the chapter]"
+    climax: "[How to build to climax]"
+    closing: "[How to end with a hook]"
+    
+  pacing:
+    action_reflection_ratio: "40:60"
+    dialogue_narrative_ratio: "35:65"
+    scene_summary_ratio: "80:20"
+    
+  information_release:
+    reader_knowledge: "[What reader should know]"
+    character_knowledge: "[What characters know]"
+    hidden_information: "[What to keep secret]"
+
+# DO NOT EDIT BELOW THIS LINE - SYSTEM USE ONLY
+system:
+  bible_version: "1.0.0"
+  last_validated: "YYYY-MM-DD"
+  validation_score: 0
+  completeness: 0
+  hash: ""

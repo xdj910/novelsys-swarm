@@ -1,0 +1,81 @@
+{
+  "content_types": {
+    "blog_posts": {
+      "name": "Blog Posts",
+      "description": "Quick thoughts, tips, and updates",
+      "status": "active",
+      "word_range": [500, 3000],
+      "typical_time": "1-2 days",
+      "path": "blog_posts/",
+      "structure": {
+        "strategy": true,
+        "content_folder": "posts"
+      }
+    },
+    "articles": {
+      "name": "Articles",
+      "description": "In-depth analysis and tutorials",
+      "status": "active",
+      "word_range": [2000, 10000],
+      "typical_time": "3-7 days",
+      "path": "articles/",
+      "structure": {
+        "strategy": true,
+        "content_folder": "articles"
+      },
+      "registered_series": {
+        "ai_realist": {
+          "name": "AI Realist",
+          "description": "2000-word B2B skeptical AI analysis",
+          "status": "active",
+          "config": {
+            "word_count": 2000,
+            "platforms": ["Medium", "Vocal", "Substack"],
+            "target_audience": "B2B decision makers"
+          },
+          "strategy_path": "articles/ai_realist/strategy/",
+          "workflow_path": "articles/ai_realist/README.md"
+        }
+      }
+    },
+    "short_stories": {
+      "name": "Short Stories",
+      "description": "Complete narrative fiction",
+      "status": "active",
+      "word_range": [5000, 20000],
+      "typical_time": "1-2 weeks",
+      "path": "short_stories/",
+      "structure": {
+        "strategy": "concept",
+        "content_folder": "drafts"
+      }
+    },
+    "novels": {
+      "name": "Novels",
+      "description": "Full-length books",
+      "status": "active",
+      "word_range": [50000, 120000],
+      "typical_time": "3-12 months",
+      "path": "novels/",
+      "structure": {
+        "strategy": "bible",
+        "content_folder": "chapters"
+      }
+    },
+    "series": {
+      "name": "Series",
+      "description": "Multi-book connected stories",
+      "status": "active",
+      "word_range": [150000, 1000000],
+      "typical_time": "1-5 years",
+      "path": "series/",
+      "structure": {
+        "strategy": "series_bible",
+        "content_folder": "books"
+      }
+    }
+  },
+  "total_types": 5,
+  "last_updated": "2025-01-18T10:30:00Z",
+  "version": "2.0"
+}

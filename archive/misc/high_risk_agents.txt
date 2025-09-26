@@ -1,0 +1,12 @@
+bible-architect.md
+book-outline-architect.md
+flow-diagram-generator.md
+entity-dictionary-creator.md
+series-bible-architect.md
+clue-planter.md
+humor-injection-specialist.md
+foreshadowing-specialist.md
+prose-craft-specialist.md
+emotion-specialist.md
+continuity-guard-specialist.md
+humanization-specialist.md

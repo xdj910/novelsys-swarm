@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/dependency-mapper.md
+Time: 2025-09-03 21:40:07
+Last 100 characters:
+picious patterns
+- Report both positive findings and issues
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

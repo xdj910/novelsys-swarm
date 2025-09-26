@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/hook-analyzer.md
+Time: 2025-09-04 11:29:05
+Last 100 characters:
+hains can cascade failures
+- Security in hooks is paramount
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

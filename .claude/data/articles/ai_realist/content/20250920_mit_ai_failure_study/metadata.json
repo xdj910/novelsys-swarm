@@ -1,0 +1,27 @@
+{
+  "id": "20250920_mit_ai_failure_study",
+  "type": "ai_realist",
+  "subtype": "analysis",
+  "title": "MIT说95%的AI项目失败了，我的5人小团队该怎么办？",
+  "topic": "Small team AI strategy in the face of enterprise failure statistics",
+  "slug": "mit_ai_failure_study",
+  "status": "initialized",
+  "phase": "ready_for_creation",
+  "created": "2025-09-20T14:30:00Z",
+  "target_word_count": 2000,
+  "brand": "Truthbit",
+  "platforms": ["Medium", "Substack", "Beehiiv", "ElevenReader"],
+  "key_data_points": [
+    "MIT NANDA report: 95% failure rate",
+    "$30-40B investment waste",
+    "Shadow AI economy: 90% employees use personal tools",
+    "Salesforce: 75% SMBs investing in AI",
+    "Success patterns: 67% vendor vs 33% internal build"
+  ],
+  "research_status": {
+    "trends": "pending",
+    "audience": "pending",
+    "competitors": "pending",
+    "topic": "pending"
+  }
+}

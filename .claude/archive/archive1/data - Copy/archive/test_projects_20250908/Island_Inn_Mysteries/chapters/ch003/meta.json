@@ -1,0 +1,31 @@
+{
+  "chapter_number": 3,
+  "title": "Following the Trail",
+  "word_count_target": 4000,
+  "setting": "Caldera de Taburiente trailhead",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-08-30T17:00:00Z",
+  "continuity_from_ch2": {
+    "time_progression": "Next morning after cave discovery",
+    "sarah_status": "Determined to continue investigation despite physical challenges",
+    "carmen_relationship": "Growing trust and partnership",
+    "investigation_status": "Cave with scientific equipment discovered, Elena still missing",
+    "inspector_vega": "Now taking case seriously, forensics team being assembled"
+  },
+  "key_objectives": [
+    "Sarah visits Caldera de Taburiente despite physical challenges",
+    "Meet park ranger who knows Elena's usual route",
+    "Discovery of Elena's walking stick 2km off normal route",
+    "Carmen shares personal story about grandmother",
+    "First real bonding moment between Sarah and Carmen"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 85,
+    "character_development_score": 90,
+    "plot_advancement_score": 90,
+    "cultural_authenticity_score": 95,
+    "mystery_development_score": 90,
+    "overall_target": 95
+  }
+}

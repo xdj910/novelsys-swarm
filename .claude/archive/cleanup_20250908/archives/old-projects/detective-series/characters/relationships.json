@@ -1,0 +1,10 @@
+{
+  "relationships": [],
+  "relationship_types": [
+    "family",
+    "friend",
+    "rival",
+    "romantic",
+    "professional"
+  ]
+}

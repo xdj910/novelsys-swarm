@@ -1,0 +1,32 @@
+{
+  "chapter_number": 4,
+  "title": "Family Secrets",
+  "word_count_target": 4000,
+  "setting": "Casa Vista Verde inn evening, family dinner at Herrera home",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-08-30T17:30:00Z",
+  "continuity_from_ch3": {
+    "time_progression": "Same evening after mountain trail investigation",
+    "sarah_status": "Exhausted but determined, feet injured from hike",
+    "carmen_relationship": "Trust deepened, genuine friendship forming",
+    "investigation_status": "Klaus Weber identified as biopirate, Elena confronted him",
+    "inspector_vega": "Organizing full search of restricted areas",
+    "physical_state": "Sarah with blisters and exhaustion from mountain hike"
+  },
+  "key_objectives": [
+    "Sarah delivers dinner to Herrera family, overhears heated discussion",
+    "Introduction of David Herrera from Tenerife as controlling figure",
+    "Revelation of Miguel's gambling debts through Maria",
+    "Mystery of 'the old contract' mentioned in argument",
+    "Sarah's detective instincts focus on family dynamics"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 90,
+    "character_development_score": 92,
+    "plot_advancement_score": 91,
+    "cultural_authenticity_score": 95,
+    "mystery_development_score": 93,
+    "overall_target": 95
+  }
+}

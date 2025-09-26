@@ -1,0 +1,421 @@
+metadata:
+  version: "2.0"
+  project: "TestMystery"
+  created: "2025-09-03T00:00:00Z"
+  last_updated: "2025-09-03T00:00:00Z"
+  learning_threshold: 95
+  chapters_learned_from: []
+
+configuration:
+  characters:
+    allow_informal_references: true
+    strict_on_critical_facts: true
+  locations:
+    allow_variations: true
+    strict_on_facts: true
+  objects:
+    allow_functional_descriptions: true
+  organizations:
+    allow_variations: true
+    strict_on_facts: true
+
+entities:
+  characters:
+    detective_liu:
+      canonical: "刘明轩"
+      source: "bible"
+      bible_reference: "characters.protagonists.detective_liu"
+      critical_facts:
+        age: 42
+        profession: "退休刑警"
+        role: "返乡调查"
+        physical_description: "中等身材，深邃的眼神，略显疲惫但敏锐"
+        backstory: "十年前因办案失误离开雾海镇，心中一直有愧疚"
+      variations:
+        confirmed:
+          formal: ["刘明轩", "刘警官"]
+          informal: ["老刘", "明轩"]
+        forbidden: []
+        pending_review: []
+    
+    hidden_killer:
+      canonical: "陈海涛"
+      source: "bible"
+      bible_reference: "characters.antagonists.hidden_killer"
+      critical_facts:
+        age: 48
+        profession: "渔业公司老板"
+        role: "陈家长子"
+        physical_description: "高大威猛，表面和善，眼中偶有冷光"
+        family_relation: "陈雨菲的表哥"
+        crime: "十年前杀害表妹陈雨菲"
+      variations:
+        confirmed:
+          formal: ["陈海涛", "陈老板", "陈家长子"]
+          informal: ["海涛", "涛哥"]
+        forbidden: []
+        pending_review: []
+    
+    witness_wang:
+      canonical: "王小美"
+      source: "bible"
+      bible_reference: "characters.supporting_characters.witness_wang"
+      critical_facts:
+        age: 35
+        profession: "小店老板娘"
+        role: "关键证人"
+        physical_description: "中等身材，眼神总是显得惊恐不安，说话时手会微颤"
+        significance: "十年前目击了部分真相，但因恐惧一直沉默"
+      variations:
+        confirmed:
+          formal: ["王小美", "王老板娘"]
+          informal: ["小美", "小美姐"]
+        forbidden: []
+        pending_review: []
+    
+    victim_parents_father:
+      canonical: "陈父"
+      source: "bible"
+      bible_reference: "characters.supporting_characters.victim_parents"
+      critical_facts:
+        age: 54
+        role: "受害者父亲"
+        physical_description: "头发花白，背略驼"
+        relationship: "陈雨菲的父亲"
+      variations:
+        confirmed:
+          formal: ["陈父", "陈雨菲父亲"]
+          informal: []
+        forbidden: []
+        pending_review: []
+    
+    victim_parents_mother:
+      canonical: "陈母"
+      source: "bible"
+      bible_reference: "characters.supporting_characters.victim_parents"
+      critical_facts:
+        age: 52
+        role: "受害者母亲"
+        physical_description: "眼睛红肿，十年来从未完全恢复"
+        relationship: "陈雨菲的母亲"
+      variations:
+        confirmed:
+          formal: ["陈母", "陈雨菲母亲"]
+          informal: []
+        forbidden: []
+        pending_review: []
+    
+    police_zhang:
+      canonical: "张建国"
+      source: "bible"
+      bible_reference: "characters.supporting_characters.police_zhang"
+      critical_facts:
+        age: 45
+        profession: "镇派出所所长"
+        role: "十年前参与调查"
+        significance: "代表官方立场，在程序与人情间纠结"
+      variations:
+        confirmed:
+          formal: ["张建国", "张所长", "张警官"]
+          informal: ["建国", "老张"]
+        forbidden: []
+        pending_review: []
+    
+    victim:
+      canonical: "陈雨菲"
+      source: "bible"
+      bible_reference: "mystery_structure.crime_details.victim"
+      critical_facts:
+        age_at_death: 22
+        profession: "大学财务专业刚毕业"
+        death_date: "十年前的10月15日晚上11点30分"
+        death_location: "废弃灯塔附近的悬崖边"
+        death_cause: "被表哥陈海涛推下悬崖谋杀"
+        family_relation: "陈海涛的表妹"
+      variations:
+        confirmed:
+          formal: ["陈雨菲"]
+          informal: ["雨菲", "菲菲"]
+        forbidden: []
+        pending_review: []
+    
+    suspect_wang:
+      canonical: "王德财"
+      source: "bible"
+      bible_reference: "mystery_structure.suspects_matrix"
+      critical_facts:
+        profession: "渔民"
+        role: "嫌疑人"
+        motive: "生意竞争，受害者父亲欠他钱，家族恩怨"
+      variations:
+        confirmed:
+          formal: ["王德财"]
+          informal: ["德财", "老王"]
+        forbidden: []
+        pending_review: []
+    
+    suspect_li:
+      canonical: "李医生"
+      source: "bible"
+      bible_reference: "mystery_structure.suspects_matrix"
+      critical_facts:
+        profession: "医生"
+        role: "嫌疑人"
+        motive: "受害者可能知道他的医疗事故隐瞒秘密"
+      variations:
+        confirmed:
+          formal: ["李医生"]
+          informal: []
+        forbidden: []
+        pending_review: []
+
+  locations:
+    primary_setting:
+      canonical: "雾海镇"
+      source: "bible"
+      bible_reference: "universe.primary_setting"
+      critical_facts:
+        type: "偏远海岛小镇"
+        population: 1200
+        isolation_level: "与世隔绝"
+        geography: "被海雾环绕的小岛，只有一个码头与外界相连"
+        atmosphere: "神秘、压抑、紧张"
+      variations:
+        confirmed:
+          formal: ["雾海镇"]
+          informal: ["小镇", "镇上", "这个镇子"]
+        forbidden: []
+        pending_review: []
+    
+    town_center:
+      canonical: "小镇中心广场"
+      source: "bible"
+      bible_reference: "universe.locations.town_center"
+      critical_facts:
+        description: "小镇中心广场，有古老的灯塔钟楼"
+        significance: "十年前案发现场附近"
+        atmosphere: "白天热闹，夜晚诡异"
+      variations:
+        confirmed:
+          formal: ["小镇中心广场", "镇中心"]
+          informal: ["广场", "中心", "钟楼广场"]
+        forbidden: []
+        pending_review: []
+    
+    lighthouse:
+      canonical: "废弃灯塔"
+      source: "bible"
+      bible_reference: "universe.locations.lighthouse"
+      critical_facts:
+        description: "百年历史的灯塔，已废弃多年"
+        significance: "关键线索发现地"
+        atmosphere: "阴森恐怖，充满回忆"
+        crime_location: "陈雨菲被害地点附近"
+      variations:
+        confirmed:
+          formal: ["废弃灯塔", "灯塔"]
+          informal: ["老灯塔", "那座灯塔"]
+        forbidden: []
+        pending_review: []
+    
+    chen_family_mansion:
+      canonical: "陈家祖宅"
+      source: "bible"
+      bible_reference: "universe.locations.chen_family_mansion"
+      critical_facts:
+        description: "镇上最豪华的宅邸，陈家祖宅"
+        significance: "受害者曾居住的地方"
+        atmosphere: "富丽堂皇却暗藏秘密"
+      variations:
+        confirmed:
+          formal: ["陈家祖宅", "陈家大宅"]
+          informal: ["陈家", "大宅", "老宅"]
+        forbidden: []
+        pending_review: []
+    
+    fishing_dock:
+      canonical: "渔港码头"
+      source: "bible"
+      bible_reference: "universe.locations.fishing_dock"
+      critical_facts:
+        description: "镇上唯一的对外交通枢纽"
+        significance: "证人目击关键事件地点"
+        atmosphere: "咸腥海风，来往匆忙"
+      variations:
+        confirmed:
+          formal: ["渔港码头", "码头"]
+          informal: ["港口", "渔港", "渡口"]
+        forbidden: []
+        pending_review: []
+    
+    old_church:
+      canonical: "废弃教堂"
+      source: "bible"
+      bible_reference: "universe.locations.old_church"
+      critical_facts:
+        description: "废弃的教堂，十年前就无人使用"
+        significance: "最终真相揭露地"
+        atmosphere: "神圣却荒凉"
+      variations:
+        confirmed:
+          formal: ["废弃教堂", "教堂"]
+          informal: ["老教堂", "那座教堂"]
+        forbidden: []
+        pending_review: []
+
+  objects:
+    key_evidence_fibers:
+      canonical: "深蓝色纤维"
+      source: "bible"
+      bible_reference: "mystery_structure.clues_progression.real_clues.chapter_4"
+      significance: "来自陈海涛常穿的羊毛外套，在灯塔发现"
+      discovery_chapter: 4
+      variations:
+        confirmed:
+          formal: ["深蓝色纤维", "纤维证据"]
+          informal: ["纤维", "布料纤维"]
+        forbidden: []
+        pending_review: []
+    
+    key_evidence_dna:
+      canonical: "死者指甲中的皮肤组织"
+      source: "bible"
+      bible_reference: "mystery_structure.clues_progression.real_clues.chapter_8"
+      significance: "DNA可以匹配到陈海涛"
+      discovery_chapter: 8
+      variations:
+        confirmed:
+          formal: ["死者指甲中的皮肤组织", "皮肤组织"]
+          informal: ["DNA证据", "生物证据"]
+        forbidden: []
+        pending_review: []
+    
+    key_evidence_smuggling_records:
+      canonical: "走私货物和账目"
+      source: "bible"
+      bible_reference: "mystery_structure.clues_progression.real_clues.chapter_12"
+      significance: "提供明确的杀人动机"
+      discovery_chapter: 12
+      variations:
+        confirmed:
+          formal: ["走私货物和账目", "走私记录"]
+          informal: ["账目", "秘密账本", "证据账册"]
+        forbidden: []
+        pending_review: []
+    
+    key_evidence_watch:
+      canonical: "陈海涛的定制手表"
+      source: "bible"
+      bible_reference: "mystery_structure.clues_progression.real_clues.chapter_24"
+      significance: "最终的决定性物证，在案发现场发现"
+      discovery_chapter: 24
+      variations:
+        confirmed:
+          formal: ["陈海涛的定制手表", "定制手表"]
+          informal: ["手表", "海涛的手表"]
+        forbidden: []
+        pending_review: []
+    
+    fake_evidence_suicide_note:
+      canonical: "疑似自杀遗书"
+      source: "bible"
+      bible_reference: "mystery_structure.clues_progression.red_herrings.chapter_3"
+      significance: "实际是陈海涛伪造的误导证据"
+      discovery_chapter: 3
+      variations:
+        confirmed:
+          formal: ["疑似自杀遗书", "自杀遗书"]
+          informal: ["遗书", "纸条"]
+        forbidden: []
+        pending_review: []
+
+  organizations:
+    chen_family:
+      canonical: "陈家"
+      source: "bible"
+      bible_reference: "universe.social_structure.dominant_families"
+      critical_facts:
+        description: "渔业世家，镇上最富有"
+        business: "渔业公司"
+        status: "镇上最富有的家族"
+        head: "陈海涛"
+      variations:
+        confirmed:
+          formal: ["陈家", "陈氏家族"]
+          informal: ["陈家人", "陈氏"]
+        forbidden: []
+        pending_review: []
+    
+    wang_family:
+      canonical: "王家"
+      source: "bible"
+      bible_reference: "universe.social_structure.dominant_families"
+      critical_facts:
+        description: "开店经商，消息灵通"
+        business: "商店经营"
+        characteristic: "消息灵通"
+      variations:
+        confirmed:
+          formal: ["王家", "王氏家族"]
+          informal: ["王家人", "王氏"]
+        forbidden: []
+        pending_review: []
+    
+    li_family:
+      canonical: "李家"
+      source: "bible"
+      bible_reference: "universe.social_structure.dominant_families"
+      critical_facts:
+        description: "医生世家，备受尊敬"
+        profession: "医疗"
+        status: "备受尊敬"
+      variations:
+        confirmed:
+          formal: ["李家", "李氏家族"]
+          informal: ["李家人", "李氏"]
+        forbidden: []
+        pending_review: []
+    
+    zhang_family:
+      canonical: "张家"
+      source: "bible"
+      bible_reference: "universe.social_structure.dominant_families"
+      critical_facts:
+        description: "警察世家，维护治安"
+        profession: "执法"
+        role: "维护治安"
+      variations:
+        confirmed:
+          formal: ["张家", "张氏家族"]
+          informal: ["张家人", "张氏"]
+        forbidden: []
+        pending_review: []
+    
+    chen_fishing_company:
+      canonical: "陈家渔业公司"
+      source: "bible"
+      bible_reference: "characters.antagonists.hidden_killer"
+      critical_facts:
+        owner: "陈海涛"
+        type: "渔业公司"
+        illegal_activity: "参与走私活动"
+      variations:
+        confirmed:
+          formal: ["陈家渔业公司", "渔业公司"]
+          informal: ["陈家公司", "渔业"]
+        forbidden: []
+        pending_review: []
+    
+    town_police_station:
+      canonical: "镇派出所"
+      source: "bible"
+      bible_reference: "characters.supporting_characters.police_zhang"
+      critical_facts:
+        head: "张建国所长"
+        role: "维护镇上治安"
+      variations:
+        confirmed:
+          formal: ["镇派出所", "派出所"]
+          informal: ["警察局", "公安"]
+        forbidden: []
+        pending_review: []

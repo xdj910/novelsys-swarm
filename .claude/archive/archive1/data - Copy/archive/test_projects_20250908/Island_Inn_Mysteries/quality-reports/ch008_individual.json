@@ -1,0 +1,9 @@
+{
+  "chapter": 08,
+  "timestamp": "2025-09-01T00:00:00.000Z",
+  "score": 94,
+  "issues": [{"id": "misc_001", "type": "minor_issue", "severity": "moderate", "location": "detected_in_analysis", "description": "Minor issue with some action sequences could use more sensory details", "detected_by": "quality-scorer"}],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 1, "low": 0},
+  "dimensions": {"continuity": 94, "plot_logic": 94, "bible_compliance": 94, "writing_quality": 94},
+  "fix_history": []
+}

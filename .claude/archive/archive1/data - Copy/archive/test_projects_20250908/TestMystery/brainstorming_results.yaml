@@ -1,0 +1,18 @@
+project_type: "standalone"
+genre: "mystery"
+style:
+  tone: "紧张刺激"
+  pov: "第三人称限制"
+target_audience:
+  age: "成人"
+  gender: "通用"
+  preference: "悬疑推理"
+scale:
+  total_chapters: 30
+  words_per_chapter: 3000
+  update_frequency: "周更"
+core_elements:
+  main_conflict: "一桩十年前的冷案重新浮出水面，牵扯出小镇上多个家族的秘密"
+  unique_setting: "偏远海岛小镇，与世隔绝的环境加剧了紧张氛围"
+  emotional_core: "正义与宽恕的抉择，真相与和谐的平衡"
+created_at: "2025-09-03T10:30:00"

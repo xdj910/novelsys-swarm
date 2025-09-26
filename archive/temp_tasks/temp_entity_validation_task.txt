@@ -1,0 +1,22 @@
+Task: Entity Validation for Chapter 1
+
+Project: TeidePeakMysteries
+Book: 1
+Chapter: ch001
+
+Validate entity consistency against the entity dictionary for chapter 1 generation.
+
+Input files:
+- Project Bible: .claude/data/projects/TeidePeakMysteries/series_bible.yaml
+- Book Bible: .claude/data/projects/TeidePeakMysteries/book_1/bible.yaml
+- Entity Dictionary: .claude/data/projects/TeidePeakMysteries/shared/entity_dictionary.yaml
+
+Output:
+- Save validation report to: .claude/data/projects/TeidePeakMysteries/book_1/chapters/ch001/entity_validation.json
+
+Instructions:
+- Check all entities for consistency
+- Validate character names, locations, and key references
+- Ensure all content requirements are in ENGLISH ONLY
+- Flag any inconsistencies or missing entities
+- Provide detailed validation results

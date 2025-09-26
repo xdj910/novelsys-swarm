@@ -1,0 +1,121 @@
+configuration:
+  characters:
+    allow_informal_references: true
+    strict_on_critical_facts: true
+  locations:
+    allow_variations: true
+    strict_on_facts: true
+  objects:
+    allow_functional_descriptions: true
+    maintain_consistency: true
+entities:
+  characters:
+    carmen_elena_rodriguez:
+      bible_reference: characters.supporting
+      canonical: Carmen Elena Rodriguez
+      critical_facts:
+        relationship: Employee and friend of Sarah
+        role: Receptionist and guide
+      source: bible
+      variations:
+        confirmed:
+          formal:
+          - Carmen Elena Rodriguez
+          informal: []
+        forbidden: []
+        pending_review: []
+    sarah_mitchell:
+      bible_reference: characters.protagonists
+      canonical: Sarah Mitchell
+      critical_facts:
+        age: 55
+        background: London detective turned innkeeper
+        profession: Former DI, Innkeeper
+        relationships:
+        - Carmen Rodriguez (employee/friend)
+      source: bible
+      variations:
+        confirmed:
+          formal:
+          - Sarah Mitchell
+          informal: []
+          nicknames: []
+        forbidden: []
+        pending_review: []
+  locations:
+    casa_vista_verde:
+      bible_reference: world_building.primary_setting
+      canonical: Casa Vista Verde
+      critical_facts:
+        description: Historic building on La Palma
+        significance: Sarah's new home and business
+        type: Boutique inn
+      source: bible
+      variations:
+        confirmed:
+          formal:
+          - Casa Vista Verde
+          informal: []
+        forbidden: []
+        pending_review: []
+    el_mercado_central:
+      bible_reference: world_building.key_locations[1]
+      canonical: El Mercado Central
+      critical_facts:
+        description: Town market
+        significance: Daily shopping location
+      source: bible
+      variations:
+        confirmed:
+          formal:
+          - El Mercado Central
+          informal: []
+        forbidden: []
+        pending_review: []
+    santa_cruz_marina:
+      bible_reference: world_building.key_locations[0]
+      canonical: Santa Cruz Marina
+      critical_facts:
+        description: Local harbor area
+        significance: Community gathering spot
+      source: bible
+      variations:
+        confirmed:
+          formal:
+          - Santa Cruz Marina
+          informal: []
+        forbidden: []
+        pending_review: []
+  objects:
+    elena's_guest_book:
+      bible_reference: world_building.important_objects[0]
+      canonical: Elena's Guest Book
+      critical_facts:
+        description: Historic guest registry
+        significance: Contains inn history
+      source: bible
+      variations:
+        confirmed:
+          formal:
+          - Elena's Guest Book
+          informal: []
+        forbidden: []
+        pending_review: []
+learning_log:
+  learned_patterns:
+  - chapter: 1
+    score: 96.5
+    timestamp: '2025-09-01T15:32:38.705534'
+    variations_added: 0
+  pending_patterns: []
+  rejected_patterns: []
+metadata:
+  auto_accept_confidence: 0.95
+  chapters_learned_from:
+  - 1
+  created: '2025-09-01T15:31:33.782438'
+  last_updated: '2025-09-01T15:32:38.705502'
+  learning_threshold: 95
+  manual_review_threshold: 0.8
+  project: test_project
+  version: '1.0'

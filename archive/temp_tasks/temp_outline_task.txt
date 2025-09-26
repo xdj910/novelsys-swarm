@@ -1,0 +1,15 @@
+Task: Create Book Outline for TeidePeakMysteries Book 1
+
+Project: TeidePeakMysteries
+Book: book_1
+Title: Cinnamon Secrets
+
+Based on bible.yaml, create comprehensive book outline with:
+- All 24 chapters detailed with scene beats
+- Character arc milestones 
+- Mystery clue progression
+- Tension mapping
+- Dependencies between chapters
+
+Bible Path: .claude/data/projects/TeidePeakMysteries/book_1/bible.yaml
+Save Path: .claude/data/projects/TeidePeakMysteries/book_1/outline.yaml

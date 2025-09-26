@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/hooks/config.yaml
+Time: 2025-09-03 12:05:15
+Last 100 characters:
+  min_chapter_words: 3000
+      target_chapter_words: 5000
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

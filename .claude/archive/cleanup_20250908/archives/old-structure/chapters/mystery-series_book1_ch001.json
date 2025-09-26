@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "chapter_number": 1,
+    "title": "Chapter 1",
+    "word_count": 240,
+    "created_at": "2025-08-29T14:21:06.852376",
+    "quality_score": 76.0,
+    "style_consistency": 80.0
+  },
+  "outline": {
+    "title": "Chapter 1",
+    "plot_points": [
+      "神秘事件发生",
+      "主角登场",
+      "初步调查",
+      "发现线索",
+      "章节悬念"
+    ],
+    "characters": [
+      "侦探李明",
+      "助手小王"
+    ],
+    "location": "都市办公楼",
+    "mood": "suspense"
+  },
+  "scenes": [
+    {
+      "scene_number": 1,
+      "type": "mixed",
+      "description": "神秘事件发生",
+      "characters": [
+        "侦探李明",
+        "助手小王"
+      ],
+      "location": "都市办公楼",
+      "mood": "suspense",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 2,
+      "type": "mixed",
+      "description": "主角登场",
+      "characters": [
+        "侦探李明",
+        "助手小王"
+      ],
+      "location": "都市办公楼",
+      "mood": "suspense",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 3,
+      "type": "mixed",
+      "description": "初步调查",
+      "characters": [
+        "侦探李明",
+        "助手小王"
+      ],
+      "location": "都市办公楼",
+      "mood": "suspense",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 4,
+      "type": "mixed",
+      "description": "发现线索",
+      "characters": [
+        "侦探李明",
+        "助手小王"
+      ],
+      "location": "都市办公楼",
+      "mood": "suspense",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 5,
+      "type": "mixed",
+      "description": "章节悬念",
+      "characters": [
+        "侦探李明",
+        "助手小王"
+      ],
+      "location": "都市办公楼",
+      "mood": "suspense",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    }
+  ],
+  "content": "# Chapter 1\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n\n\n[扩充内容：添加更多细节描写和人物对话，丰富场景]"
+}

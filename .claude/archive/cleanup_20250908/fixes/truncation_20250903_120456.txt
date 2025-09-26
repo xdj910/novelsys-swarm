@@ -1,0 +1,11 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/hooks/lib.sh
+Time: 2025-09-03 12:04:55
+Last 100 characters:
+d should be sourced, not executed directly"
+    exit 1
+fi
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

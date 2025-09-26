@@ -1,0 +1,142 @@
+{
+  "last_updated": "2025-09-06",
+  "total_projects": 10,
+  "featured_projects": {
+    "claude-code-hooks-mastery": {
+      "url": "https://github.com/disler/claude-code-hooks-mastery",
+      "description": "Comprehensive system for mastering Claude Code hooks",
+      "key_features": [
+        "All 8 hook lifecycle events",
+        "Deterministic behavior control",
+        "Sub-agent learning system",
+        "Meta-agent implementation"
+      ],
+      "patterns": [
+        "Hook event capture",
+        "Lifecycle management",
+        "Agent coordination"
+      ],
+      "quality_score": 9
+    },
+    "sub-agents-manager": {
+      "url": "https://github.com/webdevtodayjason/sub-agents",
+      "description": "CLI tool for managing Claude Code Sub Agents",
+      "key_features": [
+        "Specialized AI assistants",
+        "Custom system prompts",
+        "Separate context windows",
+        "Hook integration"
+      ],
+      "patterns": [
+        "CLI management",
+        "Agent specialization",
+        "Context isolation"
+      ],
+      "quality_score": 8
+    },
+    "awesome-claude-code": {
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "description": "Curated list of Claude Code resources",
+      "key_features": [
+        "Slash commands collection",
+        "Hook examples",
+        "Agent templates",
+        "Workflow templates"
+      ],
+      "patterns": [
+        "Resource curation",
+        "Community contributions",
+        "Template sharing"
+      ],
+      "quality_score": 9
+    },
+    "multi-agent-observability": {
+      "url": "https://github.com/disler/claude-code-hooks-multi-agent-observability",
+      "description": "Real-time monitoring for Claude Code agents",
+      "key_features": [
+        "Real-time monitoring",
+        "Hook event tracking",
+        "Agent performance metrics",
+        "Observability dashboard"
+      ],
+      "patterns": [
+        "Performance monitoring",
+        "Event tracking",
+        "Multi-agent coordination"
+      ],
+      "quality_score": 8
+    },
+    "claude-code-by-agents": {
+      "url": "https://github.com/baryhuang/claude-code-by-agents",
+      "description": "Multi-agent orchestration platform",
+      "key_features": [
+        "Desktop app integration",
+        "API for orchestration",
+        "Local and remote agents",
+        "@mention coordination"
+      ],
+      "patterns": [
+        "Multi-agent orchestration",
+        "Desktop integration",
+        "API design"
+      ],
+      "quality_score": 8
+    }
+  },
+  "common_patterns": {
+    "agent_specialization": {
+      "description": "Creating focused, single-responsibility agents",
+      "examples": [
+        "code-review-expert",
+        "typescript-expert",
+        "react-expert",
+        "debugging-oracle"
+      ],
+      "best_practices": [
+        "Detailed system prompts",
+        "Limited tool access",
+        "Clear responsibility boundaries",
+        "Reusability design"
+      ]
+    },
+    "hook_automation": {
+      "description": "Event-driven automation patterns",
+      "examples": [
+        "PostToolUse:Edit code formatting",
+        "PreToolUse security validation",
+        "SessionEnd cleanup tasks",
+        "SubAgentCompleted result processing"
+      ],
+      "best_practices": [
+        "Parallel execution design",
+        "Timeout configuration",
+        "Error handling",
+        "Security validation"
+      ]
+    },
+    "command_workflows": {
+      "description": "Structured workflow automation",
+      "examples": [
+        "GitHub issue fixing workflows",
+        "Test-driven development loops",
+        "Code review processes",
+        "Deployment pipelines"
+      ],
+      "best_practices": [
+        "Plan-first approach",
+        "Validation checkpoints",
+        "Error recovery",
+        "Status reporting"
+      ]
+    }
+  },
+  "anti_patterns": {
+    "avoid": [
+      "Single massive agent handling everything",
+      "Blocking hooks without timeouts",
+      "Unvalidated shell command execution",
+      "Missing error handling in workflows",
+      "Hardcoded paths in commands"
+    ]
+  }
+}

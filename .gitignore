@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+art_materials_processor*.log
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+temp/
+*.bak
+
+# Testing directories
+.claude/testing/
+.claude/mineru-env/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Batch scripts (if generated)
+*.bat
+
+# Large temporary workflow outputs (optional - uncomment if needed)
+# Workflow/*/images/
+# Workflow/*_output/
+
+# Coordinator request temp files
+coordinator_request.txt
+temp_processing_request.txt
+processing_command.txt

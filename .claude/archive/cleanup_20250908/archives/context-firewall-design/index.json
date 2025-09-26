@@ -1,0 +1,13 @@
+{
+  "context_firewall": {
+    "enabled": true,
+    "version": "2.5",
+    "settings": {
+      "summary_max_chars": 50,
+      "detail_storage_path": ".claude/context/details/",
+      "auto_cleanup_days": 30,
+      "compression_ratio_target": 0.7
+    }
+  },
+  "entries": []
+}

@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/system-health-coordinator.md
+Time: 2025-09-03 21:39:24
+Last 100 characters:
+ gap
+- If JSON malformed: Attempt recovery or show raw data
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

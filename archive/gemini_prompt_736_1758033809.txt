@@ -1,0 +1,7 @@
+Verify Claude Code architecture compliance:
+1. Check all commands are <100 lines optimal
+2. Verify coordinators have proper tools config (no Task)
+3. Ensure agents follow single responsibility principle
+4. Check for proper file-based communication patterns
+5. Validate architecture implementation
+Provide compliance score and specific violations.

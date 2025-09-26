@@ -1,0 +1,333 @@
+# Ultimate Quality Bible Template
+# 极致品质Bible模板 - 98分质量目标
+
+meta:
+  version: "1.0"
+  quality_target: 98
+  generation_mode: "8-stream"
+  validation_rounds: 5
+  iteration_rounds: 3
+  
+series_info:
+  name: "${SERIES_NAME}"
+  genre: "${GENRE}"
+  target_audience: "${AUDIENCE}"
+  tone: "${TONE}"
+  themes:
+    - "${THEME_1}"
+    - "${THEME_2}"
+    - "${THEME_3}"
+
+# 完整角色轨迹追踪
+character_arcs:
+  protagonist:
+    name: "${PROTAGONIST_NAME}"
+    arc_trajectory:
+      chapter_1:
+        emotional_state: "迷茫"
+        knowledge_level: "无知"
+        core_belief: "世界是安全的"
+        relationships:
+          mentor: "未遇见"
+          antagonist: "不知存在"
+          love_interest: "陌生"
+        physical_state:
+          location: "日常环境"
+          possessions: ["基础物品"]
+          injuries: "无"
+        goals:
+          immediate: "维持现状"
+          underlying: "寻找意义"
+      chapter_5:
+        emotional_state: "震惊觉醒"
+        knowledge_level: "初步了解真相"
+        core_belief: "世界充满阴谋"
+        relationships:
+          mentor: "建立信任"
+          antagonist: "初次对抗"
+          love_interest: "产生情愫"
+        physical_state:
+          location: "冒险途中"
+          possessions: ["基础物品", "关键道具", "武器"]
+          injuries: "轻伤"
+        goals:
+          immediate: "生存"
+          underlying: "寻求真相"
+      chapter_10:
+        emotional_state: "坚定"
+        knowledge_level: "掌握关键信息"
+        core_belief: "必须战斗"
+        relationships:
+          mentor: "深度联结"
+          antagonist: "全面对抗"
+          love_interest: "深入发展"
+        physical_state:
+          location: "关键地点"
+          possessions: ["基础物品", "多个关键道具", "升级武器"]
+          injuries: "多处伤痕"
+        goals:
+          immediate: "击败反派"
+          underlying: "拯救世界"
+          
+  antagonist:
+    name: "${ANTAGONIST_NAME}"
+    arc_trajectory:
+      chapter_1:
+        visibility: "隐藏"
+        power_level: "未知"
+        plans_progress: 10
+      chapter_5:
+        visibility: "暗示存在"
+        power_level: "展现部分"
+        plans_progress: 40
+      chapter_10:
+        visibility: "完全揭示"
+        power_level: "全力展现"
+        plans_progress: 80
+
+# 情节逻辑链
+plot_chain:
+  main_mystery:
+    setup: "ch1_sc2_para3"
+    clues:
+      - location: "ch2_sc4_para2"
+        type: "subtle"
+        importance: "medium"
+      - location: "ch3_sc1_para5"
+        type: "direct"
+        importance: "high"
+      - location: "ch5_sc3_para1"
+        type: "revelation"
+        importance: "critical"
+    resolution: "ch10_sc5_para10"
+    
+  foreshadowing_network:
+    shadow_1:
+      plant:
+        location: "ch1_sc3"
+        content: "seemingly_innocent_detail"
+        visibility: 0.2
+      echo:
+        - location: "ch3_sc2"
+          strength: 0.4
+        - location: "ch5_sc4"
+          strength: 0.6
+      reveal:
+        location: "ch8_sc1"
+        impact: "major_plot_twist"
+        
+    shadow_2:
+      plant:
+        location: "ch2_sc1"
+        content: "character_quirk"
+        visibility: 0.3
+      payoff:
+        location: "ch9_sc3"
+        impact: "character_revelation"
+
+# 多维情感曲线
+emotional_curves:
+  tension:
+    chapter_1: [0.2, 0.3, 0.4, 0.5, 0.6]  # 每个场景的强度
+    chapter_2: [0.5, 0.4, 0.5, 0.7, 0.8]
+    chapter_3: [0.6, 0.7, 0.8, 0.9, 0.7]
+    chapter_4: [0.5, 0.6, 0.7, 0.8, 0.9]
+    chapter_5: [0.8, 0.9, 1.0, 0.8, 0.7]
+    
+  hope:
+    chapter_1: [0.8, 0.7, 0.6, 0.5, 0.4]
+    chapter_2: [0.5, 0.6, 0.5, 0.4, 0.3]
+    chapter_3: [0.4, 0.3, 0.2, 0.3, 0.4]
+    chapter_4: [0.5, 0.6, 0.7, 0.6, 0.5]
+    chapter_5: [0.4, 0.3, 0.2, 0.4, 0.6]
+    
+  romance:
+    chapter_1: [0.0, 0.0, 0.1, 0.1, 0.2]
+    chapter_2: [0.2, 0.3, 0.3, 0.4, 0.4]
+    chapter_3: [0.4, 0.5, 0.6, 0.5, 0.5]
+    chapter_4: [0.5, 0.6, 0.7, 0.8, 0.7]
+    chapter_5: [0.7, 0.8, 0.9, 0.8, 0.8]
+
+# 世界构建规则
+world_building:
+  setting:
+    time_period: "${TIME}"
+    primary_location: "${LOCATION}"
+    scope: "${SCOPE}"
+    
+  rules:
+    physical_laws:
+      - "${LAW_1}"
+      - "${LAW_2}"
+    social_structure:
+      - "${SOCIAL_1}"
+      - "${SOCIAL_2}"
+    magic_system:  # 如果适用
+      - source: "${MAGIC_SOURCE}"
+      - limitations: "${MAGIC_LIMITS}"
+      - cost: "${MAGIC_COST}"
+      
+  locations:
+    hub_location:
+      name: "${HUB_NAME}"
+      description: "${HUB_DESC}"
+      significance: "protagonist_base"
+      scenes_used: [1, 3, 5, 8, 10]
+    conflict_location:
+      name: "${CONFLICT_NAME}"
+      description: "${CONFLICT_DESC}"
+      significance: "climax_setting"
+      scenes_used: [9, 10]
+
+# 场景依赖网络
+scene_dependencies:
+  chapter_1:
+    scene_1:
+      requires: []
+      provides: ["world_intro", "protagonist_intro"]
+      critical_for: ["ch1_sc2", "ch2_sc1"]
+    scene_2:
+      requires: ["protagonist_intro"]
+      provides: ["inciting_incident"]
+      critical_for: ["all_future_scenes"]
+      
+# 质量控制参数
+quality_parameters:
+  consistency:
+    character_voice: 0.95      # 角色语言一致性
+    timeline_accuracy: 1.0      # 时间线准确性
+    spatial_logic: 0.98         # 空间逻辑合理性
+    knowledge_tracking: 0.99    # 知识状态追踪
+    
+  literary_quality:
+    prose_variation: 0.9        # 文笔变化度
+    metaphor_density: 0.3       # 修辞密度
+    dialogue_naturality: 0.95   # 对话自然度
+    description_vividness: 0.85 # 描写生动度
+    
+  emotional_impact:
+    reader_engagement: 0.9      # 读者参与度
+    emotional_resonance: 0.85   # 情感共鸣度
+    tension_maintenance: 0.88   # 张力维持度
+    
+  pacing:
+    scene_rhythm: "varied"      # 场景节奏
+    chapter_arc: "rising"       # 章节弧度
+    overall_momentum: 0.85      # 整体动量
+
+# 8-Stream 配置
+stream_configuration:
+  character_psychology:
+    weight: 0.15
+    focus: ["motivation", "internal_conflict", "growth"]
+    
+  narrative_structure:
+    weight: 0.15
+    focus: ["plot_progression", "scene_transitions", "hooks"]
+    
+  world_building:
+    weight: 0.125
+    focus: ["setting_details", "atmosphere", "sensory"]
+    
+  prose_craft:
+    weight: 0.125
+    focus: ["style", "rhythm", "imagery"]
+    
+  dialogue_master:
+    weight: 0.125
+    focus: ["character_voice", "subtext", "conflict"]
+    
+  foreshadowing:
+    weight: 0.125
+    focus: ["setup", "payoff", "mystery"]
+    
+  emotion_weaver:
+    weight: 0.125
+    focus: ["mood", "tension", "catharsis"]
+    
+  continuity_guard:
+    weight: 0.125
+    focus: ["consistency", "logic", "tracking"]
+
+# 验证规则
+validation_rules:
+  continuity:
+    - check: "character_location_tracking"
+      threshold: 1.0
+      critical: true
+    - check: "timeline_consistency"
+      threshold: 1.0
+      critical: true
+    - check: "knowledge_state_logic"
+      threshold: 0.98
+      critical: true
+      
+  character:
+    - check: "voice_consistency"
+      threshold: 0.95
+      critical: false
+    - check: "motivation_logic"
+      threshold: 0.9
+      critical: true
+      
+  plot:
+    - check: "causality_chain"
+      threshold: 0.95
+      critical: true
+    - check: "conflict_resolution"
+      threshold: 0.9
+      critical: false
+
+# 迭代优化策略
+iteration_strategy:
+  round_1:
+    focus: "content_generation"
+    quality_target: 85
+    
+  round_2:
+    focus: "problem_fixing"
+    quality_target: 92
+    improvements:
+      - "continuity_issues"
+      - "character_inconsistencies"
+      - "plot_holes"
+      
+  round_3:
+    focus: "polish_and_enhance"
+    quality_target: 98
+    enhancements:
+      - "prose_quality"
+      - "emotional_depth"
+      - "reader_experience"
+
+# 输出格式配置
+output_format:
+  scene_structure:
+    opening: "hook"
+    development: "escalation"
+    climax: "peak_tension"
+    resolution: "transition"
+    
+  paragraph_length:
+    min: 50
+    max: 200
+    average: 100
+    
+  dialogue_ratio: 0.4
+  description_ratio: 0.4
+  action_ratio: 0.2
+
+# 成功标准
+success_criteria:
+  quality_score: 98
+  continuity_errors: 0
+  character_consistency: 0.99
+  emotional_impact: 0.95
+  reader_satisfaction: 0.95
+  
+# 备注
+notes:
+  - "This is the ultimate quality template for 98-point novels"
+  - "Requires 8-Stream processing and 3-round iteration"
+  - "Estimated generation time: 2 hours per chapter"
+  - "API calls: ~200 per chapter"

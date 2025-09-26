@@ -1,0 +1,115 @@
+{
+  "accuracy_benchmarks": {
+    "tier_thresholds": {
+      "tier_d": {
+        "score_range": [0.70, 0.79],
+        "description": "Basic accuracy with some factual issues",
+        "required_improvements": ["fact_verification", "source_validation"]
+      },
+      "tier_c": {
+        "score_range": [0.80, 0.89],
+        "description": "Good accuracy with minor issues",
+        "required_improvements": ["detailed_verification", "edge_case_checking"]
+      },
+      "tier_b": {
+        "score_range": [0.90, 0.94],
+        "description": "High accuracy with very few issues",
+        "required_improvements": ["comprehensive_validation", "expert_review"]
+      },
+      "tier_a": {
+        "score_range": [0.95, 1.00],
+        "description": "Exceptional accuracy with verified statements",
+        "target": "95%+ verified statements"
+      }
+    },
+    "evaluation_criteria": {
+      "factual_correctness": 0.4,
+      "source_credibility": 0.3,
+      "data_currency": 0.2,
+      "statistical_accuracy": 0.1
+    }
+  },
+  "insight_benchmarks": {
+    "depth_levels": {
+      "level_1": {
+        "score_range": [0.60, 0.74],
+        "description": "Surface-level analysis with basic connections",
+        "characteristics": ["descriptive", "obvious_patterns", "single_domain"]
+      },
+      "level_2": {
+        "score_range": [0.75, 0.84],
+        "description": "Intermediate analysis with meaningful connections",
+        "characteristics": ["analytical", "cross_references", "pattern_recognition"]
+      },
+      "level_3": {
+        "score_range": [0.85, 0.94],
+        "description": "Deep analysis with complex connections",
+        "characteristics": ["synthetic", "multi_domain", "predictive_insights"]
+      },
+      "level_4": {
+        "score_range": [0.95, 1.00],
+        "description": "Synthetic analysis with cross-domain connections",
+        "target": "Novel insights connecting multiple domains"
+      }
+    },
+    "evaluation_criteria": {
+      "depth_of_analysis": 0.3,
+      "connection_quality": 0.3,
+      "novel_perspectives": 0.2,
+      "actionable_insights": 0.2
+    }
+  },
+  "originality_benchmarks": {
+    "similarity_thresholds": {
+      "high_similarity": {
+        "score_range": [0.8, 1.0],
+        "description": "High similarity to existing content",
+        "action_required": "significant_differentiation"
+      },
+      "moderate_similarity": {
+        "score_range": [0.6, 0.79],
+        "description": "Moderate similarity with some unique elements",
+        "action_required": "enhanced_uniqueness"
+      },
+      "low_similarity": {
+        "score_range": [0.4, 0.59],
+        "description": "Low similarity with substantial uniqueness",
+        "action_required": "maintain_quality"
+      },
+      "target_originality": {
+        "score_range": [0.0, 0.5],
+        "description": "High originality with novel combinations",
+        "target": "<0.5 similarity score with novel concept combinations"
+      }
+    },
+    "evaluation_criteria": {
+      "concept_novelty": 0.4,
+      "perspective_uniqueness": 0.3,
+      "approach_innovation": 0.2,
+      "synthesis_originality": 0.1
+    }
+  },
+  "gate_decision_logic": {
+    "continue_criteria": {
+      "quality_not_met": "Any dimension below target threshold",
+      "rounds_remaining": "Current round < 5",
+      "improvement_potential": "Positive improvement trend detected"
+    },
+    "early_completion_criteria": {
+      "all_targets_met": "All dimensions meet or exceed targets",
+      "exceptional_quality": "Average score > 0.90 across all dimensions",
+      "convergence_detected": "Improvement rate < 0.02 for 2 consecutive rounds"
+    },
+    "checkpoint_detection_criteria": {
+      "quality_stagnation": "No improvement for 2+ rounds",
+      "dimension_imbalance": "One dimension significantly lagging",
+      "approach_limitation": "Systematic limitation in current approach detected"
+    }
+  },
+  "metadata": {
+    "benchmark_version": "2.0.0",
+    "last_updated": "2025-09-25T00:00:00Z",
+    "methodology": "T1-TTD three-dimensional quality framework",
+    "validation_status": "phase2_ready"
+  }
+}

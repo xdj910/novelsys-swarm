@@ -1,0 +1,24 @@
+=== TASK TOOL AUTHORITY DOCUMENTATION ===
+Test Time: Thu, Sep 11, 2025 10:40:32 PM
+
+FINDINGS:
+1. Task Tool Usage Patterns:
+   - Only Claude (main agent) can use Task tool
+   - Sub-agents must use Read, Write, Bash tools only
+   - Configuration files use natural language: "Use the [agent] subagent to..."
+   - Execution shows: Task(description) - this is normal output
+   
+2. Architecture Understanding:
+   - Commands layer: Declarative instructions (<100 lines optimal)
+   - Coordinators layer: Flow orchestration and agent coordination
+   - Agents layer: Specific task execution (single responsibility)
+   
+3. Prohibited Patterns:
+   - Task() function calls in configuration files (pseudo-code)
+   - Sub-agents including Task in tools list
+   - Python script calls to claude_subagents.py (doesn't exist)
+   
+4. Correct Execution Flow:
+   User Input → Command (description) → Claude interprets → Claude executes (may use multiple coordinators/agents)
+
+Phase 2: Task Tool Authority Testing - COMPLETE

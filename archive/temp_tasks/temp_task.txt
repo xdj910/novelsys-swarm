@@ -1,0 +1,6 @@
+Task: entity-validator
+Project: TeidePeakMysteries
+Book: 1
+Chapter: 1
+Description: Validate entity naming consistency against project dictionary before chapter 1 generation
+Prompt: Validate all entities are properly defined in the entity dictionary for chapter 1 content generation. Check entity consistency against Bible requirements and ensure no naming violations exist. This is pre-generation validation for "The Perfect Recipe" chapter.

@@ -1,0 +1,31 @@
+{
+  "series_name": "detective-series",
+  "version": "1.0.0",
+  "created_at": "2025-08-29T14:38:13.292707",
+  "metadata": {
+    "genre": "mystery",
+    "audience": "adult",
+    "planned_books": 5,
+    "chapters": 20,
+    "word_count": 80000
+  },
+  "world_building": {
+    "setting": {},
+    "rules": {},
+    "history": []
+  },
+  "recurring_characters": {
+    "protagonists": [],
+    "supporting": []
+  },
+  "series_themes": [],
+  "series_arc": {
+    "overall_conflict": "",
+    "planned_resolution": ""
+  },
+  "style_guide": {
+    "narrative_voice": "",
+    "tone": "",
+    "recurring_motifs": []
+  }
+}

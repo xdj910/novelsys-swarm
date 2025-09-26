@@ -1,0 +1,23 @@
+{
+  "chapter_number": 1,
+  "title": "New Beginnings",
+  "target_word_count": 4000,
+  "setting": "Casa Vista Verde inn, early morning",
+  "pov": "Sarah Mitchell",
+  "status": "in_progress",
+  "created": "2025-08-30T13:00:00Z",
+  "key_objectives": [
+    "Establish Sarah's struggle with inn management",
+    "Introduce Carmen's competence and efficiency",
+    "Present Elena's disappearance as catalyst",
+    "Show Sarah's detective instincts awakening",
+    "Establish community relationships foundation"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 85,
+    "character_development_score": 90,
+    "plot_advancement_score": 90,
+    "cultural_authenticity_score": 95,
+    "overall_target": 95
+  }
+}

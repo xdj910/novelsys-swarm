@@ -1,0 +1,69 @@
+{
+  "last_updated": "2025-09-06",
+  "version": "1.0",
+  "source": "docs.anthropic.com",
+  "sections": {
+    "overview": {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "key_concepts": [
+        "Terminal-based AI coding assistant",
+        "Agentic coding tool",
+        "Direct file editing and command execution",
+        "Model Context Protocol (MCP) integration"
+      ],
+      "cached": true
+    },
+    "subagents": {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+      "key_concepts": [
+        "Specialized AI assistants with specific purposes",
+        "Separate context windows",
+        "Custom system prompts and tool access",
+        "Task tool invocation",
+        "Project and user level agents"
+      ],
+      "patterns": [
+        "Single responsibility principle",
+        "Tool access limitation",
+        "Reusability across projects",
+        "Team sharing capabilities"
+      ],
+      "cached": true
+    },
+    "hooks": {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks",
+      "key_concepts": [
+        "Event-driven automation",
+        "Parallel execution by default",
+        "60-second timeout configurable",
+        "Security implications with credentials"
+      ],
+      "hook_types": [
+        "PreToolUse", "PostToolUse", "OnNotification", "SubAgentCompleted",
+        "UserPromptSubmit", "Stop", "SessionStart", "SessionEnd", "PreCompact"
+      ],
+      "patterns": [
+        "Automatic deduplication",
+        "Environment variable usage",
+        "JSON output for control",
+        "Regex matching for tools"
+      ],
+      "cached": true
+    },
+    "common_workflows": {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "patterns": [
+        "Research-and-plan-first approach",
+        "GitHub integration with gh CLI",
+        "Test-driven development (TDD)",
+        "Custom slash commands in .claude/commands/"
+      ],
+      "cached": true
+    }
+  },
+  "build_info": {
+    "supports": ["Python SDK", "TypeScript SDK", "GitHub Actions"],
+    "deployment_options": ["Anthropic API", "Amazon Bedrock", "Google Vertex AI"],
+    "integrations": ["MCP", "GitHub", "Terminal"]
+  }
+}

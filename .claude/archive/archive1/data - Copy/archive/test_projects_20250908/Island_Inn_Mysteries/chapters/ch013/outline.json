@@ -1,0 +1,79 @@
+{
+    "chapter": 13,
+    "title": "The Sound of Truth",
+    "theme": "Hidden family secrets revealed through careful observation and cultural understanding",
+    "scenes": [
+        {
+            "number": 1,
+            "location": "Casa Vista Verde - kitchen",
+            "time": "Early morning, 7:00 AM",
+            "characters": ["Sarah Mitchell", "Carmen Elena Rodriguez"],
+            "description": "Sarah and Carmen prepare breakfast while discussing the previous night's revelations. Carmen provides crucial cultural context about local family dynamics that Sarah had missed.",
+            "plot_points": [
+                "Carmen explains the significance of certain family behaviors Sarah observed",
+                "Discussion of how inheritance disputes work in traditional Canarian families",
+                "Sarah realizes she's been misinterpreting some key interactions"
+            ],
+            "emotional_tone": "Thoughtful, revelatory, growing understanding"
+        },
+        {
+            "number": 2,
+            "location": "Santa Cruz Marina - fishing dock",
+            "time": "Mid-morning, 9:30 AM",
+            "characters": ["Sarah Mitchell", "Local fisherman (witness)", "Sergeant Miguel Torres"],
+            "description": "Sarah follows up on a crucial detail about boat movements the night of the disappearance. A fisherman who had been reluctant to speak finally opens up.",
+            "plot_points": [
+                "Witness reveals he saw unusual boat activity on the night in question",
+                "Information about access to remote coastal areas",
+                "Sergeant Torres begins to take Sarah's theory more seriously"
+            ],
+            "emotional_tone": "Tense, breakthrough moment, growing urgency"
+        },
+        {
+            "number": 3,
+            "location": "El Mercado Central - traditional family stall",
+            "time": "Late morning, 11:00 AM",
+            "characters": ["Sarah Mitchell", "Carmen Elena Rodriguez", "Market vendor family"],
+            "description": "While shopping for inn supplies, Sarah and Carmen encounter a family member connected to the case. Careful conversation in the market setting reveals important family history.",
+            "plot_points": [
+                "Casual conversation reveals old family grudges",
+                "Information about land ownership disputes dating back generations",
+                "Carmen helps Sarah navigate cultural sensitivities in questioning"
+            ],
+            "emotional_tone": "Careful, diplomatic, culturally nuanced"
+        },
+        {
+            "number": 4,
+            "location": "Casa Vista Verde - guest lounge",
+            "time": "Afternoon, 3:00 PM",
+            "characters": ["Sarah Mitchell", "Key guest character", "Carmen Elena Rodriguez"],
+            "description": "A crucial conversation with a guest who has been withholding information. Sarah's innkeeper persona allows her to create a comfortable environment for truth-telling.",
+            "plot_points": [
+                "Guest reveals they witnessed something important but were afraid to speak",
+                "Information connects to the family dispute and missing person",
+                "Sarah begins to see the full pattern of the mystery"
+            ],
+            "emotional_tone": "Intimate, confessional, breakthrough"
+        },
+        {
+            "number": 5,
+            "location": "Volcanic ridge trail - isolated viewpoint",
+            "time": "Late afternoon, 5:00 PM",
+            "characters": ["Sarah Mitchell", "Carmen Elena Rodriguez"],
+            "description": "Sarah and Carmen hike to a remote location that's become crucial to understanding the case. The island's dramatic landscape provides both beauty and danger as they piece together the final clues.",
+            "plot_points": [
+                "Physical evidence discovered in the remote location",
+                "Sarah realizes the missing person may still be alive",
+                "Decision to contact authorities with new information immediately"
+            ],
+            "emotional_tone": "Dramatic, hopeful, urgency building toward climax"
+        }
+    ],
+    "character_arcs": {
+        "Sarah Mitchell": "Her understanding of local culture deepens significantly, allowing her to solve the mystery through cultural insight combined with detective skills",
+        "Carmen Elena Rodriguez": "Takes more active role in the investigation, her local knowledge becoming crucial to breakthrough moments",
+        "Sergeant Miguel Torres": "Moves from skepticism to respect for Sarah's methods and insights"
+    },
+    "plot_advancement": "Major breakthrough chapter where scattered clues coalesce into clear understanding. Sets up final confrontation and resolution. Reveals the missing person case is connected to long-standing family land disputes and may not be what it initially appeared.",
+    "word_target": 4000
+}

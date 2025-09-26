@@ -1,0 +1,126 @@
+{
+  "series_arc": {
+    "main_progression": "Sarah's integration into Canary Islands community while solving mysteries based on real cases",
+    "overarching_themes": [
+      "Cultural bridge-building across languages and traditions",
+      "Community healing through justice and understanding", 
+      "Respectful adaptation of real criminal cases",
+      "Life transition and finding new purpose in later years"
+    ],
+    "character_relationship_evolution": "From professional outsider to integral community member",
+    "mystery_complexity_progression": "Simple local cases to complex inter-island investigations"
+  },
+  "book_by_book_progression": {
+    "book_1_la_palma": {
+      "title": "The Steep Island Mystery",
+      "case_inspiration": "Local missing person case adapted",
+      "mystery_type": "Disappearance with family secrets",
+      "sarah_development": "Establishing inn business, first major local case",
+      "relationship_development": "Carmen becomes trusted friend and partner",
+      "cultural_learning": "Basic Spanish, local customs, family importance",
+      "community_integration": "Outsider proving herself through helpful actions"
+    },
+    "book_2_tenerife": {
+      "title": "The Teide Shadow Mystery", 
+      "case_inspiration": "Tourist-involved incident during festival",
+      "mystery_type": "Death during carnival celebrations",
+      "sarah_development": "Confidence in local relationships, expanding territory",
+      "relationship_development": "Sergeant Torres begins respecting Sarah's skills",
+      "cultural_learning": "Festival traditions, tourist-local tensions",
+      "community_integration": "Accepted helper during crisis"
+    },
+    "book_3_gran_canaria": {
+      "title": "The Caldera Circle Mystery",
+      "case_inspiration": "Historical mystery with modern implications", 
+      "mystery_type": "Art fraud connected to colonial history",
+      "sarah_development": "Spanish language competency, historical knowledge",
+      "relationship_development": "Captain Delgado becomes regular collaborator",
+      "cultural_learning": "Columbus heritage, trade history complexity",
+      "community_integration": "Trusted community member across multiple islands"
+    },
+    "book_4_lanzarote": {
+      "title": "The Fire Mountain Mystery",
+      "case_inspiration": "Environmental crime adapted",
+      "mystery_type": "Eco-tourism covering illegal activities", 
+      "sarah_development": "Full community acceptance, leadership recognition",
+      "relationship_development": "Romantic subplot introduction possibility",
+      "cultural_learning": "Environmental consciousness, artistic heritage",
+      "community_integration": "Community leader and problem-solver"
+    },
+    "book_5_fuerteventura": {
+      "title": "The Desert Wind Mystery",
+      "case_inspiration": "Historical Franco-era mystery",
+      "mystery_type": "Buried past revealed through modern development",
+      "sarah_development": "Dealing with complex historical trauma",
+      "relationship_development": "Deeper personal relationships, romantic development",
+      "cultural_learning": "Historical trauma, generational healing",
+      "community_integration": "Respected elder and wisdom figure"
+    },
+    "book_6_la_gomera": {
+      "title": "The Whistling Valley Mystery", 
+      "case_inspiration": "Communication-based mystery using Silbo",
+      "mystery_type": "Traditional language holds key to modern crime",
+      "sarah_development": "Cultural expertise recognition, teaching others",
+      "relationship_development": "Stable romantic relationship, family-like bonds",
+      "cultural_learning": "UNESCO heritage, traditional communication methods",
+      "community_integration": "Cultural ambassador and bridge-builder"
+    },
+    "book_7_el_hierro": {
+      "title": "The Edge of the World Mystery",
+      "case_inspiration": "Scientific research cover-up",
+      "mystery_type": "Environmental research fraud in isolated setting",
+      "sarah_development": "Master detective and community cornerstone",
+      "relationship_development": "Established family-of-choice, mentorship role",
+      "cultural_learning": "Sustainability ethics, scientific community dynamics",
+      "community_integration": "Island chain's respected problem-solver"
+    }
+  },
+  "recurring_plot_elements": {
+    "investigation_triggers": [
+      "Inn guest reports suspicious activity",
+      "Local community member seeks Sarah's help",
+      "Carmen overhears concerning local gossip",
+      "Tourist incident requires cultural interpretation",
+      "Historical discovery reveals modern implications"
+    ],
+    "clue_discovery_methods": [
+      "Cultural knowledge provides interpretation",
+      "Language skills reveal hidden meanings", 
+      "Local relationships provide access to information",
+      "Inn guest observations offer outside perspective",
+      "Police training identifies overlooked evidence"
+    ],
+    "resolution_approaches": [
+      "Community cooperation reveals truth",
+      "Cultural understanding solves puzzle",
+      "Sarah's police experience guides investigation",
+      "Local justice traditions inform resolution",
+      "Healing and restoration prioritized over punishment"
+    ]
+  },
+  "case_adaptation_framework": {
+    "real_case_research": "Minimum 5 verified sources per adapted case",
+    "fictional_transformation": "Change names, locations, specific details while preserving core mystery",
+    "cultural_integration": "Ensure mystery elements arise naturally from island setting", 
+    "sensitivity_considerations": "Respect victims and families, avoid exploitation",
+    "cozy_mystery_adaptation": "Remove graphic violence, focus on puzzle-solving and relationships"
+  },
+  "completed_events": [],
+  "upcoming_events": [
+    "Sarah's first major case establishing credibility",
+    "Carmen's family introduction and cultural education",
+    "Sergeant Torres's gradual acceptance and cooperation",
+    "First inter-island case requiring travel and networking",
+    "Historical mystery connecting past and present",
+    "Environmental case highlighting modern island challenges",
+    "Traditional culture mystery showcasing UNESCO heritage",
+    "Series conclusion establishing Sarah as integral community member"
+  ],
+  "story_pacing_guidelines": {
+    "chapter_structure": "18-22 chapters per book, 3,500-4,000 words each",
+    "revelation_rhythm": "Major breakthrough every 4-5 chapters, minor clues each chapter", 
+    "cultural_learning_pace": "New cultural element introduced every 2-3 chapters",
+    "relationship_development_pace": "Meaningful relationship progress every book",
+    "mystery_complexity": "Gradual increase from simple local to complex inter-island cases"
+  }
+}

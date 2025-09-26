@@ -1,0 +1,56 @@
+{
+  "article_id": "TEMPLATE_PLACEHOLDER",
+  "workflow_type": "t1-ttd",
+  "creation_timestamp": "TEMPLATE_TIMESTAMP",
+  "status": {
+    "current_phase": "template",
+    "current_round": 0,
+    "sub_status": "template_ready"
+  },
+  "quality_tracking": {
+    "current_scores": {
+      "accuracy": 0.0,
+      "insight": 0.0,
+      "originality": 0.0
+    },
+    "target_scores": {
+      "accuracy": 0.95,
+      "insight": 0.95,
+      "originality": 0.5
+    },
+    "progression_history": []
+  },
+  "iteration_tracking": {
+    "total_rounds": 0,
+    "rounds_completed": 0,
+    "gate_decisions": [],
+    "checkpoint_detections": []
+  },
+  "human_collaboration": {
+    "checkpoints_detected": 0,
+    "checkpoints_resolved": 0,
+    "collaboration_active": false
+  },
+  "self_evolution": {
+    "question_evolution_cycles": 0,
+    "answer_evolution_cycles": 0,
+    "convergence_achieved": false
+  },
+  "workflow_metadata": {
+    "inspiration_source": "TEMPLATE_INSPIRATION",
+    "topic_focus": "TEMPLATE_TOPIC",
+    "estimated_completion": "TEMPLATE_ESTIMATED_TIME",
+    "platform_targets": ["medium", "substack", "elevenreader"]
+  },
+  "template_info": {
+    "template_version": "2.0.0",
+    "usage_instructions": "Copy this template directory and replace TEMPLATE_* placeholders with actual values",
+    "required_replacements": [
+      "TEMPLATE_PLACEHOLDER -> actual article ID",
+      "TEMPLATE_TIMESTAMP -> ISO timestamp",
+      "TEMPLATE_INSPIRATION -> actual inspiration source",
+      "TEMPLATE_TOPIC -> actual topic focus",
+      "TEMPLATE_ESTIMATED_TIME -> estimated completion time"
+    ]
+  }
+}

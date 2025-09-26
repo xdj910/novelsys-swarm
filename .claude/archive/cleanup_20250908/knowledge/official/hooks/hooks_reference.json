@@ -1,0 +1,159 @@
+{
+  "hooks_system": {
+    "description": "Event-driven automation system in Claude Code",
+    "execution": "All matching hooks run in parallel by default",
+    "timeout": "60-second default, configurable per command",
+    "deduplication": "Identical hook commands are automatically deduplicated"
+  },
+  "hook_events": {
+    "PreToolUse": {
+      "trigger": "After Claude creates tool parameters, before processing",
+      "use_cases": [
+        "Security validation",
+        "Input sanitization",
+        "Permission checks",
+        "Logging tool usage"
+      ],
+      "can_block": true
+    },
+    "PostToolUse": {
+      "trigger": "Immediately after tool completes successfully",
+      "use_cases": [
+        "Code formatting (Edit/Write)",
+        "Test execution (after code changes)",
+        "Git operations",
+        "Cleanup tasks"
+      ],
+      "common_matchers": ["Edit", "Write", "Bash", "Read"]
+    },
+    "OnNotification": {
+      "trigger": "When Claude Code sends notifications",
+      "use_cases": [
+        "Permission request handling",
+        "User interaction logging",
+        "External notifications"
+      ]
+    },
+    "SubAgentCompleted": {
+      "trigger": "When Task tool call finishes responding",
+      "use_cases": [
+        "Result processing",
+        "Quality validation",
+        "Next step coordination",
+        "Performance tracking"
+      ]
+    },
+    "UserPromptSubmit": {
+      "trigger": "When user submits a prompt",
+      "use_cases": [
+        "Context preparation",
+        "User intent logging",
+        "Session initialization"
+      ]
+    },
+    "Stop": {
+      "trigger": "When agent response completes",
+      "use_cases": [
+        "Session cleanup",
+        "Result archiving",
+        "Performance metrics"
+      ]
+    },
+    "SessionStart": {
+      "trigger": "When Claude Code session begins",
+      "use_cases": [
+        "Environment setup",
+        "Context loading",
+        "Tool initialization"
+      ]
+    },
+    "SessionEnd": {
+      "trigger": "When Claude Code session ends",
+      "use_cases": [
+        "Cleanup operations",
+        "Data archival",
+        "Resource release"
+      ]
+    },
+    "PreCompact": {
+      "trigger": "Before context window compaction",
+      "use_cases": [
+        "Context preservation",
+        "Important data backup",
+        "State saving"
+      ]
+    }
+  },
+  "configuration": {
+    "location": "~/.claude/settings.json or project settings",
+    "structure": {
+      "hooks": {
+        "EventType": [
+          {
+            "matcher": "tool_pattern_or_regex",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "shell_command_to_execute"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "best_practices": {
+    "security": [
+      "Validate and sanitize inputs",
+      "Quote shell variables properly",
+      "Block path traversal attacks",
+      "Use absolute paths",
+      "Avoid accessing sensitive files"
+    ],
+    "reliability": [
+      "Handle command failures gracefully",
+      "Set appropriate timeouts",
+      "Implement proper error logging",
+      "Test hook commands independently"
+    ],
+    "performance": [
+      "Keep hook commands lightweight",
+      "Avoid blocking operations",
+      "Use parallel execution wisely",
+      "Cache expensive operations"
+    ]
+  },
+  "patterns": {
+    "code_quality": {
+      "description": "Automatic code formatting and linting",
+      "hooks": ["PostToolUse:Edit", "PostToolUse:Write"],
+      "commands": ["prettier", "eslint", "black", "rustfmt"]
+    },
+    "testing": {
+      "description": "Automatic test execution",
+      "hooks": ["PostToolUse:Edit", "PostToolUse:Write"],
+      "commands": ["npm test", "pytest", "cargo test"]
+    },
+    "git_integration": {
+      "description": "Git operations automation",
+      "hooks": ["PostToolUse:Edit", "PostToolUse:Write"],
+      "commands": ["git add", "git commit", "git push"]
+    },
+    "monitoring": {
+      "description": "Performance and usage tracking",
+      "hooks": ["UserPromptSubmit", "Stop", "SubAgentCompleted"],
+      "commands": ["logging", "metrics", "analytics"]
+    }
+  },
+  "mcp_integration": {
+    "description": "Hooks work with MCP tools",
+    "pattern": "mcp__<server>__<tool>",
+    "example": "mcp__github__create_issue"
+  },
+  "security_considerations": [
+    "Hooks run with current environment credentials",
+    "Malicious hooks can exfiltrate data",
+    "Direct settings file edits don't take immediate effect",
+    "Always review hook implementations before registration"
+  ]
+}

@@ -1,0 +1,18 @@
+SERIES BIBLE CREATION REQUEST
+
+Subagent: bible-architect
+Task Type: SERIES_BIBLE
+Project: Cinnamon_Scents_from_Teide_Peak
+
+Input Files:
+- Brainstorming data: .claude/data/projects/Cinnamon_Scents_from_Teide_Peak/brainstorming_summary.yaml
+
+Output File: .claude/data/projects/Cinnamon_Scents_from_Teide_Peak/series_bible.yaml
+
+Requirements:
+- Bible Type: SERIES_BIBLE 
+- Target Quality Score: 95+
+- Language: ALL CONTENT MUST BE IN ENGLISH
+- Include: series concept, overarching themes, main recurring characters, complete world-building, author voice signature (POV, tense, style, US English), series arc planning, target audience and genre conventions
+
+CRITICAL: All content must be in English only. No Chinese, Spanish or other languages in the generated content.

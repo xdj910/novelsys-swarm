@@ -1,0 +1,9 @@
+{
+  "chapter": 5,
+  "timestamp": "2025-09-01T00:00:00.000Z",
+  "score": 92, 
+  "issues": [{"id": "info_001", "type": "information_density", "severity": "moderate", "location": "detected_in_analysis", "description": "Minor issue with information density - could be overwhelming for readers", "detected_by": "quality-scorer"}],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 1, "low": 0},
+  "dimensions": {"continuity": 92, "plot_logic": 92, "bible_compliance": 92, "writing_quality": 92},
+  "fix_history": []
+}

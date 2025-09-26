@@ -1,0 +1,15 @@
+Task: Generate Chapter 2 for teide-cinnamon-mysteries
+Subagent: chapter-start-coordinator
+Project: teide-cinnamon-mysteries
+Chapter: 2
+Context: Chapter 1 ended with María reflecting on various character tensions revealed during the day, particularly Nicolás' suspicious behavior regarding his aunt Carmen's research and his specific questions about cinnamon varieties. The Festival de Dulces Tradicionales is set up as the backdrop, with María sensing that competition will reveal hidden community tensions.
+
+Requirements:
+- Maintain narrative continuity from Chapter 1's ending
+- Continue developing the festival preparation phase
+- Build on established character tensions and mysteries
+- Achieve 95+ quality score through complete specialist pipeline
+- Proper file management and metadata creation
+- Follow the 9-step optimized generation pipeline outlined in coordinator
+
+Execution: Orchestrate complete chapter generation with quality validation and retry logic if needed.

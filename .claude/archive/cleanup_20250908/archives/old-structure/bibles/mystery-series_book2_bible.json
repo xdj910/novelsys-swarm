@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "series_name": "mystery-series",
+    "book_number": 2,
+    "genre": "mystery",
+    "target_audience": "adult",
+    "created_at": "2025-08-29T14:21:06.843012",
+    "last_updated": "2025-08-29T14:21:06.890305",
+    "version": "1.0.1"
+  },
+  "world_building": {
+    "setting": {
+      "time_period": "contemporary",
+      "locations": [
+        {
+          "name": "主要城市",
+          "description": "故事主要发生地",
+          "significance": "核心剧情场景",
+          "atmosphere": "现代都市氛围"
+        }
+      ],
+      "atmosphere": "悬疑紧张",
+      "cultural_context": ""
+    },
+    "rules": {
+      "physical_laws": [
+        "符合现实物理规律"
+      ],
+      "social_structures": [
+        "现代社会体系"
+      ],
+      "economic_system": "",
+      "political_system": ""
+    }
+  },
+  "characters": {
+    "protagonists": [
+      {
+        "name": "主角",
+        "age": 30,
+        "occupation": "侦探",
+        "personality": {
+          "traits": [
+            "聪明",
+            "固执",
+            "正义"
+          ],
+          "flaws": [
+            "过度自信",
+            "不善社交"
+          ],
+          "growth_arc": "从独狼到团队合作",
+          "growth_stage": "advanced"
+        },
+        "backstory": "曾经的警察，因为某个案件离职成为私家侦探",
+        "motivation": "追求真相和正义",
+        "relationships": []
+      }
+    ],
+    "antagonists": [
+      {
+        "name": "反派",
+        "role": "主要对手",
+        "motivation": "复仇",
+        "methods": "精心策划的犯罪"
+      }
+    ],
+    "supporting": [
+      {
+        "name": "新反派",
+        "role": "mastermind"
+      }
+    ],
+    "character_relationships": []
+  },
+  "plot": {
+    "central_conflict": "更深层的阴谋",
+    "themes": [
+      "真相",
+      "正义",
+      "牺牲",
+      "成长",
+      "背叛",
+      "救赎"
+    ],
+    "plot_structure": {
+      "exposition": "案件发生，主角介入",
+      "rising_action": [
+        "线索收集",
+        "第一次对抗",
+        "深入调查",
+        "意外发现"
+      ],
+      "climax": "最终对决",
+      "falling_action": [],
+      "resolution": "真相大白，正义得伸"
+    },
+    "subplots": []
+  },
+  "style_guide": {
+    "narrative_voice": "",
+    "tone": "",
+    "pacing": "",
+    "language_style": "",
+    "recurring_motifs": []
+  }
+}

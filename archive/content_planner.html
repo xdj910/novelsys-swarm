@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Strategy Planner - Multi-Platform Publishing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 16px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .content-panel {
+            display: none;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        .niche-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .niche-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .metric {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .metric-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .platform-comparison {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .idea-generator {
+            background: #f0f7ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .generated-ideas {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            min-height: 100px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e3e8f0;
+            color: #667eea;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 0.9em;
+        }
+
+        .roi-calculator {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .result-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px solid #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Platform Content Strategy Planner</h1>
+        <p class="subtitle">Vocal Media | Medium Partner Program | Substack</p>
+
+        <div class="tab-container">
+            <button class="tab active" onclick="switchTab('niches')">Blue Ocean Niches</button>
+            <button class="tab" onclick="switchTab('platforms')">Platform Comparison</button>
+            <button class="tab" onclick="switchTab('ideas')">Content Ideas</button>
+            <button class="tab" onclick="switchTab('roi')">ROI Calculator</button>
+        </div>
+
+        <!-- Blue Ocean Niches Panel -->
+        <div id="niches" class="content-panel active">
+            <h2>Top 5 Blue Ocean Opportunities</h2>
+
+            <div class="niche-card">
+                <h3 class="niche-title">1. AI for Small Business (Non-Technical)</h3>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-value">$25-100K</div>
+                        <div class="metric-label">Annual Potential</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">Low</div>
+                        <div class="metric-label">Competition</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">High</div>
+                        <div class="metric-label">Demand</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">6 months</div>
+                        <div class="metric-label">To Profit</div>
+                    </div>
+                </div>
+                <p><strong>First Article Ideas:</strong></p>
+                <div style="margin-top: 10px;">
+                    <span class="tag">5 AI Tools Under $30/Month</span>
+                    <span class="tag">Automating Customer Service on a Budget</span>
+                    <span class="tag">AI for Inventory Management</span>
+                </div>
+            </div>
+
+            <div class="niche-card">
+                <h3 class="niche-title">2. Personal Finance for Creative Professionals</h3>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-value">$15-75K</div>
+                        <div class="metric-label">Annual Potential</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">Very Low</div>
+                        <div class="metric-label">Competition</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">Growing</div>
+                        <div class="metric-label">Demand</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">4 months</div>
+                        <div class="metric-label">To Profit</div>
+                    </div>
+                </div>
+                <p><strong>First Article Ideas:</strong></p>
+                <div style="margin-top: 10px;">
+                    <span class="tag">Tax Strategies for Irregular Income</span>
+                    <span class="tag">Building Emergency Fund as Freelancer</span>
+                    <span class="tag">Retirement Planning for Artists</span>
+                </div>
+            </div>
+
+            <div class="niche-card">
+                <h3 class="niche-title">3. Mental Health Tech & Digital Wellness</h3>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-value">$12-50K</div>
+                        <div class="metric-label">Annual Potential</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">Medium</div>
+                        <div class="metric-label">Competition</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">Very High</div>
+                        <div class="metric-label">Demand</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">3 months</div>
+                        <div class="metric-label">To Profit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Comparison Panel -->
+        <div id="platforms" class="content-panel">
+            <h2>Platform Strategy Matrix</h2>
+            <div class="platform-comparison">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Earning Model</th>
+                            <th>Avg $/1000 views</th>
+                            <th>Best For</th>
+                            <th>Time to First $100</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vocal Media</strong></td>
+                            <td>Views + Challenges</td>
+                            <td>$3.80 - $6.00</td>
+                            <td>New Writers</td>
+                            <td>1-2 weeks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Medium</strong></td>
+                            <td>Member Reading Time</td>
+                            <td>$10 - $98</td>
+                            <td>Quality Content</td>
+                            <td>2-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Substack</strong></td>
+                            <td>Subscriptions</td>
+                            <td>N/A (Subscription)</td>
+                            <td>Newsletter/Series</td>
+                            <td>2-3 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-top: 30px;">Publishing Strategy</h3>
+            <div class="niche-card">
+                <p><strong>Optimal Workflow:</strong></p>
+                <ol style="margin: 15px 0; padding-left: 20px;">
+                    <li>Write in Substack (primary content home)</li>
+                    <li>Cross-post to Medium with canonical URL (SEO safe)</li>
+                    <li>Adapt for Vocal challenges (bonus earnings)</li>
+                    <li>Share snippets on social media for traffic</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Content Ideas Panel -->
+        <div id="ideas" class="content-panel">
+            <h2>Content Idea Generator</h2>
+            <div class="idea-generator">
+                <p>Select a niche and generate targeted content ideas:</p>
+                <select id="nicheSelect" style="width: 100%; padding: 10px; margin: 15px 0; border-radius: 5px; border: 1px solid #ddd;">
+                    <option value="ai-small-biz">AI for Small Business</option>
+                    <option value="creative-finance">Personal Finance for Creatives</option>
+                    <option value="mental-tech">Mental Health Tech</option>
+                    <option value="web3-simple">Web3 for Non-Technical</option>
+                    <option value="family-eco">Sustainable Living for Families</option>
+                </select>
+                <button onclick="generateIdeas()">Generate 5 Article Ideas</button>
+                <div class="generated-ideas" id="ideasOutput">
+                    Click "Generate" to get targeted article ideas for your chosen niche.
+                </div>
+            </div>
+        </div>
+
+        <!-- ROI Calculator Panel -->
+        <div id="roi" class="content-panel">
+            <h2>Multi-Platform ROI Calculator</h2>
+            <div class="roi-calculator">
+                <h3>Estimate Your Monthly Earnings</h3>
+
+                <label>Articles per Week:</label>
+                <input type="number" id="articlesPerWeek" value="2" min="1" max="20">
+
+                <label>Average Views per Article:</label>
+                <input type="number" id="viewsPerArticle" value="500" min="100" max="10000">
+
+                <label>Substack Subscribers:</label>
+                <input type="number" id="substackSubs" value="0" min="0" max="10000">
+
+                <label>Subscription Price ($):</label>
+                <input type="number" id="subPrice" value="5" min="0" max="50">
+
+                <button onclick="calculateROI()">Calculate Earnings</button>
+
+                <div class="result-box" id="roiResult" style="display: none;">
+                    <h3>Projected Monthly Earnings</h3>
+                    <div id="roiDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.content-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Remove active from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected panel
+            document.getElementById(tabName).classList.add('active');
+
+            // Mark tab as active
+            event.target.classList.add('active');
+        }
+
+        function generateIdeas() {
+            const niche = document.getElementById('nicheSelect').value;
+            const ideas = {
+                'ai-small-biz': [
+                    '"How I Cut Costs 40% Using ChatGPT for Customer Service"',
+                    '"The $30 AI Stack Every Small Business Needs in 2025"',
+                    '"Why Your Competitor Is Using AI (And You\'re Not)"',
+                    '"5 AI Mistakes That Killed My First Business"',
+                    '"From Excel to AI: A Small Retailer\'s Digital Journey"'
+                ],
+                'creative-finance': [
+                    '"The Feast or Famine Budget: Managing Irregular Creative Income"',
+                    '"Why Traditional Finance Advice Fails Freelancers"',
+                    '"Building a 6-Month Buffer on Inconsistent Income"',
+                    '"Tax Strategies Every Creative Professional Needs"',
+                    '"From Broke Artist to Financial Freedom: A Framework"'
+                ],
+                'mental-tech': [
+                    '"I Tested 10 Anxiety Apps So You Don\'t Have To"',
+                    '"The Hidden Cost of Wellness Apps: A Deep Dive"',
+                    '"Digital Detox vs Digital Wellness: Finding Balance"',
+                    '"How AI Therapists Compare to Human Counseling"',
+                    '"Building a Mental Health Tech Stack That Works"'
+                ],
+                'web3-simple': [
+                    '"Explaining NFTs to My Grandmother (And She Got It)"',
+                    '"Web3 Without the Hype: Practical Uses Today"',
+                    '"Your First Crypto Transaction: A Visual Guide"',
+                    '"DeFi for People Who Hate Finance"',
+                    '"The Non-Technical Guide to Blockchain Safety"'
+                ],
+                'family-eco': [
+                    '"Zero Waste with Kids: What Actually Works"',
+                    '"The $500/Month We Saved Going Green"',
+                    '"Teaching Kids Sustainability Without Being Preachy"',
+                    '"Eco-Friendly Baby Products That Don\'t Break the Bank"',
+                    '"Our Family\'s Plastic-Free Month Experiment"'
+                ]
+            };
+
+            const selectedIdeas = ideas[niche];
+            let output = '<h3>Generated Ideas:</h3><ol style="padding-left: 20px; margin-top: 15px;">';
+            selectedIdeas.forEach(idea => {
+                output += `<li style="margin: 10px 0;">${idea}</li>`;
+            });
+            output += '</ol>';
+
+            document.getElementById('ideasOutput').innerHTML = output;
+        }
+
+        function calculateROI() {
+            const articlesPerWeek = parseFloat(document.getElementById('articlesPerWeek').value);
+            const viewsPerArticle = parseFloat(document.getElementById('viewsPerArticle').value);
+            const substackSubs = parseFloat(document.getElementById('substackSubs').value);
+            const subPrice = parseFloat(document.getElementById('subPrice').value);
+
+            // Monthly calculations
+            const articlesPerMonth = articlesPerWeek * 4;
+            const totalViews = articlesPerMonth * viewsPerArticle;
+
+            // Platform earnings
+            const vocalEarnings = (totalViews / 1000) * 4.9; // Average
+            const mediumEarnings = (totalViews / 1000) * 24; // Average
+            const substackEarnings = substackSubs * subPrice;
+
+            const totalEarnings = vocalEarnings + mediumEarnings + substackEarnings;
+
+            // Display results
+            const resultHTML = `
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-value">$${vocalEarnings.toFixed(0)}</div>
+                        <div class="metric-label">Vocal Media</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">$${mediumEarnings.toFixed(0)}</div>
+                        <div class="metric-label">Medium</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">$${substackEarnings.toFixed(0)}</div>
+                        <div class="metric-label">Substack</div>
+                    </div>
+                    <div class="metric" style="background: #667eea; color: white;">
+                        <div class="metric-value" style="color: white;">$${totalEarnings.toFixed(0)}</div>
+                        <div class="metric-label" style="color: white;">Total/Month</div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><strong>Annual Projection:</strong> $${(totalEarnings * 12).toFixed(0)}</p>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                    Based on ${articlesPerMonth} articles/month with ${totalViews.toLocaleString()} total views
+                </p>
+            `;
+
+            document.getElementById('roiDetails').innerHTML = resultHTML;
+            document.getElementById('roiResult').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

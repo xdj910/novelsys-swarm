@@ -1,0 +1,9 @@
+{
+  "chapter": 09,
+  "timestamp": "2025-09-01T00:00:00.000Z",
+  "score": 85,
+  "issues": [{"id": "misc_001", "type": "minor_issue", "severity": "moderate", "location": "detected_in_analysis", "description": "High exposition density makes some sections feel info-dump heavy", "detected_by": "quality-scorer"}],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 1, "low": 0},
+  "dimensions": {"continuity": 85, "plot_logic": 85, "bible_compliance": 85, "writing_quality": 85},
+  "fix_history": []
+}

@@ -1,0 +1,10 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/context-inspector.md
+Time: 2025-09-04 11:24:56
+Last 100 characters:
+gically through system
+- Validation prevents runtime errors
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

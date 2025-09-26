@@ -1,0 +1,9 @@
+{
+  "chapter": 4,
+  "timestamp": "2025-09-01T00:00:00.000Z", 
+  "score": 88,
+  "issues": [{"id": "pace_001", "type": "pacing_issue", "severity": "moderate", "location": "detected_in_analysis", "description": "Minor pacing issue where Sarah's detective insights could be more clearly articulated", "detected_by": "quality-scorer"}],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 1, "low": 0},
+  "dimensions": {"continuity": 90, "plot_logic": 88, "bible_compliance": 90, "writing_quality": 88},
+  "fix_history": []
+}

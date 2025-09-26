@@ -1,0 +1,41 @@
+# Test Project Bible for Quality System Testing
+series_metadata:
+  series_title: "Morro Bay Mysteries"
+  series_type: "Cozy Mystery Series"
+  target_audience: "Cozy mystery readers"
+  total_books: 1
+  books_per_year: 2
+  
+books:
+  - book_number: 1
+    title: "Death at Casa Vista Verde"
+    chapters: 5
+    
+world_building:
+  primary_location:
+    name: "Morro Bay"
+    type: "California coastal town"
+    
+  key_locations:
+    casa_vista_verde:
+      type: "Bed & Breakfast Inn"
+      established: "25 years ago"
+      description: "Charming Spanish-style inn overlooking Morro Bay"
+      
+characters:
+  sarah_mitchell:
+    role: "Main Protagonist"
+    age: 55
+    occupation: "Former San Francisco Detective, now B&B owner"
+    backstory: "Moved to Morro Bay and bought Casa Vista Verde 25 years ago"
+    
+  carmen_rivera:
+    role: "Supporting Character"
+    occupation: "Receptionist at Casa Vista Verde"
+    relationship: "Sarah's trusted employee and friend"
+    
+timeline:
+  series_start: "Present day"
+  key_dates:
+    - "25 years ago: Sarah buys Casa Vista Verde"
+    - "Present: First mystery occurs"

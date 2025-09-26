@@ -1,0 +1,94 @@
+{
+  "system": {
+    "version": "2.0",
+    "mode": "hybrid",
+    "description": "NOVELSYS-SWARM Hybrid Hook System",
+    "official_compatibility": true,
+    "last_updated": "2025-09-04"
+  },
+  "performance": {
+    "enable_batch_updates": true,
+    "session_tracker": {
+      "batch_size": 10,
+      "batch_timeout_minutes": 5,
+      "important_files_immediate": ["bible.yaml", "quality_check.json"]
+    },
+    "stats_updater": {
+      "aggregation_threshold": 15,
+      "cache_cleanup_interval": 300,
+      "incremental_mode": true
+    },
+    "hook_execution": {
+      "parallel_safe_hooks": [
+        "content-formatter.sh",
+        "session-tracker.sh", 
+        "auto-entity-sync.sh"
+      ],
+      "sequential_hooks": [
+        "chapter-integrity-checker.sh",
+        "meta-updater.sh",
+        "project-stats-updater.sh",
+        "smart-backup.sh"
+      ]
+    }
+  },
+  "security": {
+    "auto_fix_disabled": true,
+    "validation_mode": "warn_only",
+    "backup_before_changes": true,
+    "sensitive_file_protection": true,
+    "allowed_modifications": [],
+    "protected_patterns": [
+      "*/content.md",
+      "*/bible.yaml", 
+      "*/entity_dictionary.yaml"
+    ]
+  },
+  "hook_registry": {
+    "master-hook.sh": {
+      "type": "orchestrator",
+      "official_trigger": "PostToolUse",
+      "matcher": "Write|Edit|MultiEdit",
+      "timeout": 60,
+      "description": "Intelligent hook orchestrator with phase-based execution"
+    },
+    "output-validator.sh": {
+      "type": "validator", 
+      "phase": "always",
+      "description": "Safe output validation with warnings only"
+    },
+    "session-tracker.sh": {
+      "type": "tracker",
+      "phase": 2,
+      "batch_mode": true,
+      "description": "Optimized session tracking with batch updates"
+    },
+    "project-stats-updater.sh": {
+      "type": "statistics",
+      "phase": 4,
+      "incremental_mode": true,
+      "description": "Incremental project statistics with caching"
+    },
+    "subagent-context-enhancer.sh": {
+      "type": "context",
+      "official_trigger": "PreToolUse",
+      "matcher": "Task",
+      "timeout": 30,
+      "description": "Dynamic context enhancement for subagents"
+    },
+    "subagent-output-learner.sh": {
+      "type": "learning",
+      "official_trigger": "SubagentStop", 
+      "matcher": ".*",
+      "timeout": 15,
+      "description": "Subagent output pattern learning"
+    }
+  },
+  "compatibility": {
+    "claude_code_official": true,
+    "standard_env_vars": true,
+    "timeout_support": true,
+    "matcher_support": true,
+    "parallel_execution": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "chapter_number": 9,
+  "title": "Elena's Revelations",
+  "word_count_target": 4000,
+  "setting": "Hospital, library, Carmen's grandfather's home",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-08-30T20:00:00Z",
+  "continuity_from_ch8": {
+    "time_progression": "Two days after rescue",
+    "elena_status": "Recovering in hospital, ready to talk",
+    "sarah_status": "Investigating deeper conspiracy",
+    "new_threat": "Refined voice warning about larger conspiracy",
+    "roberto_status": "In custody, cooperating",
+    "community_mood": "Celebratory but wary"
+  },
+  "key_objectives": [
+    "Elena reveals what she discovered about the conspiracy",
+    "Cave system mentioned as key to illegal operations",
+    "Research into volcanic geology and hidden spaces",
+    "Carmen's grandfather provides crucial local knowledge",
+    "Discovery that caves were used for smuggling",
+    "Connection to other Caribbean islands revealed",
+    "New suspect emerges from Elena's information"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 91,
+    "character_development_score": 92,
+    "plot_advancement_score": 94,
+    "cultural_authenticity_score": 95,
+    "mystery_development_score": 95,
+    "overall_target": 95
+  },
+  "notes": "Adapting 'Cave System' theme to post-rescue context - caves as key to understanding larger conspiracy rather than finding Elena"
+}

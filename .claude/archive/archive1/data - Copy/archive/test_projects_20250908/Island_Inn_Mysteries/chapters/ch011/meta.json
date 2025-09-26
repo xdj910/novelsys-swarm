@@ -1,0 +1,37 @@
+{
+  "chapter_number": 11,
+  "title": "The Document Trail",
+  "word_count_target": 4000,
+  "setting": "Legal archives, property registry office, police station",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-08-30T20:40:00Z",
+  "continuity_from_ch10": {
+    "time_progression": "Two days after cave incident and Mendez arrest",
+    "elena_status": "Recovering in hospital, providing testimony",
+    "sarah_status": "Leading document investigation with Carmen",
+    "mendez_status": "In custody, assets being investigated",
+    "roberto_status": "Released on bail, cooperating fully",
+    "community_mood": "Shocked by Mendez betrayal, supportive of investigation",
+    "investigation_focus": "Documenting extent of fraud scheme"
+  },
+  "key_objectives": [
+    "Sarah and Carmen uncover property deed irregularities",
+    "Discovery of systematic fraud dating back decades",
+    "Elena's secret legal meetings purpose revealed",
+    "Multiple families affected by scheme discovered",
+    "Ana Morales provides crucial legal expertise",
+    "Inspector Vega coordinates formal investigation",
+    "Miguel learns about stolen inheritance",
+    "Community begins to understand scope of betrayal"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 91,
+    "character_development_score": 92,
+    "plot_advancement_score": 94,
+    "cultural_authenticity_score": 95,
+    "mystery_development_score": 95,
+    "overall_target": 95
+  },
+  "notes": "Focus on documentary evidence and legal procedures while maintaining human drama"
+}

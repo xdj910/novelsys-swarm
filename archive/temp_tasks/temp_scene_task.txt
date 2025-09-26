@@ -1,0 +1,26 @@
+SCENE GENERATION TASK
+
+Project: TeidePeakMysteries
+Book: 1 ("Cinnamon Secrets")
+Chapter: 1 ("The Heart of La Orotava")
+Version: v01_initial_draft
+
+REQUIREMENTS:
+- Generate initial chapter draft following the detailed outline
+- 3,000 words target length
+- UK English only (no Chinese, Spanish dialogue, pinyin)
+- Cozy mystery genre conventions
+- Focus on establishing María Dolores Santana as protagonist
+- Introduce key characters naturally
+- Show pastry psychology abilities
+- Create warm, community atmosphere
+
+INPUT FILES:
+- Outline: .claude/data/projects/TeidePeakMysteries/book_1/chapters/ch001/outline.json
+- Series Bible: .claude/data/projects/TeidePeakMysteries/series_bible.yaml
+- Entity Dictionary: .claude/data/projects/TeidePeakMysteries/shared/entity_dictionary.yaml
+
+OUTPUT PATH:
+.claude/data/projects/TeidePeakMysteries/book_1/chapters/ch001/versions/v01_initial_draft.md
+
+GENERATE INITIAL CHAPTER DRAFT NOW.

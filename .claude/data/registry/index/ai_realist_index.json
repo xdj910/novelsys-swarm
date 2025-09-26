@@ -1,0 +1,22 @@
+{
+  "series": "AI Realist",
+  "description": "Skeptical B2B AI analysis for decision makers",
+  "articles": [],
+  "total_articles": 0,
+  "path_format": "articles/{timestamp}_{slug}/",
+  "example_path": "articles/20250118_143022_ai_risks/",
+  "planned_total": 100,
+  "metadata": {
+    "created": "2025-01-18",
+    "last_updated": "2025-01-18T10:30:00Z",
+    "index_version": "1.0"
+  },
+  "production_notes": {
+    "workflow": "brainstorm -> research -> write -> visuals -> publish",
+    "tools": {
+      "research": ["trend-analyzer", "audience-profiler", "competitor-scanner"],
+      "writing": ["article writer with voice guide"],
+      "visuals": ["visual-creator -> manual Gemini generation"]
+    }
+  }
+}

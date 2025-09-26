@@ -1,0 +1,9 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/agents/brainstorming-completeness-checker.md
+Time: 2025-09-03 19:41:16
+Last 100 characters:
+f completely empty: Report 0% and provide starter questions
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

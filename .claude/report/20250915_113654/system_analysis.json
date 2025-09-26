@@ -1,0 +1,242 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2025-09-15T11:54:32Z",
+    "scan_timestamp": "20250915_113654",
+    "analyzer_version": "1.0",
+    "scan_source": ".claude/report/20250915_113654/system_scan.json",
+    "scan_version": "5.0"
+  },
+  "architecture": {
+    "total_components": 146,
+    "layer_distribution": {
+      "commands": 28,
+      "coordinators": 26,
+      "agents": 92
+    },
+    "execution_patterns": {
+      "parallel": 47,
+      "serial": 51,
+      "pipeline": 57,
+      "multi_coordinator": 13,
+      "human_in_loop": 13,
+      "atomic": 30
+    },
+    "tool_distribution": {
+      "Read": 115,
+      "Write": 110,
+      "Bash": 53,
+      "Grep": 45,
+      "Glob": 8,
+      "WebSearch": 1,
+      "WebFetch": 1
+    },
+    "architectural_patterns": {
+      "command_coordinator_pattern": 21,
+      "command_direct_pattern": 0,
+      "properly_layered": true,
+      "recursion_safe": true
+    }
+  },
+  "relationships": {
+    "call_graph": {
+      "commands_with_coordinators": 21,
+      "commands_without_coordinators": 7,
+      "coordinator_agent_relationships": 26,
+      "orphaned_coordinators": 1,
+      "orphaned_agents": 17
+    },
+    "command_flows": {
+      "bible-view": {
+        "coordinator": "bible-view-coordinator",
+        "agents": ["bible-viewer"],
+        "pattern": "serial"
+      },
+      "book-complete": {
+        "coordinator": "book-complete-coordinator",
+        "agents": [
+          "continuity-final-checker", "series-progress-updater", "completion-certifier",
+          "archive-creator", "final-quality-validator", "completion-validator",
+          "manuscript-assembler", "transition-planner", "metadata-generator"
+        ],
+        "pattern": "pipeline"
+      },
+      "chapter-start": {
+        "coordinator": "chapter-start-coordinator",
+        "agents": [
+          "bible-compliance-validator", "entity-validator", "outline-generator",
+          "scene-generator", "quality-scorer"
+        ],
+        "pattern": "pipeline"
+      },
+      "system-check": {
+        "coordinator": "system-check-coordinator",
+        "agents": ["system-reporter", "system-analyzer", "system-scanner"],
+        "pattern": "serial"
+      }
+    },
+    "file_io_network": {
+      "high_traffic_files": [
+        "{project}/book_{N}/bible.yaml",
+        "{project}/shared/entity_dictionary.yaml",
+        "{project}/project.json"
+      ],
+      "shared_readers": 5,
+      "shared_writers": 134,
+      "atomic_operations": 30
+    },
+    "orphan_components": {
+      "total_orphans": 18,
+      "orphan_rate": 15.254237288135593,
+      "orphan_coordinators": ["chapter-planning-coordinator"],
+      "orphan_agents": [
+        "author-voice-signature-specialist", "book-outline-reviewer",
+        "brainstorming-completeness-validator", "clue-integration-specialist",
+        "context-validator", "current-project-updater", "emotional-trigger-specialist",
+        "humanization-specialist", "humor-injection-specialist", "knowledge-base-updater",
+        "novel-quality-process-analyzer", "report-deduplication-specialist",
+        "series-bible-architect", "test-rejection-logger-agent", "test-state-updater-agent",
+        "world-building-specialist", "world-clue-specialist"
+      ]
+    }
+  },
+  "compliance": {
+    "critical_violations": {
+      "count": 0,
+      "details": [],
+      "blocks_execution": false
+    },
+    "major_violations": {
+      "count": 284,
+      "summary": {
+        "excessive_lines": 14,
+        "unicode_characters": 25,
+        "missing_io_documentation": 70,
+        "agent_acts_as_coordinator": 27,
+        "double_backtick_path": 7,
+        "timestamp_placeholder": 3,
+        "missing_thinking_field": 26
+      },
+      "top_issues": [
+        "70 agents missing Input Requirements documentation",
+        "27 agents exhibit coordinator-like behavior",
+        "26 agents missing thinking field",
+        "25 components with Unicode characters"
+      ]
+    },
+    "minor_issues": {
+      "count": 120,
+      "details": "Various documentation and formatting issues"
+    },
+    "compliance_summary": {
+      "recursion_safety": "100% - No Task tool in coordinators/agents",
+      "tool_configuration": "Correct - Coordinators have Read/Write/Bash/Grep only",
+      "architecture_layers": "Properly implemented - 5-layer architecture maintained",
+      "unicode_compliance": "Needs attention - 25 components with Unicode violations"
+    }
+  },
+  "health_metrics": {
+    "component_scores": {
+      "architecture_score": 92,
+      "compliance_score": 68,
+      "documentation_score": 52,
+      "maintainability_score": 75,
+      "orphan_impact_score": 85
+    },
+    "overall_health": 74,
+    "health_grade": "B-",
+    "health_trend": "stable",
+    "key_strengths": [
+      "100% recursion-safe architecture",
+      "Proper 5-layer separation maintained",
+      "Strong execution pattern diversity",
+      "Comprehensive tool coverage"
+    ],
+    "key_weaknesses": [
+      "High documentation gaps (48% missing I/O docs)",
+      "Unicode violations in 17% of components",
+      "15.3% orphan rate needs cleanup",
+      "Architecture role confusion in 18% of agents"
+    ]
+  },
+  "recommendations": {
+    "immediate": [
+      "Remove Unicode characters from 25 components (Windows compatibility)",
+      "Fix double backtick path documentation in 7 components",
+      "Replace timestamp placeholders with actual timestamps in 3 coordinators"
+    ],
+    "short_term": [
+      "Add Input Requirements documentation to 70 agents",
+      "Review 27 agents exhibiting coordinator behavior for proper role separation",
+      "Add thinking fields to 26 agents for better transparency",
+      "Consider removal or integration of 18 orphaned components"
+    ],
+    "long_term": [
+      "Implement comprehensive I/O documentation standards",
+      "Establish automated Unicode compliance checking",
+      "Create orphan detection and cleanup processes",
+      "Enhance architectural role clarity guidelines"
+    ]
+  },
+  "system_map": {
+    "entry_points": [
+      "architecture-test", "human-in-loop-test", "multi-coordinator-test", "parallel-test",
+      "python-pipeline-test", "validate-trigger-words", "bible-create", "bible-view",
+      "book-complete", "chapter-start", "context-sync", "extend-series", "flow-mapping",
+      "github-sync", "next-book", "next-chapter", "next", "project-list", "project-new",
+      "project-switch", "quality-check-cross", "quality-check-individual", "smart-fix-cross",
+      "smart-fix", "standup", "status", "system-check", "unified-update-pipeline"
+    ],
+    "orchestrators": [
+      "bible-view-coordinator", "book-complete-coordinator", "chapter-planning-coordinator",
+      "chapter-start-coordinator", "context-sync-coordinator", "extend-series-coordinator",
+      "github-sync-coordinator", "next-book-coordinator", "next-chapter-coordinator",
+      "next-recommendation-coordinator", "project-new-coordinator", "project-switch-coordinator",
+      "quality-check-cross-coordinator", "quality-check-individual-coordinator",
+      "smart-fix-coordinator", "smart-fix-cross-coordinator", "standup-coordinator",
+      "status-coordinator", "system-check-coordinator", "test-architecture-coordinator",
+      "test-content-generation-coordinator", "test-data-analysis-coordinator",
+      "test-human-in-loop-coordinator", "test-parallel-coordinator",
+      "test-python-pipeline-coordinator", "unified-update-pipeline-coordinator"
+    ],
+    "executors": "92 specialized agents covering novel writing, system management, quality control, and testing",
+    "data_flows": [
+      "Bible management: Commands -> Coordinators -> Bible agents -> YAML files",
+      "Chapter generation: Commands -> Chapter coordinators -> Scene/Quality agents -> Content files",
+      "Quality control: Commands -> Quality coordinators -> Validation agents -> Report files",
+      "System analysis: Commands -> System coordinators -> Scanner/Analyzer agents -> Report files"
+    ]
+  },
+  "advanced_insights": {
+    "execution_complexity": {
+      "high_complexity_commands": 3,
+      "medium_complexity_commands": 22,
+      "low_complexity_commands": 1,
+      "complexity_distribution": "Well-balanced with majority at medium complexity"
+    },
+    "coordinator_efficiency": {
+      "average_agents_per_coordinator": 4.2,
+      "most_complex_coordinator": "book-complete-coordinator (9 agents)",
+      "simplest_coordinator": "status-coordinator (1 agent)",
+      "delegation_patterns": "Proper orchestration without direct execution"
+    },
+    "model_optimization": {
+      "claude_opus_4_1_recommended": 2,
+      "high_complexity_components": 47,
+      "optimization_potential": "Consider model specification for critical quality operations"
+    },
+    "architectural_health": {
+      "layer_violations": 0,
+      "recursion_risks": 0,
+      "circular_dependencies": 0,
+      "architectural_integrity": "Excellent"
+    }
+  },
+  "validation_summary": {
+    "scan_completeness": "100% - All 146 components analyzed",
+    "relationship_accuracy": "Complete call graph and I/O network mapped",
+    "compliance_coverage": "All CLAUDE.md standards validated",
+    "orphan_detection": "Enhanced V4 8-pattern recognition applied",
+    "data_integrity": "Full semantic extraction with 10 modules",
+    "analysis_confidence": "High - Based on comprehensive V5 scanner data"
+  }
+}

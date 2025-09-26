@@ -1,0 +1,14 @@
+Truncation Warning
+==================
+File: /d/NOVELSYS-SWARM/.claude/hooks/output-validator.sh
+Time: 2025-09-04 12:07:19
+Last 100 characters:
+ >> "$validation_log"
+    fi
+fi
+
+# 成功退出
+exit 0
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]
+
+This file appears to be truncated. Please verify and regenerate if necessary.

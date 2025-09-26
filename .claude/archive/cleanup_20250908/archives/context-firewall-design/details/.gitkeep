@@ -1,0 +1,3 @@
+# Context Firewall Detail Storage
+This directory stores full agent outputs while main thread only receives 50-char summaries.
+Token savings: ~70%

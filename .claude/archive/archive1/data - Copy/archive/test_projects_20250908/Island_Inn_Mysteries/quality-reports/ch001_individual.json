@@ -1,0 +1,25 @@
+{
+  "chapter": 1,
+  "timestamp": "2025-09-01T03:00:00.000Z",
+  "score": 96,
+  "issues": [
+    {
+      "id": "cont_001",
+      "type": "continuity_error",
+      "severity": "moderate", 
+      "location": "line 167",
+      "description": "Sarah's service years inconsistency - needs correction from 30 to 25 years",
+      "detected_by": "bible-compliance-validator"
+    }
+  ],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 1, "low": 0},
+  "dimensions": {
+    "continuity": 96,
+    "plot_logic": 98,
+    "bible_compliance": 97,
+    "writing_quality": 96
+  },
+  "fix_history": [],
+  "learning_qualified": true,
+  "genre_compliance": 120
+}

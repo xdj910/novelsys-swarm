@@ -1,0 +1,42 @@
+{
+  "main_arc": {
+    "setup": "刘明轩收到匿名信，重返雾海镇调查十年前的冷案",
+    "rising_action": "发现新证据，揭露小镇隐藏的走私网络",
+    "climax": "与陈海涛最终对决，真相大白",
+    "resolution": "正义得到伸张，刘明轩获得内心平静"
+  },
+  "subplots": [
+    {
+      "name": "走私网络",
+      "description": "陈家利用渔业公司进行走私活动",
+      "chapters": [8, 12, 16, 20]
+    },
+    {
+      "name": "目击证人心理斗争",
+      "description": "王小美克服恐惧，最终勇敢作证",
+      "chapters": [5, 10, 15, 25]
+    },
+    {
+      "name": "家族秘密",
+      "description": "四大家族之间的复杂关系和利益纠葛",
+      "chapters": [7, 14, 18, 22]
+    }
+  ],
+  "completed_events": [],
+  "upcoming_events": [],
+  "timeline": {
+    "past": {
+      "ten_years_ago": "陈雨菲被杀案发生",
+      "key_moments": []
+    },
+    "present": {
+      "investigation_start": "第1章",
+      "key_discoveries": []
+    }
+  },
+  "clue_tracking": {
+    "discovered": [],
+    "planted": [],
+    "red_herrings": []
+  }
+}

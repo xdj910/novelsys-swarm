@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "chapter_number": 2,
+    "title": "Chapter 2",
+    "word_count": 240,
+    "created_at": "2025-08-29T14:21:06.901029",
+    "quality_score": 76.0,
+    "style_consistency": 80.0
+  },
+  "outline": {
+    "title": "Chapter 2",
+    "plot_points": [
+      "开场",
+      "发展",
+      "转折",
+      "高潮",
+      "结尾"
+    ],
+    "characters": [
+      "主角"
+    ],
+    "location": "主要场景",
+    "mood": "neutral"
+  },
+  "scenes": [
+    {
+      "scene_number": 1,
+      "type": "mixed",
+      "description": "开场",
+      "characters": [
+        "主角"
+      ],
+      "location": "主要场景",
+      "mood": "neutral",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 2,
+      "type": "mixed",
+      "description": "发展",
+      "characters": [
+        "主角"
+      ],
+      "location": "主要场景",
+      "mood": "neutral",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 3,
+      "type": "mixed",
+      "description": "转折",
+      "characters": [
+        "主角"
+      ],
+      "location": "主要场景",
+      "mood": "neutral",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 4,
+      "type": "mixed",
+      "description": "高潮",
+      "characters": [
+        "主角"
+      ],
+      "location": "主要场景",
+      "mood": "neutral",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    },
+    {
+      "scene_number": 5,
+      "type": "mixed",
+      "description": "结尾",
+      "characters": [
+        "主角"
+      ],
+      "location": "主要场景",
+      "mood": "neutral",
+      "content": "这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。",
+      "word_count": 38
+    }
+  ],
+  "content": "# Chapter 2\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n这是一个包含多种元素的场景，对话、动作和描写交织在一起，推动着故事向前发展。\n\n\n\n[扩充内容：添加更多细节描写和人物对话，丰富场景]"
+}

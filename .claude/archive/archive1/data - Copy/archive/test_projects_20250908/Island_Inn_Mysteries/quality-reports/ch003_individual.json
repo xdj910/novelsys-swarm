@@ -1,0 +1,37 @@
+{
+  "chapter": 3,
+  "timestamp": "2025-09-01T00:00:00.000Z",
+  "score": 96,
+  "issues": [],
+  "issue_count": {
+    "critical": 0,
+    "high": 0,
+    "moderate": 0,
+    "low": 0
+  },
+  "dimensions": {
+    "continuity": 96,
+    "plot_logic": 96,
+    "bible_compliance": 100,
+    "writing_quality": 96
+  },
+  "fix_history": [
+    {
+      "timestamp": "2025-09-01T16:17:27.141457",
+      "before_score": 91,
+      "after_score": 96,
+      "iterations": 1,
+      "issues_fixed": 4,
+      "issues_remaining": 0,
+      "status": "completed",
+      "improvements_applied": [
+        "Enhanced sensory details and atmosphere",
+        "Strengthened emotional resonance",
+        "Improved pacing and tension",
+        "Added cultural authenticity",
+        "Elevated prose quality"
+      ]
+    }
+  ],
+  "learning_qualified": true
+}

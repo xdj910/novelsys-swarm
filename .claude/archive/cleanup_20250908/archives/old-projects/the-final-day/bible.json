@@ -1,0 +1,31 @@
+{
+  "book_title": "the-final-day",
+  "version": "1.0.0",
+  "created_at": "2025-08-29T14:38:13.296940",
+  "metadata": {
+    "genre": "thriller",
+    "audience": "general",
+    "planned_books": 3,
+    "chapters": 30,
+    "word_count": 120000
+  },
+  "world_building": {
+    "setting": {},
+    "atmosphere": ""
+  },
+  "characters": {
+    "protagonists": [],
+    "antagonists": [],
+    "supporting": []
+  },
+  "plot": {
+    "central_conflict": "",
+    "themes": [],
+    "structure": {}
+  },
+  "style_guide": {
+    "narrative_voice": "",
+    "tone": "",
+    "language_style": ""
+  }
+}

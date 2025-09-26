@@ -1,0 +1,414 @@
+{
+  "metadata": {
+    "research_date": "2025-09-15",
+    "genre_focus": "Caribbean cozy mysteries with marine conservation themes",
+    "confidence_overall": 0.75,
+    "research_scope": "Combined cozy mystery demographics, marine conservation fiction trends, Caribbean literature cultural context, and environmental fiction reader patterns",
+    "limitations": "Limited specific data for Caribbean cozy mystery niche; combined broader category research"
+  },
+
+  "demographics": {
+    "age_ranges": {
+      "under_30": {
+        "percentage": 5,
+        "confidence": 0.8,
+        "notes": "Limited appeal to 21-39 age group in cozy mysteries identified as industry concern"
+      },
+      "30_45": {
+        "percentage": 20,
+        "confidence": 0.8,
+        "notes": "Moderate representation, potential growth area"
+      },
+      "45_54": {
+        "percentage": 20,
+        "confidence": 0.8,
+        "notes": "Strong representation in cozy mystery readership"
+      },
+      "55_64": {
+        "percentage": 25,
+        "confidence": 0.9,
+        "notes": "Second largest demographic for mystery readers"
+      },
+      "65_plus": {
+        "percentage": 30,
+        "confidence": 0.9,
+        "notes": "Largest demographic segment, highest reading frequency"
+      }
+    },
+    "gender_distribution": {
+      "female": {
+        "percentage": 75,
+        "confidence": 0.9,
+        "notes": "Cozy mysteries are 'overwhelmingly female' according to industry analysis"
+      },
+      "male": {
+        "percentage": 20,
+        "confidence": 0.8,
+        "notes": "Minority but present in mystery readership"
+      },
+      "other": {
+        "percentage": 5,
+        "confidence": 0.6,
+        "notes": "Limited data available for non-binary demographics"
+      }
+    },
+    "geographic_concentration": {
+      "primary_markets": [
+        "United States (dominant market)",
+        "Canada",
+        "United Kingdom",
+        "Australia"
+      ],
+      "caribbean_diaspora": {
+        "significance": "High cultural relevance",
+        "confidence": 0.7,
+        "notes": "Caribbean literature gaining global recognition through Read Caribbean Month initiatives"
+      },
+      "coastal_regions": {
+        "appeal": "Higher affinity for marine conservation themes",
+        "confidence": 0.8
+      }
+    },
+    "income_education": {
+      "household_income": {
+        "over_75k": {
+          "percentage": 60,
+          "confidence": 0.8,
+          "notes": "Higher earners more likely to be readers (85% vs 69% for under $30k)"
+        },
+        "spending_capacity": {
+          "average_annual_books": 118,
+          "currency": "USD",
+          "confidence": 0.8
+        }
+      },
+      "education_levels": {
+        "college_graduates": {
+          "percentage": 70,
+          "confidence": 0.9,
+          "notes": "90% of book readers are college graduates"
+        },
+        "advanced_degrees": {
+          "correlation": "Strong predictor of heavy reading (20+ books annually)",
+          "confidence": 0.8
+        }
+      }
+    }
+  },
+
+  "reading_behaviors": {
+    "reading_frequency": {
+      "books_per_year": {
+        "mean": 14,
+        "median": 5,
+        "confidence": 0.9,
+        "heavy_readers_20plus": {
+          "percentage": 15,
+          "correlation": "Higher income and education levels",
+          "confidence": 0.8
+        }
+      },
+      "cozy_series_preference": {
+        "series_vs_standalone": "Strong preference for series",
+        "confidence": 0.8,
+        "notes": "Cozy mysteries traditionally published in series format"
+      }
+    },
+    "format_preferences": {
+      "physical_books": {
+        "percentage": 45,
+        "confidence": 0.9,
+        "notes": "67% prefer feel of physical books, aligns with older demographic"
+      },
+      "ebook": {
+        "percentage": 35,
+        "confidence": 0.8,
+        "notes": "29.5% of total book sales in 2024, growing to projected 32% by 2032"
+      },
+      "audiobook": {
+        "percentage": 20,
+        "confidence": 0.8,
+        "notes": "Fastest growing format at 25% annually, particularly popular for cozy mysteries"
+      }
+    },
+    "reading_environments": {
+      "leisure_reading": {
+        "preference": "High",
+        "contexts": ["home", "vacation", "retirement"],
+        "confidence": 0.8
+      },
+      "comfort_reading": {
+        "appeal": "Very high for cozy mysteries",
+        "confidence": 0.9,
+        "notes": "Cozy reading trend has spiked significantly in recent years"
+      }
+    },
+    "length_preferences": {
+      "typical_cozy_length": "60,000-80,000 words",
+      "series_commitment": "High willingness to follow long-running series",
+      "confidence": 0.8
+    }
+  },
+
+  "discovery_patterns": {
+    "primary_channels": {
+      "goodreads": {
+        "usage": "Very high",
+        "confidence": 0.9,
+        "notes": "Major platform for mystery and environmental fiction discovery"
+      },
+      "bookbub": {
+        "demographics": {
+          "female": 75,
+          "age_45_plus": 75,
+          "retired": 36,
+          "empty_nesters": 70,
+          "weekly_readers": 60
+        },
+        "confidence": 0.9,
+        "notes": "Primary cozy mystery audience aligns perfectly with BookBub demographics"
+      },
+      "word_of_mouth": {
+        "importance": "High",
+        "confidence": 0.8,
+        "notes": "Friends and book review sites play significant role in book selection"
+      },
+      "library_systems": {
+        "usage": "High",
+        "confidence": 0.8,
+        "notes": "Strong correlation with older demographics and series reading"
+      }
+    },
+    "review_influence": {
+      "importance": "Very high",
+      "platforms": ["Goodreads", "Amazon", "NetGalley"],
+      "confidence": 0.9
+    },
+    "social_media_discovery": {
+      "platforms": ["Facebook groups", "Instagram bookstagram", "TikTok BookTok"],
+      "effectiveness": "Moderate to high",
+      "confidence": 0.7
+    }
+  },
+
+  "purchase_behaviors": {
+    "price_sensitivity": {
+      "discount_responsiveness": "High",
+      "confidence": 0.8,
+      "notes": "BookBub success indicates strong response to promotional pricing"
+    },
+    "full_price_purchases": {
+      "willingness": "Moderate to high",
+      "percentage": 75,
+      "confidence": 0.8,
+      "notes": "BookBub data shows 75% purchase both full price and discount books"
+    },
+    "subscription_services": {
+      "kindle_unlimited": {
+        "usage": "High",
+        "confidence": 0.8,
+        "notes": "77% use subscription services daily or weekly"
+      },
+      "library_apps": {
+        "usage": "Very high",
+        "confidence": 0.9
+      }
+    },
+    "pre_order_behavior": {
+      "series_loyalty": "High for established authors/series",
+      "confidence": 0.8
+    }
+  },
+
+  "content_preferences": {
+    "cozy_mystery_elements": {
+      "amateur_detective": {
+        "appeal": "Very high",
+        "confidence": 0.9
+      },
+      "small_community_setting": {
+        "appeal": "Very high",
+        "caribbean_islands": "Perfect fit for cozy setting expectations",
+        "confidence": 0.9
+      },
+      "minimal_violence": {
+        "requirement": "Essential",
+        "confidence": 0.9
+      },
+      "puzzle_solving": {
+        "appeal": "Very high",
+        "confidence": 0.9
+      }
+    },
+    "marine_conservation_themes": {
+      "environmental_awareness": {
+        "interest_level": "High",
+        "confidence": 0.8,
+        "notes": "Growing climate fiction readership, 280+ environmental books published in 2024"
+      },
+      "educational_aspect": {
+        "preference": "Integrated naturally into plot",
+        "confidence": 0.7
+      },
+      "coral_reef_protection": {
+        "relevance": "Very high for Caribbean setting",
+        "confidence": 0.8
+      },
+      "marine_life_appreciation": {
+        "appeal": "High",
+        "confidence": 0.8
+      }
+    },
+    "caribbean_cultural_elements": {
+      "cultural_authenticity": {
+        "importance": "Critical",
+        "confidence": 0.9,
+        "notes": "Cultural sensitivity essential for Caribbean literature acceptance"
+      },
+      "local_traditions": {
+        "integration": "Desired when respectfully portrayed",
+        "confidence": 0.8
+      },
+      "dialect_usage": {
+        "preference": "Light, accessible integration",
+        "confidence": 0.7
+      },
+      "postcolonial_themes": {
+        "handling": "Requires sensitive treatment",
+        "confidence": 0.8
+      }
+    },
+    "tone_preferences": {
+      "optimistic_outlook": {
+        "requirement": "Essential for cozy genre",
+        "confidence": 0.9
+      },
+      "humor": {
+        "appeal": "High when appropriate",
+        "confidence": 0.8
+      },
+      "community_bonds": {
+        "importance": "Very high",
+        "confidence": 0.9
+      },
+      "hopeful_endings": {
+        "requirement": "Essential",
+        "confidence": 0.9
+      }
+    }
+  },
+
+  "platform_usage": {
+    "reading_platforms": {
+      "kindle": {
+        "usage_percentage": 60,
+        "confidence": 0.8
+      },
+      "apple_books": {
+        "usage_percentage": 15,
+        "confidence": 0.7
+      },
+      "kobo": {
+        "usage_percentage": 10,
+        "confidence": 0.7
+      },
+      "physical_bookstores": {
+        "usage_percentage": 25,
+        "confidence": 0.8
+      }
+    },
+    "discovery_engagement": {
+      "goodreads_lists": {
+        "participation": "High",
+        "climate_fiction_lists": "417 books, 614 votes",
+        "confidence": 0.9
+      },
+      "book_clubs": {
+        "participation": "Very high",
+        "confidence": 0.8,
+        "notes": "Strong correlation with demographic profile"
+      },
+      "online_communities": {
+        "engagement": "Moderate to high",
+        "platforms": ["Facebook", "Reddit", "Goodreads groups"],
+        "confidence": 0.8
+      }
+    },
+    "review_behavior": {
+      "review_writing": {
+        "frequency": "Moderate",
+        "platforms": ["Goodreads", "Amazon"],
+        "confidence": 0.8
+      },
+      "rating_behavior": {
+        "frequency": "High",
+        "confidence": 0.8
+      }
+    }
+  },
+
+  "research_notes": {
+    "methodology": [
+      "Combined cozy mystery demographic studies with environmental fiction readership data",
+      "Analyzed Caribbean literature cultural context and reader preferences",
+      "Cross-referenced reading platform demographics with genre-specific data",
+      "Integrated 2024-2025 reading trend analysis with established mystery reader patterns"
+    ],
+    "data_sources": [
+      "Industry surveys and publishing reports",
+      "BookBub and Goodreads demographic studies",
+      "Environmental fiction market analysis",
+      "Caribbean literature cultural research",
+      "Reading format preference surveys"
+    ],
+    "limitations": [
+      "Limited specific data for Caribbean cozy mystery niche",
+      "Environmental fiction demographics not genre-specific",
+      "Cultural sensitivity preferences inferred from broader Caribbean literature studies",
+      "Some data points extrapolated from general mystery/cozy trends"
+    ],
+    "confidence_factors": {
+      "high_confidence_areas": [
+        "General cozy mystery demographics",
+        "Reading format preferences",
+        "Platform usage patterns",
+        "Basic content preferences"
+      ],
+      "moderate_confidence_areas": [
+        "Environmental theme integration preferences",
+        "Caribbean cultural sensitivity requirements",
+        "Specific income/education correlations"
+      ],
+      "low_confidence_areas": [
+        "Exact Caribbean cozy mystery market size",
+        "Specific marine conservation theme appeal metrics",
+        "Cross-cultural reading preferences"
+      ]
+    }
+  },
+
+  "marketing_recommendations": {
+    "primary_channels": [
+      "BookBub promotional campaigns (perfect demographic match)",
+      "Goodreads advertising and list inclusion",
+      "Library partnership programs",
+      "Book club outreach programs"
+    ],
+    "content_marketing": [
+      "Emphasize cozy, comfort reading aspects",
+      "Highlight marine conservation education value",
+      "Showcase Caribbean cultural authenticity",
+      "Promote series potential for long-term readership"
+    ],
+    "pricing_strategy": [
+      "Launch with promotional pricing to build readership",
+      "Consider Kindle Unlimited inclusion for discovery",
+      "Series pricing strategy for reader retention"
+    ],
+    "community_engagement": [
+      "Participate in Read Caribbean Month initiatives",
+      "Engage with environmental fiction communities",
+      "Target cozy mystery book clubs and reading groups"
+    ]
+  }
+}

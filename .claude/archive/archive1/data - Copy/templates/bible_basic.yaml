@@ -1,0 +1,35 @@
+# NOVELSYS Bible Template
+# 小说圣经模板
+
+series_info:
+  name: ""
+  genre: ""
+  target_audience: ""
+  tone: ""
+  themes: []
+
+characters:
+  protagonists: []
+  antagonists: []
+  supporting: []
+
+world_building:
+  setting: ""
+  time_period: ""
+  locations: []
+  rules: []
+  
+plot_structure:
+  central_conflict: ""
+  major_arcs: []
+  resolution_mechanism: ""
+  
+writing_style:
+  narrative_voice: ""
+  pov: ""
+  language_style: ""
+  
+quality_standards:
+  minimum_chapter_score: 85
+  consistency_threshold: 90
+  character_depth_target: 85

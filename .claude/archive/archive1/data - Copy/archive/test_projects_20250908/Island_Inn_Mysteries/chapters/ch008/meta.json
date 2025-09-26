@@ -1,0 +1,37 @@
+{
+  "chapter_number": 8,
+  "title": "The Rescue",
+  "word_count_target": 4000,
+  "setting": "Abandoned banana plantation near Tazacorte - rescue operation",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-08-30T19:30:00Z",
+  "continuity_from_ch7": {
+    "time_progression": "2:00 PM - the planned rescue time",
+    "sarah_status": "Leading Team Two for infiltration",
+    "carmen_relationship": "Partner in rescue mission",
+    "plan_status": "Three teams ready - distraction, infiltration, medical",
+    "deadline": "4 hours before kidnapper's 6 PM deadline",
+    "complication": "Miguel's guilt and potential interference"
+  },
+  "key_objectives": [
+    "Execute the three-team rescue plan",
+    "German tourist creates distraction",
+    "Sarah and Team Two infiltrate through east entrance",
+    "Locate and free Elena",
+    "Deal with unexpected complications",
+    "Carmen argues with family member (adapted to rescue context)",
+    "Elena's condition and first words to Sarah",
+    "Escape and aftermath"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 94,
+    "character_development_score": 93,
+    "plot_advancement_score": 96,
+    "cultural_authenticity_score": 94,
+    "mystery_development_score": 92,
+    "action_sequence_score": 95,
+    "overall_target": 95
+  },
+  "notes": "Climactic rescue chapter - high action but maintaining cozy mystery tone, focus on community cooperation over violence"
+}

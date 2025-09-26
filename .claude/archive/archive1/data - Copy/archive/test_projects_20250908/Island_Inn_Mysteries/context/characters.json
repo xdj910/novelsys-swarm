@@ -1,0 +1,116 @@
+{
+  "protagonists": [
+    {
+      "name": "Sarah Mitchell",
+      "role": "Main Detective/Inn Owner",
+      "age": 55,
+      "nationality": "British",
+      "background": "Detective Inspector (Ret.), London Metropolitan Police CID",
+      "current_status": "Runs Casa Vista Verde inn on La Palma",
+      "key_relationships": ["Carmen Elena Rodríguez (assistant/friend)", "Sergeant Miguel Torres (professional contact)"],
+      "character_arc": "Journey from outsider to integrated community member",
+      "development_tracking": {
+        "cultural_integration_level": 5,
+        "spanish_language_progress": 3,
+        "local_relationships_depth": 6,
+        "investigative_confidence": 7
+      }
+    }
+  ],
+  "supporting_leads": [
+    {
+      "name": "Carmen Elena Rodríguez", 
+      "role": "Inn Receptionist/Cultural Bridge",
+      "age": 28,
+      "nationality": "Spanish (Canarian)",
+      "background": "Tourism degree, returned to care for grandmother",
+      "relationship_to_protagonist": "Professional partner evolved to close friend",
+      "character_arc": "Growing confidence in investigative support role",
+      "development_tracking": {
+        "investigative_skills": 4,
+        "cultural_teaching_ability": 8,
+        "relationship_with_sarah": 8,
+        "family_responsibilities": 4
+      }
+    }
+  ],
+  "recurring_authority_figures": [
+    {
+      "name": "Sergeant Miguel Torres Herrera",
+      "role": "Local Guardia Civil",
+      "age": 42,
+      "personality": "Professional, initially skeptical, gradually respectful",
+      "relationship_arc": "From suspicious of outsider to trusted colleague",
+      "development_tracking": {
+        "trust_level_with_sarah": 3,
+        "cooperation_willingness": 4,
+        "professional_respect": 4
+      }
+    },
+    {
+      "name": "Captain Isabella Delgado Morales",
+      "role": "Regional Crime Coordination",
+      "age": 38,
+      "personality": "Ambitious, efficient, appreciates expertise",
+      "relationship_arc": "Recognizes Sarah's value from first meeting",
+      "development_tracking": {
+        "collaboration_frequency": 2,
+        "professional_respect": 5,
+        "information_sharing": 4
+      }
+    }
+  ],
+  "community_network": [
+    {
+      "name": "Dr. Antonio Vega Santos",
+      "role": "Medical Examiner",
+      "age": 52,
+      "personality": "Methodical, intellectual, enjoys case discussions",
+      "relationship_type": "Professional colleague with mutual respect",
+      "development_tracking": {
+        "case_collaboration": 3,
+        "personal_friendship": 2,
+        "knowledge_sharing": 5
+      }
+    }
+  ],
+  "character_development_goals": {
+    "sarah_mitchell": [
+      "Achieve fluent conversational Spanish by Book 3",
+      "Gain full community acceptance by Book 4", 
+      "Balance investigative instincts with inn business by Book 2",
+      "Develop romantic subplot possibility by Book 5"
+    ],
+    "carmen_rodriguez": [
+      "Gain investigative confidence and skills across series",
+      "Navigate family expectations vs. career growth",
+      "Develop leadership skills for potential inn management",
+      "Explore romantic relationship development"
+    ],
+    "sergeant_torres": [
+      "Overcome initial prejudices about foreign civilians",
+      "Develop appreciation for unconventional investigative approaches",
+      "Strengthen inter-island law enforcement cooperation"
+    ]
+  },
+  "guest_character_templates": {
+    "british_retirees": {
+      "demographics": "60-75 years old, middle class backgrounds",
+      "motivations": "Seeking warm weather retirement, cultural experiences",
+      "potential_secrets": "Family conflicts, financial troubles, past indiscretions",
+      "story_functions": "Cultural mirrors for Sarah, red herrings, witnesses"
+    },
+    "german_tourists": {
+      "demographics": "35-65 years old, various backgrounds", 
+      "motivations": "Vacation, business travel, property investment",
+      "potential_secrets": "Business dealings, relationship troubles, hidden identities",
+      "story_functions": "Outside perspectives, language barriers creating clues"
+    },
+    "local_families": {
+      "demographics": "Multi-generational Canarian families",
+      "motivations": "Family celebrations, business trips, tradition maintenance", 
+      "potential_secrets": "Generational conflicts, land disputes, historical grievances",
+      "story_functions": "Cultural authenticity, local knowledge, community stakes"
+    }
+  }
+}

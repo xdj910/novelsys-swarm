@@ -1,0 +1,75 @@
+{
+  "current_work": null,
+  "work_history": [],
+  "active_articles": {},
+  "statistics": {
+    "total_articles_created": 0,
+    "total_iterations_run": 0,
+    "average_quality_scores": {
+      "accuracy": 0.0,
+      "insight": 0.0,
+      "originality": 0.0
+    },
+    "quality_achievements": {
+      "tier_a_articles": 0,
+      "tier_b_articles": 0,
+      "tier_c_articles": 0,
+      "tier_d_articles": 0
+    },
+    "workflow_efficiency": {
+      "average_completion_time_minutes": 0,
+      "average_rounds_per_article": 0,
+      "early_completion_rate": 0.0
+    }
+  },
+  "t1_ttd_statistics": {
+    "total_articles": 0,
+    "average_rounds": 0.0,
+    "quality_achievements": {
+      "tier_a_articles": 0,
+      "tier_b_articles": 0,
+      "tier_c_articles": 0
+    },
+    "human_collaboration": {
+      "total_checkpoints_detected": 0,
+      "average_checkpoints": 0.0,
+      "checkpoint_resolution_rate": 0.0
+    },
+    "self_evolution": {
+      "question_evolution_cycles": 0,
+      "answer_evolution_cycles": 0,
+      "average_improvement_rate": 0.0
+    },
+    "gate_decisions": {
+      "continue_count": 0,
+      "early_completion_count": 0,
+      "checkpoint_detected_count": 0
+    }
+  },
+  "quality_benchmarks": {
+    "accuracy": {
+      "tier_d_threshold": 0.70,
+      "tier_c_threshold": 0.80,
+      "tier_b_threshold": 0.90,
+      "tier_a_threshold": 0.95
+    },
+    "insight": {
+      "level_1_threshold": 0.60,
+      "level_2_threshold": 0.75,
+      "level_3_threshold": 0.85,
+      "level_4_threshold": 0.95
+    },
+    "originality": {
+      "high_similarity_threshold": 0.8,
+      "moderate_similarity_threshold": 0.6,
+      "low_similarity_threshold": 0.4,
+      "target_threshold": 0.5
+    }
+  },
+  "system_metadata": {
+    "registry_version": "2.0.0",
+    "last_updated": "2025-09-25T00:00:00Z",
+    "schema_version": "t1-ttd-enhanced",
+    "phase2_infrastructure": true
+  }
+}

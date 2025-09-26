@@ -1,0 +1,9 @@
+{
+  "chapter": 06,
+  "timestamp": "2025-09-01T00:00:00.000Z",
+  "score": 90,
+  "issues": [{"id": "misc_001", "type": "minor_issue", "severity": "moderate", "location": "detected_in_analysis", "description": "Minor pacing issue in middle section could be tightened", "detected_by": "quality-scorer"}],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 1, "low": 0},
+  "dimensions": {"continuity": 90, "plot_logic": 90, "bible_compliance": 90, "writing_quality": 90},
+  "fix_history": []
+}

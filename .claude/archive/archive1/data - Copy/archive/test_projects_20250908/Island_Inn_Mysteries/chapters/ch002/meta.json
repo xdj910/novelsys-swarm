@@ -1,0 +1,37 @@
+{
+  "chapter_number": 2,
+  "title": "The Missing Matriarch",
+  "target_word_count": 4000,
+  "setting": "Herrera family home, Tijarafe",
+  "pov": "Sarah Mitchell",
+  "status": "in_progress",
+  "created": "2025-08-30T15:00:00Z",
+  "continuity_from_ch1": {
+    "time_progression": "Next morning after festival",
+    "sarah_status": "Accepted by community, detective instincts engaged",
+    "carmen_relationship": "Established friendship and investigative partnership",
+    "elena_disappearance": "Now the real Elena Herrera (not cousin Elena Ruiz from Ch1)",
+    "german_tourists": "Muellers stayed for festival, now more integrated"
+  },
+  "key_objectives": [
+    "Introduce Elena Herrera's actual disappearance",
+    "Establish Sarah's official involvement in investigation",
+    "First major clue discovery (muddy boots)",
+    "Inspector Vega introduction and territorial tension",
+    "Deepen understanding of Canarian family dynamics"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 85,
+    "character_development_score": 90,
+    "plot_advancement_score": 95,
+    "cultural_authenticity_score": 95,
+    "mystery_development_score": 90,
+    "overall_target": 95
+  },
+  "word_count": 183,
+  "character_count": 926,
+  "estimated_scenes": 2,
+  "dialogue_lines": 2,
+  "last_modified": "2025-09-03T01:36:23+01:00",
+  "auto_updated": true
+}

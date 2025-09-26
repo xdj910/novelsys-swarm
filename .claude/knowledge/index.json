@@ -1,0 +1,17 @@
+{
+  "cache_version": "2.0",
+  "last_updated": "2025-09-11T15:30:00Z",
+  "cleared_reason": "Removed all incorrect Task() function information",
+  "cache_ttl_hours": 24,
+  "documents": {},
+  "important_note": "Cache cleared on 2025-09-11 due to incorrect information about Task() function. Task() is pseudo-code and does not exist. Claude Code uses natural language for subagent invocation.",
+  "correct_invocation": {
+    "method": "natural_language",
+    "example": "Use the [agent-name] subagent to...",
+    "not_valid": [
+      "Task(subagent_type='...')",
+      "python claude_subagents.py",
+      "any function call syntax"
+    ]
+  }
+}

@@ -1,0 +1,440 @@
+# TestMystery Series Bible V1
+# Created: 2025-09-03
+# Project: Standalone Mystery Novel
+# Target: 30 chapters, 90,000 words
+
+series_metadata:
+  name: "沉默的海岛"
+  genre: "mystery"
+  subgenre: "cozy_mystery"
+  series_type: "standalone"
+  target_audience: "成人读者"
+  demographic: "悬疑推理爱好者"
+  tone: "紧张刺激"
+  themes:
+    - "正义与宽恕的抉择"
+    - "真相与和谐的平衡"
+    - "小镇秘密与人性复杂"
+    - "过去的罪恶与现在的救赎"
+  planned_books: 1
+  chapters_per_book: 30
+  words_per_chapter: 3000
+  total_words: 90000
+  quality_target: 95
+  pov: "第三人称限制视角"
+  narrative_tense: "过去时"
+
+world_building:
+  primary_setting:
+    name: "雾海镇"
+    type: "偏远海岛小镇"
+    population: 1200
+    isolation_level: "与世隔绝"
+    atmosphere: "神秘、压抑、紧张"
+    geography: "被海雾环绕的小岛，只有一个码头与外界相连"
+    climate: "海洋性气候，常年多雾多雨"
+    
+  key_locations:
+    town_center:
+      description: "小镇中心广场，有古老的灯塔钟楼"
+      significance: "十年前案发现场附近"
+      atmosphere: "白天热闹，夜晚诡异"
+      
+    lighthouse:
+      description: "百年历史的灯塔，已废弃多年"
+      significance: "关键线索发现地"
+      atmosphere: "阴森恐怖，充满回忆"
+      
+    chen_family_mansion:
+      description: "镇上最豪华的宅邸，陈家祖宅"
+      significance: "受害者曾居住的地方"
+      atmosphere: "富丽堂皇却暗藏秘密"
+      
+    fishing_dock:
+      description: "镇上唯一的对外交通枢纽"
+      significance: "证人目击关键事件地点"
+      atmosphere: "咸腥海风，来往匆忙"
+      
+    old_church:
+      description: "废弃的教堂，十年前就无人使用"
+      significance: "最终真相揭露地"
+      atmosphere: "神圣却荒凉"
+
+  social_structure:
+    dominant_families:
+      - chen_family: "陈家 - 渔业世家，镇上最富有"
+      - wang_family: "王家 - 开店经商，消息灵通"
+      - li_family: "李家 - 医生世家，备受尊敬"
+      - zhang_family: "张家 - 警察世家，维护治安"
+    
+    power_dynamics: "家族间复杂的利益纠葛和世代恩怨"
+    secrets: "每个家族都有不可告人的秘密"
+    social_rules: "表面和睦，暗流涌动，外人难以融入"
+
+characters:
+  protagonists:
+    detective_liu:
+      name: "刘明轩"
+      age: 42
+      role: "退休刑警，返乡调查"
+      physical_description: "中等身材，深邃的眼神，略显疲惫但敏锐"
+      personality_traits:
+        - "直觉敏锐"
+        - "固执坚持"
+        - "内心善良"
+        - "对正义的执着"
+      
+      backstory: "十年前因办案失误离开雾海镇，心中一直有愧疚。听闻冷案重启，主动回到小镇寻找真相。"
+      
+      character_arc:
+        emotional_journey:
+          chapters_1_5: "怀着愧疚和决心返回小镇，重新面对过去"
+          chapters_6_15: "逐渐发现真相比想象更复杂，开始质疑自己的判断"
+          chapters_16_25: "陷入道德困境，在正义与宽恕间挣扎"
+          chapters_26_30: "找到内心平衡，既坚持真相又学会宽恕"
+        
+        knowledge_progression:
+          chapters_1_8: "重新梳理十年前的案件细节"
+          chapters_9_18: "发现新线索，怀疑原有结论"
+          chapters_19_26: "拼凑出完整真相"
+          chapters_27_30: "决定如何处理真相"
+        
+        relationship_changes:
+          chapters_1_10: "与镇民关系紧张，被视为外人"
+          chapters_11_20: "逐渐获得部分人信任"
+          chapters_21_30: "成为连接过去与未来的桥梁"
+      
+      voice_profile:
+        speech_patterns:
+          - "语调平稳，用词精准"
+          - "习惯反问来引导对话"
+          - "关键时刻语速会放慢"
+        vocabulary: "专业术语丰富，但会用通俗语言解释"
+        mannerisms:
+          - "思考时会摩擦下巴"
+          - "说重要事情前会停顿"
+        dialogue_examples:
+          formal: "根据现有证据，我们需要重新审视这个案子的每一个细节。"
+          casual: "你知道吗？十年前的那个晚上，很多事情都不对劲。"
+          emotional: "我不能让真相就这样被埋葬，不管代价是什么。"
+
+  antagonists:
+    hidden_killer:
+      name: "陈海涛"
+      age: 48
+      role: "陈家长子，渔业公司老板"
+      physical_description: "高大威猛，表面和善，眼中偶有冷光"
+      personality_traits:
+        - "表面和善，内心冷酷"
+        - "善于掩饰，城府极深"
+        - "为达目的不择手段"
+        - "对家族声誉极其重视"
+      
+      backstory: "十年前为保护家族秘密和个人利益，意外杀害了发现真相的表妹。"
+      
+      character_arc:
+        chapters_1_10: "表现出对重启调查的支持，暗中观察"
+        chapters_11_20: "开始感到威胁，采取干扰行动"
+        chapters_21_25: "逐渐暴露本性，进行最后抵抗"
+        chapters_26_30: "真相败露，接受审判"
+
+  supporting_characters:
+    witness_wang:
+      name: "王小美"
+      age: 35
+      role: "小店老板娘，关键证人"
+      significance: "十年前目击了部分真相，但因恐惧一直沉默"
+      character_arc:
+        chapters_1_15: "表现出对调查的恐惧和回避"
+        chapters_16_25: "在刘明轩的鼓励下，逐渐说出真相"
+        chapters_26_30: "获得心灵解脱，重新开始生活"
+    
+    victim_family:
+      name: "陈雨菲父母"
+      role: "受害者家属"
+      significance: "推动真相调查的情感动力"
+      emotional_core: "失去女儿的痛苦与对真相的渴望"
+
+plot_structure:
+  central_conflict: "十年前雾海镇发生的神秘死亡案件重新调查，牵扯出多个家族的秘密和复杂的人际关系"
+  
+  three_act_structure:
+    act_1_setup:
+      chapters: "1-10"
+      content: "刘明轩返回小镇，重新审视十年前的案件，发现新线索"
+      key_events:
+        - "刘明轩回到雾海镇"
+        - "重新调查陈雨菲死亡案"
+        - "发现当年遗漏的证据"
+        - "意识到案情比想象复杂"
+    
+    act_2_confrontation:
+      chapters: "11-25"
+      content: "深入调查过程中，揭开层层秘密，面临道德抉择"
+      key_events:
+        - "发现多个可疑人物"
+        - "揭露家族间的恩怨"
+        - "找到关键证人"
+        - "真凶开始反击"
+        - "刘明轩陷入危险"
+    
+    act_3_resolution:
+      chapters: "26-30"
+      content: "真相大白，正义与宽恕的最终抉择"
+      key_events:
+        - "真凶身份确认"
+        - "完整真相揭露"
+        - "道德抉择的时刻"
+        - "案件最终解决"
+        - "小镇重获和谐"
+
+chapter_outlines:
+  chapter_1:
+    title: "归来"
+    word_count: 3000
+    pov_character: "刘明轩"
+    setting: "雾海镇码头"
+    main_events:
+      - "刘明轩乘船返回雾海镇"
+      - "回忆十年前离开的原因"
+      - "与镇民的初步接触显示出紧张气氛"
+      - "决定重新调查陈雨菲案件"
+    character_development: "建立刘明轩的动机和内心愧疚"
+    clues_revealed: "暗示当年案件存在疑点"
+    atmosphere: "雾气弥漫的压抑气氛，暗示秘密重重"
+  
+  chapter_2:
+    title: "十年前的夜晚"
+    word_count: 3000
+    pov_character: "刘明轩"
+    setting: "陈家旧宅"
+    main_events:
+      - "重新检视案发现场"
+      - "与陈雨菲父母会面"
+      - "回顾当年的调查过程"
+      - "发现当年忽略的细节"
+    character_development: "展现刘明轩的专业素养和同情心"
+    clues_revealed: "现场布局的异常之处"
+    mystery_elements: "死者房间的整理痕迹"
+  
+  chapter_3:
+    title: "旧档案"
+    word_count: 3000
+    pov_character: "刘明轩"
+    setting: "镇派出所"
+    main_events:
+      - "查阅十年前的案件档案"
+      - "与当年同事张警官交流"
+      - "发现证据保存存在问题"
+      - "意识到案件被草草结案"
+    character_development: "刘明轩开始怀疑当年的结论"
+    clues_revealed: "部分证物神秘消失"
+    red_herrings: "指向自杀结论的表面证据"
+  
+  chapter_4:
+    title: "第一个疑点"
+    word_count: 3000
+    pov_character: "刘明轩"
+    setting: "废弃灯塔"
+    main_events:
+      - "在灯塔发现新的物证"
+      - "分析死者当晚的行动轨迹"
+      - "推翻自杀说法"
+      - "确定这是一起谋杀案"
+    character_development: "刘明轩重新燃起斗志"
+    clues_revealed: "死者指甲中的纤维"
+    mystery_elements: "死者为何深夜来到灯塔"
+  
+  chapter_5:
+    title: "暗流涌动"
+    word_count: 3000
+    pov_character: "刘明轩"
+    setting: "镇中心"
+    main_events:
+      - "公布重新调查的决定"
+      - "观察各家族成员的反应"
+      - "感受到来自多方的压力"
+      - "有人匿名警告他离开"
+    character_development: "刘明轩面临选择是否继续"
+    clues_revealed: "每个家族都有隐瞒的秘密"
+    atmosphere: "紧张气氛升级，危险逼近"
+  
+  # 继续详细章节大纲...
+  chapters_6_to_30:
+    summary: "接下来的章节将逐步展开调查过程，揭露每个家族的秘密，最终找出真凶陈海涛，并面临正义与宽恕的道德选择。刘明轩将在第26章确认真相，第27-29章进行最后的道德抉择，第30章实现和谐结局。"
+
+themes:
+  primary_themes:
+    justice_vs_forgiveness:
+      description: "正义与宽恕之间的平衡"
+      development: "通过刘明轩的内心挣扎体现"
+      resolution: "最终选择既坚持真相又给予宽恕的道路"
+    
+    truth_vs_harmony:
+      description: "真相与和谐的冲突"
+      development: "揭露真相可能破坏小镇的表面和谐"
+      resolution: "真正的和谐必须建立在真相基础上"
+    
+    past_sins_present_redemption:
+      description: "过去的罪恶与现在的救赎"
+      development: "每个角色都在为过去的行为承担后果"
+      resolution: "通过面对真相获得救赎机会"
+
+style_guide:
+  narrative_voice:
+    pov: "第三人称限制视角"
+    tense: "过去时"
+    focalization: "主要通过刘明轩的视角，偶尔切换到其他关键人物"
+    voice_characteristics:
+      - "客观冷静的叙述基调"
+      - "适时插入人物内心独白"
+      - "通过环境描写营造氛围"
+  
+  prose_style:
+    sentence_structure: "长短句结合，紧张场面多用短句"
+    rhythm: "渐进式推进，关键揭露时刻放缓节奏"
+    vocabulary: "现代汉语，避免过于文艺化"
+    dialogue_style: "符合人物身份和性格的自然对话"
+  
+  atmosphere_techniques:
+    weather: "多雾多雨的天气呼应神秘氛围"
+    lighting: "昏暗的光线和阴影的运用"
+    sound: "海浪声、风声营造背景氛围"
+    color_palette: "灰暗色调为主，关键时刻使用对比色"
+  
+  genre_conventions:
+    follow:
+      - "公平竞争原则 - 所有线索对读者开放"
+      - "逻辑推理过程"
+      - "红鲱鱼的巧妙运用"
+    subvert:
+      - "不依赖过于巧合的情节"
+      - "避免最后一分钟的新证据"
+
+mystery_structure:
+  crime_details:
+    what: "陈雨菲被人谋杀"
+    when: "十年前的10月15日晚上11点30分"
+    where: "废弃灯塔附近的悬崖边"
+    how: "推下悬崖，伪装成自杀"
+    why: "发现了陈海涛走私的秘密，威胁要举报"
+    victim: "陈雨菲，22岁，陈海涛的表妹，大学刚毕业"
+    killer: "陈海涛，当时38岁，为保护走私生意和家族声誉"
+  
+  crime_timeline:
+    "22:30": "陈雨菲发现走私证据"
+    "22:45": "与陈海涛对峙"
+    "23:00": "陈海涛提议到灯塔谈判"
+    "23:15": "两人到达灯塔"
+    "23:30": "发生争执，陈雨菲被推下悬崖"
+    "23:45": "陈海涛返回，开始伪造自杀现场"
+    "00:15": "陈海涛完成现场布置"
+    "00:30": "陈海涛回到家中，制造不在场证明"
+  
+  investigation_timeline:
+    chapters_1_5: "重新审视基本案情，发现疑点"
+    chapters_6_10: "收集新证据，推翻自杀结论"
+    chapters_11_15: "调查各个嫌疑人，发现动机"
+    chapters_16_20: "找到关键证人，获得重要线索"
+    chapters_21_25: "逼近真相，凶手开始反击"
+    chapters_26_30: "真相大白，面临最终抉择"
+  
+  suspects_matrix:
+    陈海涛:
+      motive: "保护走私生意，维护家族声誉"
+      means: "身强力壮，能够制服受害者"
+      opportunity: "当晚在家，但时间有空档"
+      alibi: "声称整晚在家看电视"
+      suspicious_behavior: "对调查表现出过度关心"
+    
+    王德财:
+      motive: "生意竞争，受害者父亲欠他钱"
+      means: "渔民出身，力气很大"
+      opportunity: "当晚声称在码头工作"
+      alibi: "有同事作证，但证人可靠性存疑"
+      suspicious_behavior: "极力阻止重新调查"
+    
+    李医生:
+      motive: "受害者知道他的医疗事故秘密"
+      means: "医学知识，知道如何不留痕迹"
+      opportunity: "当晚在家，妻子作证"
+      alibi: "相对可靠"
+      suspicious_behavior: "提到案件时异常紧张"
+  
+  clues_progression:
+    real_clues:
+      chapter_4: "灯塔发现的纤维 - 来自陈海涛的衣服"
+      chapter_8: "死者指甲中的皮肤组织 - DNA可以匹配"
+      chapter_12: "走私货物的发现 - 提供杀人动机"
+      chapter_16: "证人看到两人一起去灯塔"
+      chapter_20: "陈海涛当晚时间线的矛盾"
+      chapter_24: "最终物证 - 陈海涛的手表在案发现场丢失"
+    
+    red_herrings:
+      chapter_3: "自杀遗书 - 实际是伪造的"
+      chapter_7: "王德财的可疑行为 - 实际是其他违法行为"
+      chapter_11: "李医生的秘密 - 与案件无关的医疗纠纷"
+      chapter_15: "神秘陌生人 - 实际是受害者的暗恋对象"
+  
+  fair_play_elements:
+    knox_compliance:
+      rule_1: "罪犯必须在故事早期出现" # 陈海涛第1章就出现
+      rule_2: "不使用超自然力量" # 纯推理案件
+      rule_3: "不超过一个密室" # 无密室情节
+      rule_4: "不使用未知毒药或科学仪器" # 简单的物理伤害
+      rule_5: "不使用中国人" # 不适用
+      rule_6: "不依靠意外或直觉" # 逻辑推理
+      rule_7: "侦探不能是罪犯" # 刘明轩是正直的侦探
+      rule_8: "侦探必须分享线索" # 所有发现都会展示给读者
+      rule_9: "助手的推理必须完整展示" # 无助手角色
+      rule_10: "不能有双胞胎或变装" # 无此类情节
+    
+    reader_engagement:
+      - "每个重要线索都会在发现时详细描述"
+      - "嫌疑人的动机和机会都会明确展示"
+      - "读者在第20章后应该能够推断出真凶"
+      - "最终揭露不依赖隐藏信息"
+
+continuity_framework:
+  timeline_tracking:
+    past_timeline: "十年前案发当夜的详细时间线"
+    present_timeline: "调查过程的日程安排"
+    consistency_checks: "确保所有时间线逻辑一致"
+  
+  location_consistency:
+    maps: "雾海镇详细地图，标注关键地点"
+    distances: "各地点间的距离和行走时间"
+    descriptions: "每个场所的详细描述档案"
+  
+  character_knowledge:
+    information_matrix: "记录每个角色在每个时间点知道的信息"
+    revelation_schedule: "安排信息披露的时机"
+    consistency_tracking: "确保角色行为符合其知识水平"
+  
+  object_tracking:
+    evidence_log: "所有物证的发现、保存、分析记录"
+    personal_items: "角色重要物品的追踪"
+    locations: "物品在不同时间点的位置"
+
+quality_standards:
+  target_scores:
+    plot_coherence: 95
+    character_development: 95
+    mystery_logic: 98
+    prose_quality: 92
+    pacing: 94
+    atmosphere: 96
+    reader_engagement: 95
+    fair_play_compliance: 98
+  
+  revision_checkpoints:
+    chapter_10: "第一幕完成，检查设定和人物建立"
+    chapter_20: "第二幕中段，检查推理逻辑"
+    chapter_25: "接近结局，检查所有线索连贯性"
+    final_draft: "全书完成，综合质量评估"
+  
+  success_metrics:
+    mystery_solvability: "读者在第20章后能推断真相"
+    emotional_impact: "正义与宽恕主题深入人心"
+    plot_tightness: "无逻辑漏洞，节奏把控精准"
+    character_authenticity: "人物行为符合性格设定"

@@ -1,0 +1,45 @@
+---
+description: Test compliance checking for new commands
+argument-hint: <test_parameter>
+archived: 2025-09-06
+reason: Testing completed successfully - claude-code-expert agent now properly detects compliance violations
+---
+
+# Test Compliance Command (ARCHIVED)
+
+This was a test command to verify claude-code-expert triggers automatically.
+Test completed successfully on 2025-09-06.
+
+## Test Results
+✅ All 4 intentional violations were detected:
+1. Variable format violation detected
+2. Error message format violation detected  
+3. Shell compatibility issue detected
+4. Python code instead of instructions detected
+
+## Test with Issues (ORIGINAL)
+
+### Variable Reference Issue
+The test parameter is: {$ARGUMENTS}  # Wrong format - DETECTED ✅
+
+### Error Message Issue
+❌ Test failed  # Missing "Error:" label - DETECTED ✅
+
+### Shell Command Issue
+dir /B .claude/agents  # Windows-specific command - DETECTED ✅
+
+### Task Usage Issue
+```python
+Task(
+    subagent_type="test-agent",
+    description="Test task",
+    prompt="Test prompt"
+)
+```
+# Python code issue - DETECTED ✅
+
+## Expected Corrections (VERIFIED)
+Variables should be: **$ARGUMENTS**
+Errors should be: ❌ Error: Test failed
+Shell should be: ls -1 .claude/agents
+Task should be instructional text, not Python code

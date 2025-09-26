@@ -1,0 +1,65 @@
+{
+  "setting": {
+    "name": "雾海镇",
+    "type": "偏远海岛小镇",
+    "population": 1200,
+    "atmosphere": "神秘、压抑、紧张",
+    "geography": "被海雾环绕的小岛，只有一个码头与外界相连",
+    "climate": "海洋性气候，常年多雾多雨",
+    "time_period": "当代",
+    "isolation_level": "高度与世隔绝"
+  },
+  "locations": {
+    "town_center": {
+      "name": "小镇中心广场",
+      "description": "有古老的灯塔钟楼",
+      "significance": "十年前案发现场附近",
+      "atmosphere": "白天热闹，夜晚诡异",
+      "discovered": false
+    },
+    "lighthouse": {
+      "name": "废弃灯塔",
+      "description": "百年历史的灯塔，已废弃多年",
+      "significance": "关键线索发现地，实际案发现场",
+      "atmosphere": "阴森恐怖，充满回忆",
+      "discovered": false
+    },
+    "chen_mansion": {
+      "name": "陈家祖宅",
+      "description": "镇上最豪华的宅邸",
+      "significance": "受害者曾居住的地方",
+      "atmosphere": "压抑、充满秘密",
+      "discovered": false
+    },
+    "fishing_dock": {
+      "name": "渔港码头",
+      "description": "小镇唯一对外通道",
+      "significance": "走私活动中心",
+      "atmosphere": "忙碌、混杂、危险",
+      "discovered": false
+    },
+    "old_church": {
+      "name": "废弃教堂",
+      "description": "已关闭多年的老教堂",
+      "significance": "秘密会面地点",
+      "atmosphere": "神秘、安静",
+      "discovered": false
+    }
+  },
+  "rules": {
+    "social": {
+      "family_hierarchy": "四大家族控制镇上经济命脉",
+      "silence_code": "不对外人谈论镇上的秘密",
+      "justice_system": "表面遵守法律，实际由家族私下解决"
+    },
+    "economic": {
+      "main_industry": "渔业和小规模旅游",
+      "hidden_economy": "走私活动支撑部分家族财富"
+    },
+    "cultural": {
+      "traditions": "每年海神节，纪念保护小镇的传说",
+      "superstitions": "相信海雾会带走秘密和罪恶"
+    }
+  },
+  "discovered_elements": []
+}

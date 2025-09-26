@@ -1,0 +1,130 @@
+# Hook系统配置文件
+# 根据Gemini建议创建的集中配置
+
+# 验证设置
+validation:
+  enabled: true
+  strict_mode: false      # true = 验证失败会阻塞
+  auto_fix: true         # 自动修复常见问题
+  backup_before_fix: true
+
+# 性能设置
+performance:
+  warning_threshold_ms: 5000  # 超过5秒发出警告
+  max_file_size_mb: 10       # 最大处理文件大小
+  incremental_updates: true   # 使用增量更新而非全量扫描
+
+# 质量阈值
+thresholds:
+  min_chapter_words: 50
+  target_chapter_words: 3000
+  max_quality_score: 100
+  min_quality_score: 95
+  json_depth_limit: 10
+
+# 备份设置
+backup:
+  enabled: true
+  max_backups_per_file: 10
+  retention_days: 30
+  compression: false
+
+# 日志设置
+logging:
+  level: INFO              # DEBUG, INFO, WARN, ERROR
+  max_log_size_mb: 50
+  rotate_logs: true
+  keep_logs_days: 7
+
+# 错误处理
+error:
+  auto_recovery: false     # 自动恢复机制
+  max_retry_attempts: 3
+  retry_delay_seconds: 5
+  
+# Hook执行设置
+execution:
+  mode: intelligent        # intelligent|sequential|parallel
+  timeout_seconds: 30      # 单个Hook默认超时
+  dry_run_mode: false     # 调试模式
+  continue_on_error: true  # 失败是否继续
+
+# Hook优先级和超时配置
+hook_priorities:
+  critical:               # 必须成功，失败会记录错误
+    - chapter-integrity-checker
+    timeout: 10
+  
+  important:              # 重要但失败不阻塞
+    - meta-updater
+    - content-formatter
+    - project-stats-updater
+    timeout: 5
+    
+  optional:               # 可选，失败静默忽略
+    - session-tracker
+    - auto-entity-sync
+    - smart-backup
+    timeout: 5
+
+# Hook依赖关系
+hook_dependencies:
+  meta-updater:
+    depends_on: [content-formatter]
+  project-stats-updater:
+    depends_on: [meta-updater]
+  smart-backup:
+    depends_on: [all]  # 等待所有其他Hook
+
+# 路径设置
+paths:
+  projects_base: ".claude/data/projects"
+  backups_dir: ".claude/backups"
+  logs_dir: ".claude/logs"
+  validation_dir: ".claude/validation"
+  fixes_dir: ".claude/fixes"
+
+# 特定Hook配置
+hooks:
+  meta_updater:
+    enabled: true
+    update_frequency: "always"  # always, hourly, daily
+    
+  content_formatter:
+    enabled: true
+    add_chapter_endings: true
+    fix_encoding: true
+    
+  smart_backup:
+    enabled: true
+    backup_on_every_change: true
+    
+  project_stats:
+    enabled: true
+    use_cache: true          # 使用缓存避免重复扫描
+    cache_ttl_seconds: 300
+    
+  entity_sync:
+    enabled: true
+    auto_create_dictionary: true
+    
+  quality_learning:
+    enabled: true
+    min_score_to_learn: 95
+    
+  session_tracker:
+    enabled: true
+    track_all_operations: true
+
+# 项目特定覆盖（可选）
+projects:
+  Island_Inn_Mysteries:
+    thresholds:
+      min_chapter_words: 2500
+      target_chapter_words: 4000
+      
+  Quantum_Shadows:
+    thresholds:
+      min_chapter_words: 3000
+      target_chapter_words: 5000
+[FILE MAY BE TRUNCATED - PLEASE VERIFY]

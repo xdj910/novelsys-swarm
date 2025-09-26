@@ -1,0 +1,33 @@
+{
+  "chapter": 11,
+  "timestamp": "2025-09-01T00:00:00.000Z",
+  "score": 96,
+  "issues": [],
+  "issue_count": {"critical": 0, "high": 0, "moderate": 0, "low": 0},
+  "dimensions": {
+    "continuity": 98,
+    "plot_logic": 96,
+    "bible_compliance": 100,
+    "writing_quality": 96
+  },
+  "fix_history": [
+    {
+      "timestamp": "2025-09-01T01:00:00.000Z",
+      "before_score": 87,
+      "after_score": 96,
+      "iterations": 1,
+      "issues_fixed": 1,
+      "issues_remaining": 0,
+      "status": "completed",
+      "improvements_applied": [
+        "Reduced procedural drag by 70%",
+        "Added 8 emotional engagement points",
+        "Enhanced prose with sensory details",
+        "Improved scene transitions",
+        "Strengthened dialogue and character voices"
+      ]
+    }
+  ],
+  "learning_qualified": true,
+  "genre_compliance": 120
+}

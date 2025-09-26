@@ -1,0 +1,41 @@
+{
+  "chapter_number": 12,
+  "title": "The Plaza Revelation",
+  "word_count_target": 4000,
+  "setting": "Santa Cruz Plaza, Casa Vista Verde, Community gathering",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-09-01T02:00:00Z",
+  "continuity_from_ch11": {
+    "time_progression": "Following day after document discoveries",
+    "elena_status": "Preparing to be released from hospital",
+    "sarah_status": "Coordinating with Ana Morales on restitution plan",
+    "mendez_status": "Full confession provided, assets frozen",
+    "roberto_status": "Working to rebuild reputation",
+    "community_mood": "Seeking justice and restitution",
+    "investigation_focus": "Public revelation and healing process begins",
+    "key_evidence_found": "Eduardo Herrera's safety deposit box documents authenticated"
+  },
+  "key_objectives": [
+    "Public community meeting in historic plaza",
+    "Ana Morales explains legal restitution process",
+    "Sarah ensures safety and order during revelations",
+    "Elena makes triumphant return from hospital",
+    "Families learn truth about stolen properties",
+    "Carmen's family vindicated after decades",
+    "Miguel discovers his true inheritance",
+    "Community begins healing and reconciliation",
+    "Sarah reflects on her island home and future",
+    "Setup for potential future mysteries"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 95,
+    "character_development_score": 95,
+    "plot_advancement_score": 95,
+    "cultural_authenticity_score": 95,
+    "mystery_resolution_score": 95,
+    "emotional_payoff_score": 95,
+    "overall_target": 95
+  },
+  "notes": "Final chapter of Book 1 - emotional resolution, community healing, justice served, hope for future"
+}

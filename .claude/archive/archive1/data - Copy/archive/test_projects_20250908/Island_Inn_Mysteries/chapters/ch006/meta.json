@@ -1,0 +1,33 @@
+{
+  "chapter_number": 6,
+  "title": "Unusual Tracks",
+  "word_count_target": 4000,
+  "setting": "Trail investigation continues, evening at inn",
+  "pov": "Sarah Mitchell",
+  "status": "generating",
+  "created": "2025-08-30T18:30:00Z",
+  "continuity_from_ch5": {
+    "time_progression": "Next day after David's arrest",
+    "sarah_status": "Energized by progress, leading investigation unofficially",
+    "carmen_relationship": "Full investigative partnership established",
+    "investigation_status": "David arrested, Elena still missing, dangerous employers at large",
+    "search_status": "Continuing with renewed purpose and community support",
+    "inn_status": "Established as volunteer coordination center"
+  },
+  "key_objectives": [
+    "Return to trailhead with experienced local hikers",
+    "Discovery of unusual tire tracks that don't match official vehicles",
+    "Carmen's cousin reveals Elena's meetings with Las Palmas lawyer",
+    "Connection to property/land matters becomes clearer",
+    "Sarah develops theory about disappearance motive",
+    "Evening gathering at inn provides new information"
+  ],
+  "quality_targets": {
+    "atmosphere_score": 90,
+    "character_development_score": 91,
+    "plot_advancement_score": 92,
+    "cultural_authenticity_score": 95,
+    "mystery_development_score": 93,
+    "overall_target": 95
+  }
+}

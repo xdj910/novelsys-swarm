@@ -1,0 +1,67 @@
+{
+  "article_id": "20250921_102846_700m_user_truth_bomb",
+  "title": "700 Million People Use ChatGPT. 73% Aren't Working. Your AI Strategy Is Dead Wrong.",
+  "slug": "700m_user_truth_bomb",
+  "topic": "700 Million People Use ChatGPT. 73% Aren't Working. Your AI Strategy Is Dead Wrong.",
+  "type": "ai_realist",
+  "created": "2025-09-21T10:28:46Z",
+  "status": "initialized",
+  "phase": "ready_for_research",
+  "target_word_count": 1500,
+  "series": {
+    "name": "The AI Reality Check",
+    "article_number": 1,
+    "total_articles": 6
+  },
+  "key_statistics": {
+    "primary_stat": "73% non-work usage",
+    "user_base": "700 million ChatGPT users"
+  },
+  "primary_source": "NBER Paper #34255",
+  "target_platforms": [
+    "Medium",
+    "Substack",
+    "ElevenReader"
+  ],
+  "progress": {
+    "research": {
+      "status": "ready",
+      "agents_completed": 0,
+      "has_user_materials": true,
+      "user_materials_count": 2
+    },
+    "writing": {
+      "status": "pending",
+      "draft_version": 0
+    },
+    "quality_review": {
+      "status": "pending",
+      "score": null
+    },
+    "revision": {
+      "status": "pending",
+      "cycles": 0
+    },
+    "visual_production": {
+      "status": "pending"
+    },
+    "platform_optimization": {
+      "status": "pending"
+    },
+    "publishing": {
+      "status": "pending"
+    }
+  },
+  "citation_requirements": {
+    "format": "inline_hyperlinks_only",
+    "language": "English_only",
+    "minimum_sources": 10,
+    "no_reference_lists": true
+  },
+  "working_directory": "content/20250921_102846_700m_user_truth_bomb",
+  "strategy_files": {
+    "strategy": "../../strategy/strategy_v1.0.md",
+    "voice_guide": "../../strategy/voice_guide.md",
+    "platform_strategy": "../../strategy/PLATFORM_OPTIMIZATION_STRATEGY.md"
+  }
+}

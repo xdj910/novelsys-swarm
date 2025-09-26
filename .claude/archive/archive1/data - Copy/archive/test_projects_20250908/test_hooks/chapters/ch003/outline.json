@@ -1,0 +1,17 @@
+{
+  "chapter_number": 3,
+  "scenes": [
+    {
+      "scene_number": 1,
+      "location": "TBD",
+      "characters": [],
+      "purpose": "TBD",
+      "notes": "Auto-generated template"
+    }
+  ],
+  "chapter_arc": "TBD",
+  "key_events": [],
+  "created": "2025-09-03T11:36:15+01:00",
+  "auto_created": true,
+  "template_version": "basic"
+}

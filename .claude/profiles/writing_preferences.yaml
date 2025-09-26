@@ -1,0 +1,104 @@
+# Writing Preferences Configuration
+# This file defines specific writing style preferences and technical requirements
+# Users should customize based on their personal writing approach and standards
+
+writing_style:
+  voice_characteristics:
+    formality_level: "Professional but conversational"
+    technical_depth: "Moderate to high - accessible to business professionals"
+    personality_expression: "Subtle - let expertise speak through content quality"
+
+  sentence_construction:
+    average_length: "15-25 words for optimal readability"
+    variety_preference: "Mix of short impact statements and detailed analysis"
+    complexity_balance: "70% straightforward, 30% complex analytical"
+
+  paragraph_structure:
+    typical_length: "3-5 sentences per paragraph"
+    flow_strategy: "Topic sentence + supporting evidence + transition"
+    white_space_usage: "Liberal - prioritize readability and scanning"
+
+content_organization:
+  structural_preferences:
+    introduction_style: "Hook + context + roadmap approach"
+    section_organization: "Logical progression with clear headers"
+    conclusion_approach: "Summary + implications + call to action"
+
+  heading_hierarchy:
+    h1_usage: "Main title - descriptive and benefit-focused"
+    h2_usage: "Major sections - clear topic identification"
+    h3_usage: "Subsections - specific aspect coverage"
+    h4_usage: "Detailed breakdowns - implementation steps"
+
+  transition_strategies:
+    between_sections: "Bridge sentences connecting ideas"
+    within_paragraphs: "Logical flow words and phrases"
+    idea_development: "Progressive revelation and building complexity"
+
+language_preferences:
+  vocabulary_choices:
+    technical_terms: "Define on first use, maintain consistency"
+    business_jargon: "Minimal - use only when adding precision"
+    action_words: "Strong verbs - prefer active voice"
+    descriptive_language: "Precise and specific - avoid vague qualifiers"
+
+  tone_modulation:
+    analytical_sections: "Objective and evidence-based"
+    explanatory_sections: "Clear and instructional"
+    persuasive_sections: "Confident but not aggressive"
+    transitional_sections: "Smooth and natural flow"
+
+formatting_standards:
+  visual_elements:
+    bullet_points: "Use for lists and key points - parallel structure"
+    numbered_lists: "Use for processes and sequential information"
+    bold_text: "Sparingly - for emphasis and key terms only"
+    italics: "For foreign terms, emphasis, and publication titles"
+
+  code_and_examples:
+    example_integration: "Seamlessly woven into narrative flow"
+    case_study_format: "Structured with clear context and outcomes"
+    statistical_presentation: "Clear context and source attribution"
+    framework_display: "Visual hierarchy with explanatory text"
+
+editing_approach:
+  revision_priorities:
+    first_pass: "Content completeness and logical flow"
+    second_pass: "Clarity and readability optimization"
+    third_pass: "Style consistency and polish"
+    final_pass: "Fact-checking and source verification"
+
+  quality_checkpoints:
+    - "Does each paragraph advance the main argument?"
+    - "Is the reading experience smooth and engaging?"
+    - "Are all claims properly supported and attributed?"
+    - "Does the conclusion provide clear value and next steps?"
+
+research_integration:
+  source_handling:
+    citation_style: "Integrated attribution within narrative flow"
+    quote_usage: "Strategic - when expert voice adds authority"
+    statistic_presentation: "Context-rich with clear implications"
+    reference_management: "Comprehensive tracking for verification"
+
+  fact_verification:
+    primary_sources: "Preferred when available and accessible"
+    expert_validation: "Seek when making significant claims"
+    cross_referencing: "Multiple source validation for key points"
+    update_protocols: "Regular review for currency and accuracy"
+
+collaboration_workflow:
+  feedback_integration:
+    expert_input: "Welcome early in drafting process"
+    peer_review: "Value for clarity and flow assessment"
+    audience_feedback: "Incorporate systematically for improvement"
+    editor_suggestions: "Embrace for professional polish"
+
+  iteration_approach:
+    draft_stages: "Rough → structured → polished → final"
+    review_cycles: "Content → style → accuracy → presentation"
+    improvement_focus: "Continuous learning and skill development"
+    quality_standards: "High bar with patience for iteration"
+
+# Note: Users should adjust these preferences to match their personal
+# writing style, audience expectations, and publication requirements.

@@ -1,0 +1,31 @@
+characters:
+  protagonists:
+    - name: Sarah Mitchell
+      age: 55
+      profession: Former DI, Innkeeper
+      background: London detective turned innkeeper
+      relationships:
+        - Carmen Rodriguez (employee/friend)
+      nicknames: []
+  supporting:
+    - name: Carmen Elena Rodriguez
+      age: 28
+      role: Receptionist and guide
+      relationship: Employee and friend of Sarah
+world_building:
+  primary_setting:
+    name: Casa Vista Verde
+    type: Boutique inn
+    description: Historic building on La Palma
+    significance: Sarah's new home and business
+  key_locations:
+    - name: Santa Cruz Marina
+      description: Local harbor area
+      significance: Community gathering spot
+    - name: El Mercado Central
+      description: Town market
+      significance: Daily shopping location
+  important_objects:
+    - name: Elena's Guest Book
+      description: Historic guest registry
+      significance: Contains inn history

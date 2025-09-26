@@ -1,0 +1,243 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2025-09-15T11:18:03Z",
+    "scan_timestamp": "2025-09-15T11:18:03Z",
+    "analyzer_version": "1.0",
+    "scan_data_source": ".claude/report/20250915_111803/system_scan.json"
+  },
+  "architecture": {
+    "total_components": 125,
+    "layer_distribution": {
+      "commands": 24,
+      "coordinators": 25,
+      "agents": 76
+    },
+    "execution_patterns": {
+      "command_coordinator": 21,
+      "command_direct": 3,
+      "orphan_coordinators": 1,
+      "total_coverage": 84.0
+    }
+  },
+  "relationships": {
+    "call_graph": {
+      "command_to_coordinator": 21,
+      "coordinator_to_agents": 25,
+      "command_direct_agents": 0,
+      "cross_agent_calls": 45
+    },
+    "file_io_network": {
+      "total_files": 98,
+      "readers": 27,
+      "writers": 98,
+      "read_write_pairs": 25
+    },
+    "orphan_components": {
+      "coordinators": [
+        "chapter-planning-coordinator"
+      ],
+      "agents": [
+        "author-voice-signature-specialist",
+        "book-outline-reviewer",
+        "brainstorming-completeness-validator",
+        "clue-integration-specialist",
+        "context-validator",
+        "current-project-updater",
+        "emotional-trigger-specialist",
+        "humanization-specialist",
+        "humor-injection-specialist",
+        "knowledge-base-updater",
+        "novel-quality-process-analyzer",
+        "report-deduplication-specialist",
+        "series-bible-architect",
+        "test-rejection-logger-agent",
+        "test-state-updater-agent",
+        "world-building-specialist",
+        "world-clue-specialist"
+      ]
+    },
+    "missing_components": [],
+    "circular_dependencies": []
+  },
+  "compliance": {
+    "critical_violations": [],
+    "major_violations": [
+      {
+        "type": "unicode_character",
+        "count": 89,
+        "files": 27,
+        "severity": "major",
+        "description": "Unicode characters found in components (emojis, Chinese characters, special symbols)"
+      },
+      {
+        "type": "excessive_lines",
+        "count": 17,
+        "files": 17,
+        "severity": "major",
+        "description": "Components exceeding line limits (coordinators >250, agents >500)"
+      },
+      {
+        "type": "double_backtick_path",
+        "count": 71,
+        "files": 71,
+        "severity": "major",
+        "description": "Double backtick path documentation formatting issues"
+      },
+      {
+        "type": "timestamp_placeholder",
+        "count": 7,
+        "files": 7,
+        "severity": "major",
+        "description": "Unresolved timestamp placeholders in components"
+      }
+    ],
+    "minor_issues": [
+      {
+        "type": "missing_io_documentation",
+        "count": 64,
+        "files": 64,
+        "severity": "minor",
+        "description": "Missing Input Requirements documentation"
+      },
+      {
+        "type": "missing_thinking_field",
+        "count": 21,
+        "files": 21,
+        "severity": "minor",
+        "description": "Missing thinking field in agents"
+      },
+      {
+        "type": "agent_acts_as_coordinator",
+        "count": 25,
+        "files": 25,
+        "severity": "minor",
+        "description": "Agents showing coordinator-like behavior"
+      },
+      {
+        "type": "orphan_component",
+        "count": 18,
+        "files": 18,
+        "severity": "info",
+        "description": "Components not called by any other component"
+      }
+    ],
+    "summary": {
+      "total_violations": 302,
+      "blocks_execution": false,
+      "most_problematic_files": [
+        "bible-viewer.md (33 Unicode violations)",
+        "next-recommendation-coordinator.md (8 violations)",
+        "project-new-coordinator.md (8 violations)",
+        "chapter-start-coordinator.md (8 violations)",
+        "bible-view-coordinator.md (8 violations)"
+      ]
+    }
+  },
+  "health_metrics": {
+    "component_scores": {
+      "compliance_score": 65,
+      "architecture_score": 85,
+      "documentation_score": 40,
+      "maintainability_score": 55
+    },
+    "overall_health": 61,
+    "health_grade": "C",
+    "trend": "stable",
+    "calculation_breakdown": {
+      "base_score": 100,
+      "unicode_penalty": -18,
+      "line_limit_penalty": -8,
+      "documentation_penalty": -13,
+      "final_score": 61
+    }
+  },
+  "recommendations": {
+    "immediate": [
+      "Remove all Unicode characters from 27 affected files",
+      "Fix double backtick path documentation in 71 files",
+      "Replace timestamp placeholders in 7 files"
+    ],
+    "short_term": [
+      "Reduce coordinator line counts in 10 files exceeding 250 lines",
+      "Reduce agent line counts in 7 files exceeding 500 lines",
+      "Add Input Requirements documentation to 64 agents"
+    ],
+    "long_term": [
+      "Review and potentially remove 18 orphaned components",
+      "Add thinking fields to 21 agents",
+      "Refactor 25 agents showing coordinator behavior",
+      "Improve overall documentation coverage"
+    ]
+  },
+  "system_map": {
+    "entry_points": [
+      "architecture-test", "human-in-loop-test", "io-patterns-test", "multi-coordinator-test",
+      "parallel-test", "python-pipeline-test", "bible-create", "bible-view", "book-complete",
+      "chapter-start", "context-sync", "extend-series", "flow-mapping", "github-sync",
+      "next-book", "next-chapter", "next", "project-list", "project-new", "project-switch",
+      "quality-check-cross", "quality-check-individual", "smart-fix-cross", "smart-fix",
+      "standup", "status", "system-check", "unified-update-pipeline"
+    ],
+    "orchestrators": [
+      "bible-view-coordinator", "book-complete-coordinator", "chapter-planning-coordinator",
+      "chapter-start-coordinator", "context-sync-coordinator", "extend-series-coordinator",
+      "github-sync-coordinator", "next-book-coordinator", "next-chapter-coordinator",
+      "next-recommendation-coordinator", "project-new-coordinator", "project-switch-coordinator",
+      "quality-check-cross-coordinator", "quality-check-individual-coordinator",
+      "smart-fix-coordinator", "smart-fix-cross-coordinator", "standup-coordinator",
+      "status-coordinator", "system-check-coordinator", "unified-update-pipeline-coordinator"
+    ],
+    "executors": [
+      "76 specialized agents for content generation, quality validation, context management, and system operations"
+    ],
+    "data_flows": [
+      "Bible files: Central reference for all content operations",
+      "Chapter content: Generated and validated through quality pipelines",
+      "Context files: Updated through sync operations",
+      "Quality reports: Generated and aggregated for validation",
+      "Project metadata: Maintained through stats and progress tracking"
+    ]
+  },
+  "detailed_analysis": {
+    "architecture_compliance": {
+      "correct_patterns": 21,
+      "violation_patterns": 1,
+      "compliance_rate": 95.5
+    },
+    "orphan_analysis": {
+      "total_orphans": 18,
+      "orphan_rate": 14.4,
+      "coordinator_orphans": 1,
+      "agent_orphans": 17,
+      "likely_unused": [
+        "test-rejection-logger-agent", "test-state-updater-agent",
+        "world-building-specialist", "world-clue-specialist"
+      ]
+    },
+    "complexity_distribution": {
+      "high_complexity": 45,
+      "medium_complexity": 58,
+      "low_complexity": 22
+    },
+    "top_issues": [
+      {
+        "issue": "Unicode character violations",
+        "impact": "Windows compatibility failures",
+        "priority": "critical",
+        "affected_files": 27
+      },
+      {
+        "issue": "Missing documentation",
+        "impact": "Reduced maintainability",
+        "priority": "high",
+        "affected_files": 64
+      },
+      {
+        "issue": "Excessive component length",
+        "impact": "Reduced readability and focus",
+        "priority": "medium",
+        "affected_files": 17
+      }
+    ]
+  }
+}
