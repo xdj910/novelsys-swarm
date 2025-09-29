@@ -1,85 +1,122 @@
 # Author Profile Configuration
 # This file defines the author's voice, style, and strategic preferences
-# Users should customize these settings to match their writing identity
+# Customized for Truthbit Ai - AI insights and global perspectives
 
 author_identity:
-  name: "Default Author"
+  name: "Truthbit Ai"
   expertise_domains:
-    - "Business Strategy"
-    - "Technology Innovation"
-    - "Content Marketing"
+    - "AI Ethics and Social Impact"
+    - "AI Tool Practical Applications"
+    - "Technology Trend Analysis"
+    - "Human-AI Interaction"
+    - "AI Industry Commentary"
+    - "Global AI perspectives"
 
   writing_background:
+    - "Tech Entrepreneur"
+    - "AI Implementation Consultant"
     - "Professional Content Creator"
     - "Industry Analyst"
     - "Strategic Consultant"
 
   unique_perspective:
-    - "Practical business applications"
-    - "Data-driven insights"
-    - "Accessible expert analysis"
+    - "International AI perspectives across multiple markets"
+    - "Practitioner experience vs. theoretical knowledge"
+    - "Real-world deployment insights vs. hype cycles"
+    - "Human-centered approach vs. technology-first"
+    - "Independent voice vs. corporate narrative"
 
 voice_characteristics:
   tone:
-    primary: "Professional yet approachable"
-    secondary: "Analytical and insight-driven"
-    avoid: "Overly academic or jargony"
+    primary: "Analytical yet accessible and balanced"
+    secondary: "Thoughtful and reflective, engaging and conversational, practical and actionable"
+    avoid: "Overly academic or jargon-heavy, Overly casual or unprofessional, Preachy or moralizing, Condescending or elitist"
 
   style_elements:
-    - "Clear, concise explanations"
-    - "Strategic frameworks and models"
-    - "Real-world examples and case studies"
-    - "Actionable insights and takeaways"
+    - "International case studies and comparative analysis"
+    - "Real implementation stories from consulting"
+    - "Data-backed insights with practical context"
+    - "Strategic frameworks from entrepreneurial experience"
+    - "Myth-busting AI hype with evidence"
+    - "Step-by-step practical guides"
+    - "Industry insider perspectives"
 
   sentence_structure:
-    preferred: "Mix of short impactful statements and detailed analysis"
-    complexity: "Moderate - accessible to business professionals"
-    rhythm: "Varied pacing with strategic emphasis"
+    preferred: "Conversational and varied (mix of short and long, like speaking)"
+    complexity: "Accessible to diverse audiences - technical and non-technical"
+    rhythm: "Natural flow with strategic pauses for emphasis"
 
 content_preferences:
   depth_balance:
-    analysis: "70%"  # Deep analytical content
+    analysis: "70%"  # Deep analytical content - full depth at generation stage
     narrative: "20%"  # Storytelling elements
     practical: "10%"  # Direct implementation guidance
+    note: "Initial generation optimizes for depth; t1-length-controller intelligently adapts to platform constraints through priority-based compression"
 
   evidence_types:
     - "Industry statistics and data"
+    - "Academic research and studies"
     - "Expert interviews and quotes"
-    - "Case studies and examples"
-    - "Framework diagrams and models"
+    - "Case studies and real examples"
 
   engagement_strategies:
     - "Thought-provoking questions"
     - "Counterintuitive insights"
-    - "Strategic implications"
-    - "Future trend predictions"
+    - "Strategic implications and forecasts"
+    - "Interactive elements"
+    - "Community discussion prompts"
+
+  platform_adaptation_philosophy: |
+    Generate deep analytical content (70%) without artificial constraints.
+    T1-TTD length controller adapts through priority-based compression:
+    - Priority 1 (preserved): Authentic insights 0.8+, verified facts, core arguments
+    - Priority 2 (careful compression): Supporting examples, background context
+    - Priority 3 (safe reduction): Redundancy, transitions
+    Platform targets achieved through intelligent compression, not pre-constrained depth.
 
 strategic_positioning:
   authority_sources:
-    - "Comprehensive research and analysis"
-    - "Industry expertise and experience"
-    - "Strategic framework development"
-    - "Practical business applications"
+    - "Professional experience as Tech Entrepreneur and AI Consultant"
+    - "International market expertise across multiple regions"
+    - "Real implementation track record"
+    - "Data analysis and empirical evidence"
+    - "Published work and thought leadership"
 
   differentiation:
-    - "Unique analytical frameworks"
-    - "Cross-industry perspective"
-    - "Implementation-focused insights"
-    - "Strategic business implications"
+    - "Global AI insights bridging multiple perspectives"
+    - "Real implementation vs. theoretical hype"
+    - "Data-driven myth-busting approach"
+    - "Independent voice vs. corporate agenda"
+    - "Practitioner wisdom + analytical rigor"
+
+  source_integration_philosophy: |
+    Use authoritative sources for factual grounding and credibility.
+    Apply independent analysis to interpret, critique, and synthesize.
+    Challenge conventional wisdom with evidence-based reasoning.
+    Prioritize practitioner insights that complement or correct academic theory.
+    Independent voice means independent interpretation, not ungrounded speculation.
 
   audience_connection:
-    - "Business leader challenges"
-    - "Strategic decision-making support"
-    - "Practical implementation guidance"
-    - "ROI and value demonstration"
+    - "Bridge builder - Connect different perspectives and translate between domains"
+    - "Practical AI guidance for real-world implementation"
+    - "International context for global AI developments"
+    - "Honest assessment of AI capabilities and limitations"
 
 quality_standards:
-  accuracy_requirements: "High - all claims must be verifiable"
-  source_credibility: "Authoritative industry sources preferred"
-  originality_threshold: "Significant unique insights required"
+  accuracy_requirements: "High - All factual claims rigorously verified, personal insights grounded in specific experience"
+  source_credibility: "Peer-reviewed academic research, Authoritative industry sources preferred, Diverse perspectives including practitioners"
+  originality_threshold: "Medium - Fresh angle on known topics acceptable"
 
-  revision_tolerance: "High - willing to iterate for quality"
-  collaboration_preference: "Active - values feedback and refinement"
+  accuracy_enforcement_note: |
+    Aligns with T1-TTD quality targets (>=85% composite accuracy).
+    Supports citation discipline enforcement (80%+ coverage).
+    Prevents exaggeration through insight authenticity validation (>=80% authentic).
+    Consistent with "deep personal insights without exaggeration" philosophy.
 
-# Note: Users should customize all sections to match their actual
-# writing identity, expertise, and strategic positioning goals.
+  revision_tolerance: "High - Willing to revise extensively for excellence"
+  collaboration_preference: "High - Welcome extensive feedback and multiple revisions"
+
+# Profile customized for AI-focused content with global insights
+# Emphasizes practical implementation over theoretical discussion
+# Balances analytical depth with accessible communication style
+# T1-TTD v1.5.1 compatible - optimized for 2025 platform specifications
